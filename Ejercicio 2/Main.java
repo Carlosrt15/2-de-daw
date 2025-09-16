@@ -84,15 +84,82 @@ Y"
 
          // Determina el resultado
 
-         if (game.equals(ordenador)) {
-            System.out.println("empate");
-         } else if (game.equals("piedra") &&) {
+        if (game.equals(ordenador)) {
+            System.out.println("Empate");
+        } else if (
+            (game.equals("piedra") && ordenador.equals("tijera")) ||
+            (game.equals("papel")  && ordenador.equals("piedra")) ||
+            (game.equals("tijera") && ordenador.equals("papel"))
+        ) {
+            System.out.println("¡Ganaste!");
+        } else if (
+            game.equals("piedra") || game.equals("papel") || game.equals("tijera")
+        ) {
+            System.out.println("Gana el ordenador");
+        } else {
+            System.out.println("Opción no válida");
+        }
+
+
+           /*
+            *   Escribir un programa que detecte números primos hasta 100 (usar el operador módulo %, el
+                número primo es aquel que es divisible solo por sí mismo y por 1).
+
+            */
+
+
             
-         }
+
+            for(int x = 2; x < 100 ; x++) {
+
+                boolean primo = true;
+
+                for(int i = 2; i< x; i++) {
+                if (x % i == 0) {
+                    primo = false;
+                    break;
+                    
+                }
+            }
+
+            if (primo) {
+                System.out.println(x + " es primo");
+            }
+
+
 
     }
     
-    
+        System.out.println("------------------------------------------------------");
+
+
+
+
+         // Escribir un programa que pida dos palabras por consola y compare si son iguales.
+
+
+
+            System.out.println("Introduce la primera palabra para comparar si son iguales ");
+
+
+        String word1 = scanner.nextLine();
+        System.out.println("Introduce la segunda palabra ");
+        
+
+        String word2 = scanner.nextLine();
+
+        if (word1.equals(word2)) {
+            System.out.println("Las palabras son iguales");
+            
+        } else {
+            System.out.println("Las palabras no son iguales");
+        }
+
+
+
+         
 
     
+    }
+
 }
