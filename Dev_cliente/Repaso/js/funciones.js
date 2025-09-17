@@ -50,5 +50,26 @@ function ejercicio6() {
 
 function gamePapelTijera() {
 
+for(let i = 0; i <3; i++) {
+
+    let pedirOpcion = prompt("Elije una opcion P (Piedra),  Pa (papel), T (tijera) 3 veces" + " llevas : "+i+ " Tiradas.");
+
+    const  opciones = ["papel", "piedra", "tijera"];
+
+    const indiceAleatorio = Math.random() * opciones.length;
+
+    const indiceFinal = Math.floor(indiceAleatorio);
+
+    const variableSeleccionada = opciones[indiceFinal];
+
+    console.log(variableSeleccionada);
+
     
+}
+
+
+
+
+
+
 }
