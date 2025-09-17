@@ -18,7 +18,7 @@ function conversorEuros() {
     if (isNaN(euros) || eurosInput === "") {
         resultado.textContent = "Por favor, introduce un número.";
     } else {
-        const dolares = euros * 1.1;
+        const dolares = euros * 1.18;
         resultado.textContent = euros + " euros son " + dolares.toFixed(2) + " dólares.";
     }
 }
@@ -28,3 +28,21 @@ document.addEventListener('DOMContentLoaded', () => {
     const boton = document.getElementById('convertirBtn');
     boton.onclick = conversorEuros;
 });
+
+
+// Ejercicio 3
+
+function calcularPrimos() {
+    let pedirNumero = Number(prompt("Introduce un numero entre 1 y 99"));
+
+
+    for (let i = 2; i < pedirNumero; i++) {
+        if (pedirNumero % i === 0) {
+            alert(pedirNumero + " no es primo");
+            return;
+        }
+    }
+    alert(pedirNumero + " es primo");
+
+
+}
