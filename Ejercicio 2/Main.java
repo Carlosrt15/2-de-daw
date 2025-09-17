@@ -156,8 +156,60 @@ Y"
         }
 
 
+        /*
+         * Escribir un programa en java que simule el lanzamiento al aire de una moneda. Lanzar la
+            moneda al aire 1.000.000 de veces y sumar las veces que sale cara y las que sale cruz.
 
-         
+         * 
+         */
+            
+            
+        int caras = 0;
+        int cruces = 0;
+
+        for (int i = 0; i< 1000000; i++) {
+            boolean resultado = random.nextBoolean();
+
+            if (resultado) {
+                caras++;
+            } else {
+                cruces++;
+            }
+        }
+            
+        System.out.println("Resultado despues de los lanzamientos");
+        System.out.println("Caras: " +caras);
+        System.out.println("Caras: " +cruces);
+
+
+
+
+        /*
+         * 
+         * Escribir un programa que dado un número introducido por el usuario escriba en consola la
+            secuencia de Fibonacci 
+         * 
+         */
+
+         System.out.println("Introduce un numero: ");
+         int n = scanner.nextInt();
+
+         // Crear array para guardar secuencia
+         int[] seq = new int[12];
+
+         // Primeros valores son el numero dado por usuario 
+         seq[0] = n;
+         seq[1] = n;
+
+         // Calculamos los siguentes terminos
+         for (int i = 0; i < 12; i++ ) {
+            System.out.println(seq[i]);
+            if (i < 11) {
+                System.out.println(", ");
+                
+            }
+         }
+         scanner.close();
 
     
     }
