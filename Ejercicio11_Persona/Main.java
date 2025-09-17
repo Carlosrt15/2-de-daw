@@ -9,7 +9,19 @@ public class Main {
         
 
         System.out.println("Introduce un nombre");
-        
+        String nombre = sc.nextLine();
+
+        System.out.println("Introduce la edad");
+        int edad = sc.nextInt();
+
+        Person persona = new Person(nombre, edad);
+
+        // Mostrar edad
+        System.out.println("Persona creada:");
+        System.out.println("Nombre: " +persona.getName());
+        System.out.println("Años: "+persona.getYears());
+        sc.close();
+
 
 
 
