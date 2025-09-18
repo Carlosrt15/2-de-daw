@@ -211,6 +211,24 @@ Y"
          }
          scanner.close();
 
+
+         /*
+          * 8. Escribir un programa que pida dos palabras por consola y compare si son iguales.
+
+          */
+
+
+          System.out.println("Introduce la primera palabra para comprar si son iguales");
+          String word = scanner.nextLine();
+
+          System.out.println("Introduce la segunda palabra para comprar si son iguales");
+         String words = scanner.nextLine();
+
+        if(word.equals(words)) {
+            System.out.println("Son iguales");
+        } else {
+            System.out.println(" No son iguales");
+        }
     
     }
 
