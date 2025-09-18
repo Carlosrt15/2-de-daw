@@ -17,10 +17,21 @@ public class Main {
         Person persona = new Person(nombre, edad);
 
         // Mostrar edad
+        
         System.out.println("Persona creada:");
         System.out.println("Nombre: " +persona.getName());
         System.out.println("Años: "+persona.getYears());
         sc.close();
+
+        if (nombre.isEmpty()  ) {
+            nombre = "Anonimo";
+        }
+
+        if (edad < 0) {
+            edad = 99;
+        }
+
+        System.out.println("El nombre es: "+ nombre + " la edad es: "+edad);
 
 
 
