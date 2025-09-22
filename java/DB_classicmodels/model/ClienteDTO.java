@@ -1,3 +1,4 @@
+package model;
 
 public class ClienteDTO {
 	private String nombre;
