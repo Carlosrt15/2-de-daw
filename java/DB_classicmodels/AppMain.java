@@ -12,11 +12,9 @@ public class AppMain {
         
         VistaClientes vc = new VistaClientes();
             vc.menuInsertaCliente();
-
-        
-
-    	
-    	
+            
+                vc.menuBorrarCliente();
+                	   	
     	
     }
 

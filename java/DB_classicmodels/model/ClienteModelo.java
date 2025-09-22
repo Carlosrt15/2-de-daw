@@ -49,6 +49,24 @@ public class ClienteModelo {
                 
             {
             }
+
+
+            public Integer borrarCliente(int customerNumber) throws ClassNotFoundException,
+                SQLException {
+                    String sql = "DELETE FROM customers where customerNumber = ?";
+
+                        Connection conn = ConexionDB.getConnection();
+                        PreparedStatement ps = null;
+                        Integer resultado =  null;
+
+                        ps = conn.prepareStatement(sql);
+                        ps.setInt(1, customerNumber);
+
+                        resultado = ps.executeUpdate();
+                        conn.close();
+
+                        return resultado;
+                }
         
         
 }

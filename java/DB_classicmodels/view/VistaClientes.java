@@ -81,4 +81,27 @@ System.out.println("Se ha producido un error al introducir el registro");
 }
 }
 
+public void menuBorrarCliente() throws ClassNotFoundException, SQLException, IOException {
+
+      Scanner scanner = new Scanner(System.in);
+
+      System.out.println("Introduzca el numero del cliente a borrar");
+        int numCliente = 0;
+
+
+          try {
+                numCliente = Integer.parseInt(scanner.nextLine());
+          } catch (NumberFormatException e) {
+            System.out.println("No se ha introducido el numero del cliente");
+          }
+
+          ClientesController controladorClientes = new ClientesController();
+
+          String resultado =  
+            (controladorClientes.borrarCliente(numCliente).equals(1))? " Cliente borrado con exito":"No se puedo borrar el cliente";
+            System.out.println(resultado);
+
+  }
+
+
 }

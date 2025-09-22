@@ -21,4 +21,12 @@ public class ClientesController {
 
                 }
 
+
+                public Integer borrarCliente(int customerNumber) throws ClassNotFoundException,
+                    SQLException {
+                       ClienteModelo cm = new ClienteModelo();
+                       return  cm.borrarCliente(customerNumber);
+
+                    }
+
 }
