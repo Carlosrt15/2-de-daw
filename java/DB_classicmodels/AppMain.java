@@ -23,6 +23,22 @@ public class AppMain {
                         clientes.getString("city"));
                 
                 System.out.println(a);
+                
+                ResultSet pagos = statement.executeQuery("Select * from payments");
+                
+                System.out.println("Tabla de pagos---------------------");
+                
+                while(pagos.next() != false) {
+                	
+                	PagosDTO b = new PagosDTO(
+                		pagos.getInt("customerNumber"),	
+                		pagos.getString("checkNumber"),	
+                		pagos.getDouble("amount"));	
+                			
+                	System.out.println(b);
+                	
+                	
+                }
     					
     					
     		}
