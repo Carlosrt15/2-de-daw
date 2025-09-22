@@ -17,10 +17,13 @@ public class AppMain {
     	ResultSet clientes = statement.executeQuery("SELECT * FROM customers")) {
     		
     		while(clientes.next() != false) {
-    			ClienteDTO a = new ClienteDTO(clientes.getString("customerName"),
-    					clientes.getString("phone")) ;
-    					System.out.println(a.getNombre());
-    					System.out.println(a.getPhone());
+    			ClienteDTO a = new ClienteDTO(
+                        clientes.getString("customerName"),
+                        clientes.getString("phone"),
+                        clientes.getString("city"));
+                
+                System.out.println(a);
+    					
     					
     		}
     		
