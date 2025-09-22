@@ -11,7 +11,7 @@ public class AppMain {
     {
         
         VistaClientes vc = new VistaClientes();
-            vc.
+            vc.menuInsertaCliente();
 
         
 

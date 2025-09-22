@@ -13,7 +13,12 @@ public class ClienteModelo {
                 
                 String codigoPostal, String pais, int representante, Double credito) throws SQLException, ClassNotFoundException {
 
-                    String sql = "INSERT INTO customers (customerNumber, customerName, contactLastName, phone , addressLine1,"+" addressLine2, city, state, postalCode, country, salesRepEmployeeNumber, creditLimit) "+" Values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                    String sql = "INSERT INTO customers "
+    + "(customerNumber, customerName, contactLastName, contactFirstName, phone, "
+    + "addressLine1, addressLine2, city, state, postalCode, country, "
+    + "salesRepEmployeeNumber, creditLimit) "
+    + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
 
                     Connection conn = ConexionDB.getConnection();
                     PreparedStatement ps = null;
