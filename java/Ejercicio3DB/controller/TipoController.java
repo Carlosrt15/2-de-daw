@@ -14,4 +14,17 @@ public class TipoController {
 
     }
 
+    public void mostrarTipos() throws  SQLException, ClassNotFoundException {
+
+        TipoModelo modelo = new TipoModelo();
+        modelo.listarTipos();
+    }
+
+
+    public int actualizarDescripcion(String id, String nuevaDescripcion)
+            throws SQLException, ClassNotFoundException {
+        TipoModelo modelo = new TipoModelo();
+        return modelo.actualizarTipo(id, nuevaDescripcion);
+    }
+
 }

@@ -9,7 +9,11 @@ public class Main {
 
         VistaTipo vt = new VistaTipo();
 
-        vt.menuInsertarTipo();
+      //  vt.menuInsertarTipo();
+
+      //  vt.menuListarTipos();
+
+        vt.menuActualizarDescripcion();
 
     }
 }
