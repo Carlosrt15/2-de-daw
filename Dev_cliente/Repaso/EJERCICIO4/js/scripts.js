@@ -151,3 +151,34 @@ function ejercicio5(){
 
 
 }
+
+
+function Ejercicio6(){
+    for(const i in arguments) {
+        alert(arguments[i]);
+
+
+    }
+    Ejercicio6("Madrid","España","Salamanca");
+}
+
+function Fibonacci() {
+   
+
+    let datoUsuario = Number(prompt("Añade un numero para calcular Fibonacci"));
+
+        let guardarNumeros = [12];
+
+        guardarNumeros[0] = datoUsuario;
+        guardarNumeros[1] = datoUsuario;
+
+        for(let i = 0; i < 12; i++) {
+            alert(guardarNumeros[i]);
+
+            if(i< 11) {
+                alert(",");
+            }
+        }
+
+
+}
