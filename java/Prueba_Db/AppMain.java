@@ -1,7 +1,5 @@
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.Scanner;
-
 import view.VistaClientes;
 
 public class AppMain {
@@ -24,4 +22,6 @@ public class AppMain {
     
     }
     
+    
+
     
