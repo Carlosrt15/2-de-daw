@@ -107,3 +107,47 @@ function PedirNumero() {
 
 
 }
+
+
+
+function ejercicio5(){
+
+    let coloresIntroducidos = [];
+
+    let contadorRojo = 0;
+    let contadorVerde = 0;
+    let contadorOtrocolor = 0;
+
+   let option = false;
+    while(!option ) {
+
+        let pedirColorUsuario = prompt("Introduce un color");
+
+        switch(pedirColorUsuario) {
+                case "rojo":
+                    coloresIntroducidos.push(pedirColorUsuario);    
+                    option = true;
+                    contadorRojo++;
+                    break;
+
+                    case "verde":
+                        contadorVerde++;
+                        coloresIntroducidos.push(pedirColorUsuario); 
+                        continue;
+
+                        default :
+                            contadorOtrocolor++;
+                           coloresIntroducidos.push(pedirColorUsuario); 
+
+        }
+
+
+
+    }
+    let longitudColores = coloresIntroducidos.length;
+    alert(coloresIntroducidos + " Metiste esta cantidad de colores: "+ longitudColores);
+    alert("El rojo: "+contadorRojo+ " contador de verde: "+contadorVerde+ " otros colores: "+contadorOtrocolor);
+
+
+
+}
