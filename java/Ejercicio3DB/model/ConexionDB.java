@@ -1,9 +1,13 @@
 package model;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
 public class ConexionDB {
-    private String URL = "jdbc:mysql://localhost:3306/libreria";
-    private String USER = "root";
-    private String PASSWORD = "";
+    private  static String URL = "jdbc:mysql://localhost:3306/libreria";
+    private  static String USER = "root";
+    private  static String PASSWORD = "";
 
     public static Connection getConnection(){
         Connection conn = null;
