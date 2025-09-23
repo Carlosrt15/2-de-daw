@@ -13,18 +13,25 @@ public class TipoModelo {
     
              String sql = "INSERT INTO tipo (idtipo, descripcion) VALUES (?, ?)";
 
-             Connection conn = ConexionDB.getConnection();
-             PreparedStatement ps = null;
-              Integer resultado = null;
+           try(Connection conn = ConexionDB.getConnection(); 
+             PreparedStatement ps = conn.prepareStatement(sql)) {
 
-
-              ps = conn.prepareStatement(sql);
-
-              ps.setString(1, id);
+                ps.setString(1, id);
               ps.setString(2, descripcion);
 
-              conn.close();
-              return resultado;
+              // Ejecutar cuantas filas se insertaron
+              return ps.executeUpdate();
+
+             }
+             
+
+
+              
+
+              
+
+              
+              
     }
     
 }
