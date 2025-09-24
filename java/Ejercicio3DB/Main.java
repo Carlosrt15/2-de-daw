@@ -16,7 +16,9 @@ public class Main {
       //  vt.menuListarTipos();
 
        // vt.menuActualizarDescripcion();
-       vp.menuInsertarPublicacion();
+       //vp.menuInsertarPublicacion();
+       //vp.menuActualizarPublicacion();
+       vp.menuListarPublicaciones();
 
 
 

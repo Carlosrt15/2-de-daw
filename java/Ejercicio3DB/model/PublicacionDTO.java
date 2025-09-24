@@ -8,82 +8,39 @@ public class PublicacionDTO {
     private double precio;
     private int stock;
     private String idtipo;
-    
-	public PublicacionDTO(String idpublicacion, String titulo, String autor, int nroedicion, double precio, int stock,
-			String idtipo) {
-		super();
-		this.idpublicacion = idpublicacion;
-		this.titulo = titulo;
-		this.autor = autor;
-		this.nroedicion = nroedicion;
-		this.precio = precio;
-		this.stock = stock;
-		this.idtipo = idtipo;
-	}
+    private String descripcionTipo;   // <--- NUEVO CAMPO
 
-	public String getIdpublicacion() {
-		return idpublicacion;
-	}
+    public PublicacionDTO(String idpublicacion, String titulo, String autor,
+                          int nroedicion, double precio, int stock,
+                          String idtipo) {
+        this.idpublicacion = idpublicacion;
+        this.titulo = titulo;
+        this.autor = autor;
+        this.nroedicion = nroedicion;
+        this.precio = precio;
+        this.stock = stock;
+        this.idtipo = idtipo;
+    }
 
-	public void setIdpublicacion(String idpublicacion) {
-		this.idpublicacion = idpublicacion;
-	}
+    // --- NUEVO getter / setter ---
+    public String getDescripcionTipo() {
+        return descripcionTipo;
+    }
+    public void setDescripcionTipo(String descripcionTipo) {
+        this.descripcionTipo = descripcionTipo;
+    }
 
-	public String getTitulo() {
-		return titulo;
-	}
+    // ... (resto de getters/setters)
 
-	public void setTitulo(String titulo) {
-		this.titulo = titulo;
-	}
-
-	public String getAutor() {
-		return autor;
-	}
-
-	public void setAutor(String autor) {
-		this.autor = autor;
-	}
-
-	public int getNroedicion() {
-		return nroedicion;
-	}
-
-	public void setNroedicion(int nroedicion) {
-		this.nroedicion = nroedicion;
-	}
-
-	public double getPrecio() {
-		return precio;
-	}
-
-	public void setPrecio(double precio) {
-		this.precio = precio;
-	}
-
-	public int getStock() {
-		return stock;
-	}
-
-	public void setStock(int stock) {
-		this.stock = stock;
-	}
-
-	public String getIdtipo() {
-		return idtipo;
-	}
-
-	public void setIdtipo(String idtipo) {
-		this.idtipo = idtipo;
-	}
-
-	@Override
-	public String toString() {
-		return "PublicacionDTO [idpublicacion=" + idpublicacion + ", titulo=" + titulo + ", autor=" + autor
-				+ ", nroedicion=" + nroedicion + ", precio=" + precio + ", stock=" + stock + ", idtipo=" + idtipo + "]";
-	}
-	
-	
-
-
+    @Override
+    public String toString() {
+        return "PublicacionDTO [idpublicacion=" + idpublicacion +
+                ", titulo=" + titulo +
+                ", autor=" + autor +
+                ", nroedicion=" + nroedicion +
+                ", precio=" + precio +
+                ", stock=" + stock +
+                ", idtipo=" + idtipo +
+                ", tipo=" + descripcionTipo + "]";
+    }
 }
