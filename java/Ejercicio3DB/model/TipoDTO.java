@@ -1,21 +1,21 @@
 package model;
 
 public class TipoDTO {
-    private int id;
+    private String id;
     private String descripcion;
 
     // Constructor
-    public TipoDTO(int id, String descripcion) {
+    public TipoDTO(String id, String descripcion) {
         this.id = id;
         this.descripcion = descripcion;
     }
 
     // Getters y Setters
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
