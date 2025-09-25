@@ -3,11 +3,13 @@ import java.sql.SQLException;
 
 import view.VistaPublicacion;
 import view.VistaTipo;
+import view.VistaVenta;
 
 public class Main {
     public static void main(String[] args) throws ClassNotFoundException, SQLException, IOException {
         System.out.println("Hola mundo");
 
+        VistaVenta vv = new VistaVenta();
       VistaPublicacion vp = new VistaPublicacion();
         VistaTipo vt = new VistaTipo();
 
@@ -18,7 +20,9 @@ public class Main {
        // vt.menuActualizarDescripcion();
        //vp.menuInsertarPublicacion();
        //vp.menuActualizarPublicacion();
-       vp.menuListarPublicaciones();
+      // vp.menuListarPublicaciones();
+
+        vv.menuInsertarVenta();
 
 
 

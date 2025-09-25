@@ -1,5 +1,9 @@
 package controller;
 
+import java.sql.SQLException;
+
+import model.VentaModelo;
+
 public class VentaController {
 
     public Integer insertarVenta(int idventa, String cliente, String fecha, int idempleado, String idpublicacion, int cantidad,
@@ -7,7 +11,8 @@ public class VentaController {
 
                     VentaModelo vm = new VentaModelo();
 
-                       return vm.insertarVenta(); 
+                       return vm.insertarVenta( idventa,  cliente,  fecha,  idempleado,  idpublicacion,  cantidad,precio,  dcto,  impuesto); 
+			 
 
 
 
