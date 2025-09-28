@@ -75,3 +75,55 @@ function ejercicio1() {
     }
 
 }
+
+function ejercicio2 () {
+
+    let cosas = ["tela","bies", "hilo", "tijeras","máquina de coser", "botón"];
+
+    cosas.splice(1,1);
+    console.log(cosas);
+
+    cosas.splice(3,0,"hilo torzal");
+    console.log(cosas);
+
+    cosas.splice(3,3, "Cuter rotatorio", "mesa de corte");
+    console.log(cosas);
+
+    let a1 = cosas.slice(0,3);
+    console.log(a1);
+
+    let a2 = cosas.slice(3,6);
+    console.warn(a2);
+
+    a2.splice(0,0,"remalladora");
+    console.warn(a2);
+
+    a2.splice(0,0,"remalladora");
+
+a2.splice(-1,0,"cinta métrica");
+    
+console.log("Contenido de los 3 arrays");
+
+console.log("---------------------------------");
+console.log(cosas);
+console.log(a1);
+console.log(a2);
+
+/*
+Ejercicio 3
+*/
+
+cosas.sort(function(a,b) {
+    return b.length - a.length; // de mayor a menor segun la cantidad
+   
+});
+
+alert(cosas);
+
+
+
+
+
+
+
+}
