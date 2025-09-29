@@ -1,8 +1,5 @@
 import java.io.IOException;
 import java.sql.SQLException;
-
-import view.VistaPublicacion;
-import view.VistaTipo;
 import view.VistaVenta;
 
 public class Main {
@@ -10,8 +7,8 @@ public class Main {
         System.out.println("Hola mundo");
 
         VistaVenta vv = new VistaVenta();
-      VistaPublicacion vp = new VistaPublicacion();
-        VistaTipo vt = new VistaTipo();
+     // VistaPublicacion vp = new VistaPublicacion();
+       // VistaTipo vt = new VistaTipo();
 
       //  vt.menuInsertarTipo();
 
