@@ -105,25 +105,23 @@ a2.splice(-1,0,"cinta métrica");
 console.log("Contenido de los 3 arrays");
 
 console.log("---------------------------------");
-console.log(cosas);
-console.log(a1);
-console.log(a2);
+console.log(cosas +" Contenido cosas");
+console.log(a1+ "  Contenido a1");
+console.log(a2 + "  Contenido a2");
+
+}
 
 /*
 Ejercicio 3
 */
+function ejercicio3() {
+     let cosas = ["Almeria", "Salamanca", "León", "Madrid", "Berlin","Kansas", "Estados Unidos ",""];
 
-cosas.sort(function(a,b) {
+
+    cosas.sort(function(a,b) {
     return b.length - a.length; // de mayor a menor segun la cantidad
    
 });
-
-alert(cosas);
-
-
-
-
-
-
-
+    console.warn(cosas);
+    alert(cosas);
 }
