@@ -111,10 +111,10 @@ console.log(a2 + "  Contenido a2");
 
 }
 
-/*
-Ejercicio 3
-*/
+
 function ejercicio3() {
+
+ 
      let cosas = ["Almeria", "Salamanca", "León", "Madrid", "Berlin","Kansas", "Estados Unidos ",""];
 
 
@@ -124,4 +124,22 @@ function ejercicio3() {
 });
     console.warn(cosas);
     alert(cosas);
+}
+
+
+function ejercicio4() {
+
+    let cadenaNumeros = [];
+
+    let texto = prompt("Introduce varios numeros separado por '/' : ");
+
+    let partes = texto.split("/");
+
+    for(let i = 0; i < partes.length; i++) {
+        cadenaNumeros.push(Number(partes[i]));
+
+    }
+
+    console.log(cadenaNumeros);
+
 }
