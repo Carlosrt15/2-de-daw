@@ -72,4 +72,7 @@ let recuperarO = palabras.findIndex(palabra => palabra[palabra.length -1] ==="o"
 console.log(telefonos);
 
 
+
+
+
 }
