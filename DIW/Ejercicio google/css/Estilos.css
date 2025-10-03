@@ -1,0 +1,16 @@
+#header{
+    top: 0;
+    left: 1700;
+    position: fixed;
+}
+
+a{
+    color: black;
+}
+
+
+#container{
+    text-align: center;
+    align-items: center;
+    align-content: center;
+}
