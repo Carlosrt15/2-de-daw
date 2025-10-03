@@ -143,3 +143,34 @@ function ejercicio4() {
     console.log(cadenaNumeros);
 
 }
+
+
+// Ejercicio 1_2 mas ejercicios
+
+function ordenarNumeros(){
+
+   const numeros = [];
+    let opcion = true;
+    while(opcion){
+         let introducirNumero = prompt("Introduce numeros parara cuando dejes vacio la introducion");
+         
+         if(introducirNumero === null || introducirNumero.trim() === ""){
+            opcion = false;
+
+         } else {
+            numeros.push(introducirNumero);
+
+
+         }
+
+         
+
+         
+
+    }
+
+ 
+
+
+
+}
