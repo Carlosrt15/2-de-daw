@@ -147,3 +147,21 @@ function iaejercicio7(){
 
 
 }
+
+function AulaScript1(){
+
+    let dias = new Array(7), num;
+    dias[0] = "Domingo";
+    dias[1] = "Lunes";
+    dias[2] = "Martes";
+    dias[3] = "Miercoles";
+    dias[4] = "Jueves";
+    dias[5] = "Viernes";
+    dias[6] = "Sabado";
+    num = parseInt(prompt("Numero del día"));
+    alert("El dia es "+dias[num]);
+}
+
+function preExam() {
+    
+}

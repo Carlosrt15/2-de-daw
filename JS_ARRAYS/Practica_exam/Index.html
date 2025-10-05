@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carrito de Compras</title>
+  <link rel="stylesheet" href="./css/estilo.css">
+</head>
+<body>
+  <header>
+    <h1>Carrito de Compras</h1>
+    <p>Haz clic en "Añadir" para sumar productos al carrito.</p>
+  </header>
+
+  <main>
+    <section id="productos">
+      <h2>Productos</h2>
+      <div class="producto">
+        <p>Pan - 1 €</p>
+        <button id="0">Añadir</button>
+      </div>
+      <div class="producto">
+        <p>Leche - 2 €</p>
+        <button id="1">Añadir</button>
+      </div>
+      <div class="producto">
+        <p>Queso - 3 €</p>
+        <button id="2">Añadir</button>
+      </div>
+      <div class="producto">
+        <p>Manzana - 0.5 €</p>
+        <button id="3">Añadir</button>
+      </div>
+    </section>
+
+    <section id="carrito">
+      <h2>Mi Carrito</h2>
+      <div id="listaCarrito"></div>
+      <p id="total">Total: 0 €</p>
+    </section>
+
+    <section id="resumen">
+      <h2>Resumen Final</h2>
+      <button id="finalizar">Finalizar compra</button>
+      <div id="resultado"></div>
+    </section>
+  </main>
+
+  <footer>
+    <hr>
+    <p>Práctica de DOM y Arrays - 2º DAW</p>
+  </footer>
+
+  <script src="./js/js.js"></script>
+</body>
+</html>
