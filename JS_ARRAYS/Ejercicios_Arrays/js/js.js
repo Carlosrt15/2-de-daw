@@ -122,3 +122,28 @@ alert(maximo+ "  el mayor");
 alert(min+ "  el menor");
 
 }
+
+function iaejercicio7(){
+
+    
+    
+    let duplicado = [1,1,1,4,6,6,6,7,8,8,8,12,12,11];
+    let unico = [];
+    // Eliminar duplicados
+
+    for(let i = 0; i < duplicado.length; i++) {
+            if(unico.indexOf(duplicado[i]) === -1) {
+                unico.push(duplicado[i]);
+                
+            }
+
+    }
+
+    alert("Array sin duplicados: "+ unico);
+
+    let cantidadDuplicados = duplicado.length - unico.length;
+
+    alert("HABIA "+cantidadDuplicados+ " numeros duplicados total");
+
+
+}
