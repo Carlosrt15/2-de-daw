@@ -165,3 +165,15 @@ function AulaScript1(){
 function preExam() {
     
 }
+
+
+
+/**
+ * EJERCICIOS VARIADOS DE ARRAYS
+ */
+
+function repaso1() {
+
+    
+
+}

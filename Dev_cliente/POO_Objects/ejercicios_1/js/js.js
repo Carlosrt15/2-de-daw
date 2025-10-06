@@ -1,33 +1,33 @@
 function ejercicio1() {
 
-    let cadenaNotas = [];
-    
-    let entrada = prompt("Introduce notas separado por comos : [Ejemplo: 65,4,76,1]");
 
+    let entrada = prompt("Introduce notas separadas por comas: [Ejemplo: 65.4,76.2,89.9,70.5]");
     let notas = entrada.split(",").map(Number);
 
 
-    cadenaNotas.push(notas);
-    alert(cadenaNotas);
+    let respuesta = prompt("¿Quieres redondear las notas hacia arriba? (sí/no)").toLowerCase();
+    let notasRedondeadas = [];
 
+    if (respuesta === "sí" || respuesta === "si") {
+        notasRedondeadas = notas.map(n => Math.ceil(n));
+        console.log("Redondeadas hacia arriba:", notasRedondeadas);
+        console.log("La menor nota es:", Math.min(...notasRedondeadas));
+
+    } else {
+        notasRedondeadas = notas.map(n => Math.floor(n));
+        console.log("Redondeadas hacia abajo:", notasRedondeadas);
+        console.log("La mayor nota es:", Math.max(...notasRedondeadas));
+    }
 
     let suma = 0;
-    for (let nota of notas) {
-        suma += nota;
-    }
-    let media = suma / notas.length;
-
-    console.log("La nota media es: "+media);
-
-    console.log("La nota media (1 decimal) es: "+media.toFixed(1));
-
     
+    for (let nota of notasRedondeadas) suma += nota;
+    let media = suma / notasRedondeadas.length;
 
-
-
-    
-
+    alert("Notas redondeadas: " + notasRedondeadas.join(", "));
+    alert("Nota media (3 decimales): " + media.toFixed(3));
 }
+
 
 
 function ejercicio2() {
@@ -60,6 +60,28 @@ function ejercicio3(){
     
 }
 
+var cadena = "Hola Soy Felix RODRIGUEZ, tengo 24 años de Edad.";
+
+function ejercicio4(cadena) {
+    let resultado =  cadena.toLowerCase();
+    
+    let nuevaCadena = "";
+
+    for(let i = 0; i < resultado.length; i++) {
+        if(i % 2 === 0) {
+            nuevaCadena += resultado[i];
+        }
+
+    }
+
+    let busqueda = nuevaCadena.includes("aviko");
+
+    console.warn(busqueda);
+
+    
+
+}
+
 /*
 Ejercicios de Math
 ------------------
@@ -76,12 +98,9 @@ function ejercicio6(){
 let numeroAleatorio1 = Math.random() * (100 - 1) +1;
 let numeroAleatorio2 = Math.random() * (100 - 1) +1;
 let numeroAleatorio3 = Math.random() * (100 - 1) +1;
+
+//Mostrar el mayor Math.max
 alert(Math.max(numeroAleatorio1.toFixed(2),numeroAleatorio2.toFixed(2),numeroAleatorio3.toFixed(2)));
 
 }
 
-function ejercicio7() {
-
-
-
-}
