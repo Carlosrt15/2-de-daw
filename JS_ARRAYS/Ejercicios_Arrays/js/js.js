@@ -239,5 +239,57 @@ function repaso4(){
 
 function repaso5(){
 
+let codigos = ["HTML", "CSS", "JavaScript", "PHP", "Python"];
+
+codigos.splice(1,1);
+console.log(codigos);
+console.log("-------------------");
+codigos.splice(2,0, "SQL");
+console.log(codigos);
+console.log("-------------------");
+codigos.splice(3,1, "NODE JS");
+console.log(codigos);
+
+alert(codigos);
+
+}
+
+function repaso6(){
+
+    let codigos = ["HTML", "CSS", "JavaScript", "PHP", "Python"];
+
+    let codigos2 = codigos.slice(0,3);
+    console.log(codigos2+" codigos2");
+
+    let codigos3 = codigos.slice(3,5);
+    console.error(codigos3+" codigos3");
+
+
+}
+
+
+/**
+ * 
+ * BLOQUE 3 DE REPASO
+ */
+
+function repaso7(){
+
+    
+    let insertarNum = prompt("Insertar numeros Separaods por(/)");
+    let lista = insertarNum.split("/").map(Number)
+    console.log(lista);
+
+    lista.sort((a,b) => a - b);
+
+    let resultado = lista.join("-");
+    alert("Numeros ordenados: "+ resultado);
     
 }
+
+
+function repaso8(){
+
+    
+}
+
