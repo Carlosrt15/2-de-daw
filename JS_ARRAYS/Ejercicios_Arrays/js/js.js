@@ -162,9 +162,7 @@ function AulaScript1(){
     alert("El dia es "+dias[num]);
 }
 
-function preExam() {
-    
-}
+
 
 
 
@@ -174,6 +172,72 @@ function preExam() {
 
 function repaso1() {
 
-    
+    let  pedirNombres = prompt("Introduce nombres separado por comas : [Carlos,Javier,Raul]");
 
+    let lista = pedirNombres.split(",").map(nombre => nombre.trim());
+      
+    
+    alert(lista[0]);
+    alert(lista[lista.length -1]);
+    alert("Hay un total de : "+lista.length+" Nombres en la lista");
+
+}
+
+
+function repaso2(){
+    let lista = [];
+    let Numero = Number(prompt("Introduce un numero"));
+
+    for(let i = 0; i <= Numero; i++) {
+
+        lista.push(i);
+    }
+
+    alert(lista);
+    
+}
+
+
+function repaso3(){
+
+     let numeros = [100,34,657,666,59458,12,21,32,23,7563986,674534,7867676,111,777,5,4,3,2];
+
+     // Filtrar numeros
+
+    let pares = numeros.filter(num => num % 2 === 0);
+
+    console.log(pares);
+
+}
+
+function repaso4(){
+
+    let nombres = [];
+    option = true;
+    while(option) {
+        let pedirNombre = prompt("Introduce un nombre");
+
+        if(pedirNombre === "fin") {
+            option = false;
+        } else {
+            nombres.push(pedirNombre);
+
+        }
+
+
+    }
+        // Compara alfabeticamente de A --- Z
+    nombres.sort((a,b) => a.localeCompare(b));
+    alert(nombres);
+}
+
+
+/**
+ * 
+ * BLOQUE ||  DE REPASO
+ */
+
+function repaso5(){
+
+    
 }
