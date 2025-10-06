@@ -1,11 +1,36 @@
 #header{
-    top: 0;
-    left: 1700;
+   top: 0;
+    left: 0;         
+    right: 0;         
     position: fixed;
+    margin: 3px;
+    padding: 10px 20px;
+    
 }
+
+
+#header li{
+    list-style: none;
+      float: inline-end;
+      margin: 7px;
+}
+
+#header ul{
+    list-style: none;
+      margin: 0;
+      padding: 0;
+    display: flex;          
+    justify-content: flex-end; 
+    
+}
+
+
+
 
 a{
     color: black;
+    text-decoration: none;
+   
 }
 
 
@@ -13,4 +38,6 @@ a{
     text-align: center;
     align-items: center;
     align-content: center;
+    margin-top: 300px;
+    
 }
