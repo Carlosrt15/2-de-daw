@@ -1,3 +1,11 @@
+
+#main-contenedor {
+  width: 80%;        
+     
+  
+}
+
+
 header p{
 font-weight: bold;
 margin: 0;
@@ -36,7 +44,7 @@ header button {
 }
 
 #menu{
-    background-color: black;
+    background-color: rgb(19, 18, 18);
     position: fixed;
     top: 60px;
     left: 0;
@@ -51,5 +59,6 @@ header button {
 }
 
 #menu p:hover {
-  background-color: #9ad315;
+  
+  color: aqua;
 }
