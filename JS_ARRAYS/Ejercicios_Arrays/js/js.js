@@ -234,7 +234,7 @@ function repaso4(){
 
 /**
  * 
- * BLOQUE ||  DE REPASO
+ * BLOQUE ||  DE REPASO Métodos slice, splice
  */
 
 function repaso5(){
@@ -270,7 +270,7 @@ function repaso6(){
 
 /**
  * 
- * BLOQUE 3 DE REPASO
+ * BLOQUE 3 DE REPASO  Ordenación y cadenas
  */
 
 function repaso7(){
@@ -290,6 +290,69 @@ function repaso7(){
 
 function repaso8(){
 
-    
+    // Ordenar palabras
+
+    let palabras =  ["Mundo", "Adios Javier te veo en Madrid","Buenas tardes"];
+
+    palabras.sort((a,b) => a.length - b.length);
+    alert(palabras);
 }
 
+
+/**
+ * 
+ * BLOQUE 4  Métodos funcionales (map, filter, reduce, find...)
+ */
+
+function repaso9(){
+
+        let notas = [];
+
+     for(let i = 0; i < 15; i++) {
+        let numeroRandom = Math.random() * 10 + 1;
+        notas.push(numeroRandom);
+
+    }
+        //  Usa reduce para sumar el conjunto 
+    let suma = notas.reduce((acumulador, valor) => acumulador + valor, 0);
+
+    let media = suma / notas.length;
+    
+    console.info(media.toFixed(2));
+
+    // usar math.max
+    let notaMax = Math.max(...notas);
+
+    // Buscar la posicion en la que esta
+    let posicion = notas.indexOf(notaMax);
+
+    console.log("Nota más alta:", notaMax.toFixed(2));
+    console.log("Posición:", posicion); 
+    
+
+
+}
+
+
+function repaso10(){
+    let palabras = ["hola","dias", "Supermercado", "Santa Maria","Vietnam","Zeus"];
+
+    let largas = palabras.filter(palabra => palabra.length > 6);
+    console.log(largas);
+
+        // palabra que termine por a
+    let palabraConA = palabras.find(palabra => palabra[palabra.length -1] ==="a");
+    console.warn(palabraConA);
+
+    // devolver true si alguna palabra tiene la z
+   // let contieneZ = palabras.some(palabra => palabra.toLowerCase().includes("z"));
+
+    let contieneZ = palabras.some(palabra => palabra.includes("z")|| palabra.includes("Z"));
+    console.log(contieneZ);
+
+
+}
+
+function repaso11(){
+    
+}
