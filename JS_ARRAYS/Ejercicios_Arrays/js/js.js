@@ -354,5 +354,71 @@ function repaso10(){
 }
 
 function repaso11(){
+    let precios = [12.99, 24.5, 7.8, 15.75];
+
+    // usar map 
+   // let preciosConIVA = precios.map(precio => precio * 1.10);
+
+    let preciosConIva = precios.map(precio => +(precio * 1.10).toFixed(2));
+
+    // Calcular el precio total
+    let gastoTotal = preciosConIva.reduce((acumulador, precio) => acumulador + precio, 0);
+    alert(gastoTotal);
+
+    alert("precio normal : "+precios);
+    alert("precio IVA : "+preciosConIva);
+     
+
+   
+}
+
+
+/**
+ * 
+ * Bloque 5 – Copia y referencias
+ */
+
+
+
+/**
+ * Extra (nivel examen)
+ * 
+ */
+
+function repasoExamen(){
+
+    let alumnos = [
+    {alumno: "Carlos", nota: 6},
+    {alumno: "Ana", nota: 8},
+    {alumno: "Luis", nota: 7},
+    {alumno: "Marta", nota: 9},
+    {alumno: "Juan", nota: 5},
+    {alumno: "Sofía", nota: 10},
+    {alumno: "Pedro", nota: 4},
+    {alumno: "Lucía", nota: 6},
+    {alumno: "Jorge", nota: 4},
+    {alumno: "Laura", nota: 8},
+    {alumno: "Diego", nota: 2},
+    {alumno: "Elena", nota: 7},
+    {alumno: "Miguel", nota: 6},
+    {alumno: "Isabel", nota: 8},
+    {alumno: "David", nota: 5},
+    {alumno: "Carla", nota: 9},
+    {alumno: "Alberto", nota: 7},
+    {alumno: "Patricia", nota: 6},
+    {alumno: "Raúl", nota: 8},
+    {alumno: "Verónica", nota: 10},
+    ];
+
+    //Crear otro array con filter y pasando parametros
+    let aprobados = alumnos.filter(alumno => alumno.nota > 5);
     
+
+    // mostrar aprobados con un forEach
+    let mostrar = "Alumnos aprobados : ";
+    aprobados.forEach(a => {
+        mostrar += a.alumno +" : Nombre" + a.nota+" : nota"+" ";
+    });
+
+    alert(mostrar);
 }
