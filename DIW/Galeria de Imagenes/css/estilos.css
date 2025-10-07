@@ -1,0 +1,55 @@
+header p{
+font-weight: bold;
+margin: 0;
+
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    position: fixed;
+     z-index: 1000px;
+    width: 100%;
+
+}
+header input {
+   padding: 5px 10px;
+   border: 1px solid #ccc;
+   border-radius: 4px;
+}
+
+
+body{
+   background-color: rgb(218, 213, 213);
+   
+}
+
+header button {
+   padding: 5px 10px;
+   border: none;
+   background-color: #18d428;
+   color: white;
+   border-radius: 4px;
+  
+}
+
+#menu{
+    background-color: black;
+    position: fixed;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    display: flex;
+    gap: 30px;
+    
+}
+#menu p{
+    font-weight: bold;
+    color: white;
+}
+
+#menu p:hover {
+  background-color: #9ad315;
+}
