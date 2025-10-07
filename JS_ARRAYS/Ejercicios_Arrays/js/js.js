@@ -377,7 +377,29 @@ function repaso11(){
  * 
  * Bloque 5 – Copia y referencias
  */
+    function repaso12(){
+        original = [1,2,3];
 
+
+        // Copia por referencia (ambos apuntan al mismo array)
+        let copiaReferencia = original;
+
+        // Copia independiente usando .slice()
+        let copiaSlice = original.slice();
+
+        // Modificamos la copia por referencia
+        copiaReferencia.push(4);
+
+        // Modificamos la copia creada con .slice()
+        copiaSlice.push(99);
+
+        console.log("Original:", original);
+        console.log("Copia por referencia:", copiaReferencia);
+        console.log("Copia con slice:", copiaSlice);
+
+
+
+    }
 
 
 /**
