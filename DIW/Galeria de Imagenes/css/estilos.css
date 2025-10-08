@@ -1,8 +1,7 @@
 
 #main-contenedor {
   width: 80%;        
-     
-  
+       
 }
 
 
@@ -61,4 +60,28 @@ header button {
 #menu p:hover {
   
   color: aqua;
+}
+
+#imagenes {
+  display: flex;
+  flex-wrap: wrap;            
+  justify-content: center;    
+  align-content: center;
+  gap: 15px;                  
+  width: 60%;                 
+  margin: 150px auto 0;  
+  
+   
+  
+}
+
+#imagenes img {
+  width: 250px;               
+  height: 180px;             
+        
+  border-radius: 8px;        
+}
+
+footer{
+
 }
