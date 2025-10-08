@@ -352,24 +352,19 @@ function repaso10(){
 
 
 }
+function calcularOcurrencias() {
+    let tomarTexto = document.getElementById("textArea").value;
+    let palabras = tomarTexto.split(/\s+/).filter(p => p.length > 0);
 
-function repaso11(){
-    let precios = [12.99, 24.5, 7.8, 15.75];
+    let hayX = palabras.some(palabra => palabra.toLowerCase().startsWith("x"));
+    if (hayX) {
+        console.log("Hay palabras que comienzan con 'X'");
 
-    // usar map 
-   // let preciosConIVA = precios.map(precio => precio * 1.10);
-
-    let preciosConIva = precios.map(precio => +(precio * 1.10).toFixed(2));
-
-    // Calcular el precio total
-    let gastoTotal = preciosConIva.reduce((acumulador, precio) => acumulador + precio, 0);
-    alert(gastoTotal);
-
-    alert("precio normal : "+precios);
-    alert("precio IVA : "+preciosConIva);
-     
-
-   
+        let todasMayor5 = palabras.every(palabra => palabra.length > 5);
+        if (todasMayor5) {
+            console.log("Todas las palabras tienen más de 5 letras");
+        }
+    }
 }
 
 
