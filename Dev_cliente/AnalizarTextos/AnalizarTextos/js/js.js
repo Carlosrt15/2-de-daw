@@ -1,36 +1,55 @@
 
 
+function comenzarAccion(accion){
+    // Tomar el campo donde escribe
+    let texto = document.getElementById("textArea").value;
+    let palabras = texto.split(" ").filter(p => p.length > 0);
 
 
+    // selecionar 3 opciones 
+
+    switch(accion) {
+
+        case "modificar":
+            let cambiarPalabra = palabras.map(palabra => palabra + "ria");
+            console.log(cambiarPalabra);
 
 
-function comenzarAccion(ocurrencias){
-    let tomarTexto = document.getElementById("textArea").value;
-    
-   
-    let palabras = [];
-    palabras.push(tomarTexto);
-    alert(palabras);
-    
+            let ultimas10 = cambiarPalabra.slice(-10);
+            alert(ultimas10);
 
-    let palabrasConx = palabras.some(palabra => palabra.starsWith("x"));
 
-    if(palabrasConx == true){
-        console.info("Si hay palabras con x");
-    } else {
+        break;
 
+        case "palabras":
+            
+
+
+        break;
+
+
+        case "ocurrencias":
+
+        let hayX = palabras.some(p => p.toLowerCase().startsWith("x"));
+        if(hayX) {
+            console.log("Hay palabras que comienzan con 'X'");
+
+        }
+        let todasMas5 = palabras.every(p => p.length > 5);
+        if (todasMas5) {
+                    console.log("Todas las palabras tienen más de 5 letras");
+                }
+
+        break;
     }
-    
-    let palabrasMayor = palabras.every(palabra => palabra.length > 5);
 
-    if(palabrasMayor == true) {
-        console.log("Todas las palabras tienen mas de 5 letras")
 
-    } else{
 
-    }
 
-     
 
 }
+
+
+
+
 
