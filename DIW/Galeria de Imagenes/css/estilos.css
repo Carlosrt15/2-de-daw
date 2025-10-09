@@ -82,6 +82,36 @@ header button {
   border-radius: 8px;        
 }
 
-footer{
+#footer {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  background-color: black;
+  color: white;
+  padding: 20px 0;
+  position: fixed;      
+  bottom: 0;            
+  left: 0;
+  width: 100%;          
+  z-index: 999;         
+}
 
+
+#footer div {
+  width: 30%;                      
+}
+
+#footer p {
+  margin: 5px 0;
+}
+
+#footer a {
+  color: white;                    
+  font-size: 24px;                 
+  margin-right: 10px;
+  text-decoration: none;
+}
+
+#footer a:hover {
+  color: aqua;                     
 }

@@ -29,7 +29,16 @@ function comenzarAccion(accion){
 
 
         case "ocurrencias":
+        // let textoMinus = texto.toLowerCase();
+        // let siHayX = textoMinus.split(" ").some(letra => letra[0] === "x");
 
+        // if(siHayX) {
+        //     console.log("hay x");
+        //     let masde5 = textoMinus.split(" ").every(palabra => palabra.length >= 5);
+        //     if(masde5) {
+        //         console.log("Todas las palabras tienen mas de 5 caracteres")
+        //     }
+        // }
         let hayX = palabras.some(p => p.toLowerCase().startsWith("x"));
         if(hayX) {
             console.log("Hay palabras que comienzan con 'X'");
