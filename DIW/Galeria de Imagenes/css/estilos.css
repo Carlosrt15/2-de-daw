@@ -1,104 +1,114 @@
+body {
+  background-color: rgb(218, 213, 213);
+  font-family: 'Open Sans', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
 
 #main-contenedor {
-  width: 80%;        
-       
+  width: 80%;
+  margin: 0 auto;
+  background-color: white;
+  overflow: hidden;
 }
 
 
-header p{
-font-weight: bold;
-margin: 0;
-
+header {
+  background-color: #f1f1f1;
+  padding: 10px;
+  overflow: hidden;
 }
 
-header{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-    position: fixed;
-     z-index: 1000px;
-    width: 100%;
-
+header p {
+  float: left;
+  font-weight: bold;
+  margin: 0;
+  margin-left: 10px;
 }
+
+header form {
+  float: right;
+  margin-right: 10px;
+}
+
 header input {
-   padding: 5px 10px;
-   border: 1px solid #ccc;
-   border-radius: 4px;
-}
-
-
-body{
-   background-color: rgb(218, 213, 213);
-   
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
 header button {
-   padding: 5px 10px;
-   border: none;
-   background-color: #18d428;
-   color: white;
-   border-radius: 4px;
-  
+  padding: 5px 10px;
+  border: none;
+  background-color: #18d428;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
-#menu{
-    background-color: rgb(19, 18, 18);
-    position: fixed;
-    top: 60px;
-    left: 0;
-    width: 100%;
-    display: flex;
-    gap: 30px;
-    
+header button:hover {
+  background-color: #13a320;
 }
-#menu p{
-    font-weight: bold;
-    color: white;
+
+
+#menu {
+  background-color: rgb(19, 18, 18);
+  overflow: hidden;
+}
+
+#menu p {
+  float: left;
+  font-weight: bold;
+  color: white;
+  padding: 12px 20px;
+  margin: 0;
+  cursor: pointer;
 }
 
 #menu p:hover {
-  
+  background-color: #333;
   color: aqua;
 }
 
+
 #imagenes {
-  display: flex;
-  flex-wrap: wrap;            
-  justify-content: center;    
-  align-content: center;
-  gap: 15px;                  
-  width: 60%;                 
-  margin: 150px auto 0;  
-  
-   
-  
+  width: 90%;
+  margin: 40px auto;
+  overflow: hidden;
 }
+
 
 #imagenes img {
-  width: 250px;               
-  height: 180px;             
-        
-  border-radius: 8px;        
+  float: left;
+  width: 30%;
+  margin: 1.5%;
+  height: 180px;
+  
+  border-radius: 8px;
+  transition: transform 0.3s ease;
 }
 
+
+#imagenes img:hover {
+  transform: scale(1.05);
+}
+
+
 #footer {
-  display: flex;
-  justify-content: space-around;
-  align-items: flex-start;
   background-color: black;
   color: white;
   padding: 20px 0;
-  position: fixed;      
-  bottom: 0;            
-  left: 0;
-  width: 100%;          
-  z-index: 999;         
+  overflow: hidden;
+  clear: both;
 }
 
 
 #footer div {
-  width: 30%;                      
+  float: left;
+  width: 33.33%;
+  padding: 0 20px;
+  box-sizing: border-box;
 }
 
 #footer p {
@@ -106,12 +116,13 @@ header button {
 }
 
 #footer a {
-  color: white;                    
-  font-size: 24px;                 
+  color: white;
+  font-size: 24px;
   margin-right: 10px;
   text-decoration: none;
 }
 
 #footer a:hover {
-  color: aqua;                     
+  color: aqua;
 }
+
