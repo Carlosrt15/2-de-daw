@@ -35,3 +35,4 @@ function mostrarDatos(infoPosts) {
     });
 
 }
+
