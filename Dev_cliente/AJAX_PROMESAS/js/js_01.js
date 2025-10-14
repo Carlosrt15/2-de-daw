@@ -1,37 +1,16 @@
 function recuperarDatos() {
 
     let idUser = document.getElementById("idUser").value;
-
     if(isNaN(idUser) || idUser == "") {
 
-        // El usuario debe introducir un numero
         alert("Debes introducir un numero");
     } else {
-
         fetch("https://jsonplaceholder.typicode.com/posts?" + "userId=" + idUser)
-        .then((response) => {
-            if(response.ok) {
-            return response.json();
-            } else {
-                throw new Error("Error HTTP:" + response.status + "(" + response.statusText + ")");
+        .then((response) => response.json())
+        .then((infoPosts) => mostrarDatos(infoPosts))
+        .catch((error) => console.error(error));
 
-            }
-        })
 
-        .then((infoPosts) => {
-            // Mpstrar si hay resultados
-            if(infoPosts.length > 0) {
-            mostrarDatos(infoPosts);
-            } else {
-                alert("No hay resultados con esa ID :"+ idUser);
-                limpiarTabla();
-            }
-        })
-
-        .catch((error) => {
-             console.error(error);
-                alert("Error en la llamada a la API" +error.message);
-        });
     }
     
 }
@@ -55,9 +34,4 @@ function mostrarDatos(infoPosts) {
         
     });
 
-}
-
-function limpiarTabla() {
-    let tbody = document.getElementsByTagName("tbody")[0];
-    tbody.innerHTML = "";
 }
