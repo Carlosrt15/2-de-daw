@@ -1,10 +1,13 @@
 function recuperarDatos() {
 
     let idUser = document.getElementById("idUser").value;
+
     if(isNaN(idUser) || idUser == "") {
 
+        // El usuario debe introducir un numero
         alert("Debes introducir un numero");
     } else {
+
         fetch("https://jsonplaceholder.typicode.com/posts?" + "userId=" + idUser)
         .then((response) => {
             if(response.ok) {
