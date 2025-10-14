@@ -1,0 +1,143 @@
+/* RESET Y BASE */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+#container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* HEADER */
+#header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+}
+
+#brand h1 a {
+  text-decoration: none;
+  color: #9b59b6;
+  font-size: 1.8em;
+}
+
+/* SEARCHBOX con gradiente y lupa */
+#searchBox input.text {
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background: linear-gradient(90deg, #f7e17d, #f1c40f); /* gradiente lineal */
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 20px 20px;
+  padding-right: 35px; /* espacio para el icono */
+  position: relative;
+}
+
+#searchBox input.text::placeholder {
+  color: #999;
+}
+
+#searchBox input.submit {
+  background-color: #9b59b6;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  margin-left: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#searchBox input.submit:hover {
+  background-color: #7d3c98;
+}
+
+/* MENU PRINCIPAL */
+#menu {
+  background-color: #f7e17d;
+}
+
+#menu ul {
+  list-style: none;
+  display: flex;
+}
+
+#menu ul li a {
+  display: block;
+  padding: 10px 20px;
+  text-decoration: none;
+  color: #333;
+  font-weight: normal;
+  transition: all 0.3s ease; /* transición */
+}
+
+#menu ul li a:hover,
+#menu ul li a.active {
+  color: #fff;          /* cambia el color */
+  font-weight: bold;     /* negrita */
+  font-size: 1.2em;      /* aumenta tamaño */
+  background-color: #e6d46a;
+}
+
+/* INTRODUCCIÓN */
+#introduction {
+  background-color: #d4edda;
+  border-left: 5px solid #a3d9a5;
+  padding: 20px;
+  margin: 20px 0;
+}
+
+/* SIDEBARS */
+.sidebar {
+  width: 48%;
+  float: left;
+  margin: 1%;
+}
+
+#leftsidebar ul,
+#rightsidebar ul {
+  list-style: none;
+}
+
+#leftsidebar ul li a,
+#rightsidebar ul li a {
+  text-decoration: none;
+  display: block;
+  margin-bottom: 5px;
+  transition: all 0.3s ease;
+}
+
+#leftsidebar ul li a {
+  color: #9b59b6;
+}
+
+#rightsidebar ul li a {
+  color: #27ae60;
+}
+
+#leftsidebar ul li a:hover,
+#leftsidebar ul li a.active,
+#rightsidebar ul li a:hover,
+#rightsidebar ul li a.active {
+  font-weight: bold;
+  font-size: 1.1em;
+  color: #000; /* o cualquier color que prefieras */
+}
+
+/* CLEAR FLOATS */
+.clear {
+  clear: both;
+}
+
+/* FOOTER CON GRADIENTE */
+.footer {
+  background: linear-gradient(90deg, #f7e17d, #f1c40f);
+  text-align: center;
+  padding: 15px 0;
+  margin-top: 20px;
+}
