@@ -69,5 +69,19 @@ function recuperaUsuarios() {
 
 
 function recuperarTareas() {
-    
+    fetch("https://jsonplaceholder.typicode.com/todos")
+    .then((response) => response.json()) 
+
+    .then((todos) => {
+      // Mostrar un cantidad deseada
+      const primeros = todos.slice(0,20);  // en concreto solo mostrara los 20 primeros
+
+      alert(primeros.map((u) => u.title).join(",")); 
+      alert(primeros.map((u) => u.id).join(",")); 
+
+    })
+
+    .catch((error) => {
+      alert("Error en la Api" + error.message);
+    });
 }
