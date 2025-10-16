@@ -10,11 +10,13 @@ function mostrarAnimales(){
         .then(response => response.json())
         .then(data => {
 
-            const filtrados = data.filter(a => a.Tipo === tomarValor);
-            console.log("Animales encontrados");
-            console.log(filtrados);
-        })
+                // filtrar por tipo
+            let filtrados = data.filter(a => a.Tipo === tomarValor);
+            mostrarTabla(filtrados); // llamamos a la funcion de mostrar
 
+           
+            
+        })
 
         .catch(error => console.error( "Error al cargar los datos",error));
        
@@ -22,7 +24,27 @@ function mostrarAnimales(){
     }
 
     
+   
 
+
+}
+
+function mostrarTabla(animales){
+     let tabla = "<table border='1'><tr><th>Nombre</th><th>Ubicación</th><th>Observación</th></tr>";
+
+     animales.forEach(a => {
+        tabla += `
+        <tr>
+        <td>${a.Nombre} </td>
+        <td>${a.Ubicacion} </td>
+        <td>${a.Ubicacion} </td>
+        
+        </tr>
+        `;
+         });
+        tabla += "</table>";
+
+         document.getElementById("resultado").innerHTML = tabla;
 
 
 }
