@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Animales</title>
+</head>
+<body>
+  <h1>Gestión de Animales</h1>
+
+  <!-- Radio buttons -->
+  <label>
+    <input type="radio" name="opcion" value="ver" onclick="mostrarSeccion()"> Ver animales
+  </label>
+  <label>
+    <input type="radio" name="opcion" value="nuevo" onclick="mostrarSeccion()"> Nuevo animal
+  </label>
+
+  <hr>
+
+  <!-- Sección de ver animales -->
+  <div id="seccion-ver" style="display:none;">
+    <h2>Selecciona un tipo de animal</h2>
+    <select id="animales">
+      <option value="">-- Selecciona --</option>
+      <option value="Perro">Perro</option>
+      <option value="Gato">Gato</option>
+      <option value="Caballo">Caballo</option>
+      <option value="Pajaro">Pajaro</option>
+    </select>
+    <button onclick="mostrarAnimales()">Mostrar</button>
+    <div id="resultado"></div>
+  </div>
+
+  <!-- Sección de nuevo animal -->
+  <div id="seccion-nuevo" style="display:none;">
+    <h2>Agregar nuevo animal</h2>
+    <form id="form-nuevo-animal">
+      <label>Nombre: <input type="text" name="nombre"></label><br><br>
+      <label>Tipo:
+        <select name="tipo">
+          <option value="Perro">Perro</option>
+          <option value="Gato">Gato</option>
+          <option value="Caballo">Caballo</option>
+          <option value="Pajaro">Pajaro</option>
+        </select>
+      </label><br><br>
+      <label>Ubicación: <input type="text" name="ubicacion"></label><br><br>
+      <label>Observación: <input type="text" name="observacion"></label><br><br>
+      <label>Rasgos: <input type="text" name="rasgos"></label><br><br>
+      <button type="button" onclick="agregarAnimal()">Agregar</button>
+    </form>
+  </div>
+
+  <script src="./js.js"></script>
+</body>
+</html>
