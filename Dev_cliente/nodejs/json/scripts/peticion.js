@@ -11,7 +11,7 @@ function mostrarAnimales(){
         .then(data => {
 
                 // filtrar por tipo
-            let filtrados = data.filter(a => a.Tipo === tomarValor);
+            let filtrados = data.map(a => a.Tipo === tomarValor);
             mostrarTabla(filtrados); // llamamos a la funcion de mostrar
 
            
