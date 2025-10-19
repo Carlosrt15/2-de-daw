@@ -4,11 +4,12 @@ function mostrarAnimales(){
    .then(respuesta => respuesta.json())
 
    .then(datos => {
+    // map para mapear por la propiedad nombre
         let filtrarNombre = datos.map(a => a.Nombre);
         alert(filtrarNombre);
    })
    
-   .catch (error => console.error( "Error al cargar los datos",error));
+   .catch (error => console.log( "Error al cargar los datos",error));
     
 
 
