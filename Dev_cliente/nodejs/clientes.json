@@ -3,11 +3,11 @@
         {
 
         "id": 1,
-        "nombre": "Sonia",  
-        "apellidos": "Gutiérrez García",  
+        "nombre": "Rafael",  
+        "apellidos": "Martin Cabrero",  
         "DNI": "45893125t",  
-        "fechaNac": "10/10/1010",  
-        "Sexo": "M",  
+        "fechaNac": "32/12/2001",  
+        "Sexo": "H",  
         "preferencias": "ext_equi"
     },
     {
@@ -16,7 +16,7 @@
         "apellidos": "Rdoriguez Talegon",  
         "DNI": "54677776j",  
         "fechaNac": "14/02/2001",  
-        "Sexo": "M",  
+        "Sexo": "H",  
         "preferencias": "ext_equi"
     }
 
