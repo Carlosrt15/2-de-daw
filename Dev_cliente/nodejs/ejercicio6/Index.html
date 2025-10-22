@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Formulario de clientes - Tienda de material deportivo</title>
+  <link rel="stylesheet" href="./src/style.css">
+</head>
+<body>
+  <main class="container">
+    <h1>Alta de nuevos clientes</h1>
+
+    <form id="clienteForm" action="#" method="post">
+      <fieldset>
+        <legend>Datos del cliente</legend>
+
+        <label for="nombre">Nombre:</label>
+        <input id="nombre" name="nombre" type="text" required>
+
+        <label for="apellidos">Apellidos:</label>
+        <input id="apellidos" name="apellidos" type="text" required>
+
+        <label for="dni">DNI:</label>
+        <input id="dni" name="dni" type="text" required placeholder="12345678X">
+
+        <label for="fecha">Fecha de nacimiento (dd/mm/aaaa):</label>
+        <input id="fecha" name="fecha" type="text" required placeholder="dd/mm/aaaa">
+
+        <fieldset class="sexo">
+          <legend>Sexo</legend>
+          <label><input type="radio" name="sexo" value="M"> Mujer (M)</label>
+          <label><input type="radio" name="sexo" value="H"> Hombre (H)</label>
+        </fieldset>
+
+        <fieldset class="preferencias">
+          <legend>Preferencias</legend>
+          <label><input type="checkbox" name="pref" value="ext"> Deportes de exterior</label>
+          <label><input type="checkbox" name="pref" value="equi"> Deportes de equipo</label>
+          <label><input type="checkbox" name="pref" value="indv"> Deportes individuales</label>
+          <label><input type="checkbox" name="pref" value="int"> Deportes de interior</label>
+        </fieldset>
+
+        <div class="botones">
+          <button type="submit" onclick="darAlta()">Dar de alta</button>
+          <button type="reset">Limpiar formulario</button>
+          <button type="button">Borrar por DNI</button>
+          <button type="button">Actualizar por DNI</button>
+        </div>
+      </fieldset>
+    </form>
+
+    <section>
+      <h2>Clientes registrados</h2>
+      <table id="tablaClientes">
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Nombre y apellidos</th>
+            <th>Fecha nacimiento</th>
+            <th>Sexo</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Sonia Gutiérrez García</td>
+            <td>10/10/1980</td>
+            <td>M</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>

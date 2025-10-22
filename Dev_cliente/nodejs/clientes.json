@@ -1,0 +1,27 @@
+{
+    "clientes":[ 
+        {
+
+        "id": 1,
+        "nombre": "Sonia",  
+        "apellidos": "Gutiérrez García",  
+        "DNI": "45893125t",  
+        "fechaNac": "10/10/1010",  
+        "Sexo": "M",  
+        "preferencias": "ext_equi"
+    },
+    {
+        "id": 2,
+        "nombre": "Carlos",  
+        "apellidos": "Rdoriguez Talegon",  
+        "DNI": "54677776j",  
+        "fechaNac": "14/02/2001",  
+        "Sexo": "M",  
+        "preferencias": "ext_equi"
+    }
+
+    ]
+
+
+
+}
