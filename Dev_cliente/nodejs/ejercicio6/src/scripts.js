@@ -20,3 +20,4 @@ console.log(nombre,apellidos,dni,fecha,mostraSexo,preferencias);
 
 
 }
+
