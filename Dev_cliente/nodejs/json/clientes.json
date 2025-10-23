@@ -19,22 +19,20 @@
       "preferencias": "ext_equi"
     },
     {
-      "id": "62f1",
-      "nombre": "Laura",
-      "apellidos": "Garcias Matias",
-      "DNI": "70560902j",
-      "fechaNac": "15/05/2001",
+      "id": "9524",
+      "nombre": "",
+      "apellidos": "",
+      "DNI": "",
+      "fechaNac": "",
       "Sexo": {},
-      "preferencias": [
-        "ext"
-      ]
+      "preferencias": []
     },
     {
-      "id": "04b0",
-      "nombre": "Carlos",
-      "apellidos": "Rodríguez  Matias",
-      "DNI": "70960901J",
-      "fechaNac": "14/02/2001",
+      "id": "3b3c",
+      "nombre": "Manuel",
+      "apellidos": "López García",
+      "DNI": "80960402b",
+      "fechaNac": "30/05/2005",
       "Sexo": {},
       "preferencias": [
         "ext",
@@ -44,13 +42,18 @@
       ]
     },
     {
-      "id": "9524",
-      "nombre": "",
-      "apellidos": "",
-      "DNI": "",
-      "fechaNac": "",
+      "id": "95e3",
+      "nombre": "Manuela",
+      "apellidos": "López García",
+      "DNI": "80060402r",
+      "fechaNac": "10/08/2007",
       "Sexo": {},
-      "preferencias": []
+      "preferencias": [
+        "ext",
+        "equi",
+        "indv",
+        "int"
+      ]
     }
   ]
 }

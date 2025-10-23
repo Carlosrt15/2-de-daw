@@ -54,5 +54,40 @@ let nuevoCliente = {
 
 function borrarCliente(){
 
+  let tomarDni = document.getElementById("dni").value;
+
+  if(tomarDni === "") {
+  alert("Debes meter un DNI para borrar el cliente que deseas eliminar ");
+  return;
+
+  }
+
+  let URL = "http://localhost:3000/clientes";
+
+  // buscar dni
+
+  fetch(URL)
+   .then(response => response.json())
+    .then(clientes => {
+    // Busca el cliente cuyo dni coincide con el json
+      let cliente = clientes.find (c => c.DNI.toLowerCase() === tomarDni.toLowerCase());
+
+      
+      // Enviar el DELETE
+
+      return fetch(`${URL}/${cliente.id}`, { method: 'DELETE' });
+      
+  })
+
+  
+    .then(response => {
+      if (response && response.ok) {
+        alert("cliente fue borrado");
+      }
+    })
+
+    .catch(error => console.error("No se pudo borrar al cliente:", error));
+    
+
     
 }

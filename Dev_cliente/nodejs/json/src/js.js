@@ -11,6 +11,4 @@ function mostrarAnimales(){
    
    .catch (error => console.log( "Error al cargar los datos",error));
     
-
-
 }

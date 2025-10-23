@@ -21,7 +21,7 @@
         <input id="apellidos" name="apellidos" type="text" required>
 
         <label for="dni">DNI:</label>
-        <input id="dni" name="dni" type="text" required placeholder="12345678X">
+        <input id="dni" name="dni" type="text"  placeholder="12345678X">
 
         <label for="fecha">Fecha de nacimiento (dd/mm/aaaa):</label>
         <input id="fecha" name="fecha" type="text" required placeholder="dd/mm/aaaa">
@@ -43,7 +43,7 @@
         <div class="botones">
           <button type="button" onclick="darAlta()">Dar de alta</button>
           <button type="reset">Limpiar formulario</button>
-          <button type="button">Borrar por DNI</button>
+          <button type="button" onclick="borrarCliente()">Borrar por DNI</button>
           <button type="button">Actualizar por DNI</button>
         </div>
       </fieldset>
