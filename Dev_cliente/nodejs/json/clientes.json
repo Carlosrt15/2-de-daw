@@ -1,0 +1,56 @@
+{
+  "clientes": [
+    {
+      "id": "1",
+      "nombre": "Rafael",
+      "apellidos": "Martin Cabrero",
+      "DNI": "45893125t",
+      "fechaNac": "32/12/2001",
+      "Sexo": "H",
+      "preferencias": "ext_equi"
+    },
+    {
+      "id": "2",
+      "nombre": "Carlos",
+      "apellidos": "Rdoriguez Talegon",
+      "DNI": "54677776j",
+      "fechaNac": "14/02/2001",
+      "Sexo": "H",
+      "preferencias": "ext_equi"
+    },
+    {
+      "id": "62f1",
+      "nombre": "Laura",
+      "apellidos": "Garcias Matias",
+      "DNI": "70560902j",
+      "fechaNac": "15/05/2001",
+      "Sexo": {},
+      "preferencias": [
+        "ext"
+      ]
+    },
+    {
+      "id": "04b0",
+      "nombre": "Carlos",
+      "apellidos": "Rodríguez  Matias",
+      "DNI": "70960901J",
+      "fechaNac": "14/02/2001",
+      "Sexo": {},
+      "preferencias": [
+        "ext",
+        "equi",
+        "indv",
+        "int"
+      ]
+    },
+    {
+      "id": "9524",
+      "nombre": "",
+      "apellidos": "",
+      "DNI": "",
+      "fechaNac": "",
+      "Sexo": {},
+      "preferencias": []
+    }
+  ]
+}
