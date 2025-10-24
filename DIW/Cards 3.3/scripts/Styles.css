@@ -11,7 +11,7 @@ body {
 
 h1 {
   text-align: center;
-  text-transform: capitalize;
+  text-transform: uppercase;
   margin: 20px 0;
   color: rgb(218, 30, 161);
 }
@@ -51,7 +51,7 @@ h1 {
 }
 
 button {
-  background: linear-gradient(90deg, #0077ff, #00bfff);
+  background: linear-gradient(90deg, #0609e6, #0609e6);
   color: white;
   border: none;
   padding: 8px 16px;
