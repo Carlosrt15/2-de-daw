@@ -91,3 +91,32 @@ function borrarCliente(){
 
     
 }
+
+
+function editarDNI(){
+
+ let tomarDni = document.getElementById("dni").value;
+
+ let modificarCliente = {
+
+    nombre: nombre,
+    apellidos: apellidos,
+    DNI: dni,
+    fechaNac: fecha,
+    Sexo: sexo,
+    preferencias: preferencias
+};
+
+
+let URL = "http://localhost:3000/clientes";
+
+let init = {
+      method: 'PUT',
+      body: JSON.stringify(modificarCliente),
+      headers: { 'Content-Type': 'application/json' }
+    };
+
+
+
+
+}
