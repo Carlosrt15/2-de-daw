@@ -10,13 +10,15 @@
       "preferencias": "ext_equi"
     },
     {
-      "id": "2",
       "nombre": "Carlos",
-      "apellidos": "Rdoriguez Talegon",
+      "apellidos": "Rodríguez Talegón",
       "DNI": "54677776j",
       "fechaNac": "14/02/2001",
       "Sexo": "H",
-      "preferencias": "ext_equi"
+      "preferencias": [
+        "indv"
+      ],
+      "id": "2"
     },
     {
       "id": "9524",

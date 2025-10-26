@@ -1,24 +1,24 @@
-function darAlta(){
+function darAlta() {
 
-let nombre = document.getElementById("nombre").value;
-let apellidos = document.getElementById("apellidos").value;
-let dni = document.getElementById("dni").value;
-let fecha = document.getElementById("fecha").value;
+  let nombre = document.getElementById("nombre").value;
+  let apellidos = document.getElementById("apellidos").value;
+  let dni = document.getElementById("dni").value;
+  let fecha = document.getElementById("fecha").value;
 
-// mostrar sexo
-let sexo = document.querySelector('input[name="sexo"]:checked');
-let mostraSexo = sexo.value
+  // mostrar sexo
+  let sexo = document.querySelector('input[name="sexo"]:checked');
+  let mostraSexo = sexo.value
 
-// mostrar checkboxes
-let seleccionadas = document.querySelectorAll('input[name="pref"]:checked');
+  // mostrar checkboxes
+  let seleccionadas = document.querySelectorAll('input[name="pref"]:checked');
 
-let preferencias = Array.from(seleccionadas).map(input => input.value);
+  let preferencias = Array.from(seleccionadas).map(input => input.value);
 
-console.log(nombre,apellidos,dni,fecha,mostraSexo,preferencias);
 
-// Crear objeto 
 
-let nuevoCliente = {
+  // Crear objeto 
+
+  let nuevoCliente = {
 
     nombre: nombre,
     apellidos: apellidos,
@@ -26,39 +26,39 @@ let nuevoCliente = {
     fechaNac: fecha,
     Sexo: sexo,
     preferencias: preferencias
-};
+  };
 
-//  Configurar petiucion 
+  //  Configurar petiucion 
 
-    let URL = "http://localhost:3000/clientes";
-    let init = {
-      method: 'POST',
-      body: JSON.stringify(nuevoCliente),
-      headers: { 'Content-Type': 'application/json' }
-    };
+  let URL = "http://localhost:3000/clientes";
+  let init = {
+    method: 'POST',
+    body: JSON.stringify(nuevoCliente),
+    headers: { 'Content-Type': 'application/json' }
+  };
 
-    fetch(URL, init)
+  fetch(URL, init)
     .then(response => response.json())
     .then(datosRespuesta => {
-        console.log("Cliente dado de alta:"+ datosRespuesta);
+      console.log("Cliente dado de alta:" + datosRespuesta);
       alert("Cliente dado de alta correctamente");
 
     })
 
-        .catch(error => console.error("Error al dar de alta:"+ error));
+    .catch(error => console.error("Error al dar de alta:" + error));
 }
-    
+
 
 /**json-server --watch clientes.json --port 3000 */
 
 
-function borrarCliente(){
+function borrarCliente() {
 
   let tomarDni = document.getElementById("dni").value;
 
-  if(tomarDni === "") {
-  alert("Debes meter un DNI para borrar el cliente que deseas eliminar ");
-  return;
+  if (tomarDni === "") {
+    alert("Debes meter un DNI para borrar el cliente que deseas eliminar ");
+    return;
 
   }
 
@@ -67,19 +67,19 @@ function borrarCliente(){
   // buscar dni
 
   fetch(URL)
-   .then(response => response.json())
+    .then(response => response.json())
     .then(clientes => {
-    // Busca el cliente cuyo dni coincide con el json
-      let cliente = clientes.find (c => c.DNI.toLowerCase() === tomarDni.toLowerCase());
+      // Busca el cliente cuyo dni coincide con el json
+      let cliente = clientes.find(c => c.DNI.toLowerCase() === tomarDni.toLowerCase());
 
-      
+
       // Enviar el DELETE
 
       return fetch(`${URL}/${cliente.id}`, { method: 'DELETE' });
-      
-  })
 
-  
+    })
+
+
     .then(response => {
       if (response && response.ok) {
         alert("cliente fue borrado");
@@ -87,36 +87,72 @@ function borrarCliente(){
     })
 
     .catch(error => console.error("No se pudo borrar al cliente:", error));
-    
-
-    
-}
-
-
-function editarDNI(){
-
- let tomarDni = document.getElementById("dni").value;
-
- let modificarCliente = {
-
-    nombre: nombre,
-    apellidos: apellidos,
-    DNI: dni,
-    fechaNac: fecha,
-    Sexo: sexo,
-    preferencias: preferencias
-};
-
-
-let URL = "http://localhost:3000/clientes";
-
-let init = {
-      method: 'PUT',
-      body: JSON.stringify(modificarCliente),
-      headers: { 'Content-Type': 'application/json' }
-    };
-
 
 
 
 }
+
+
+function editarDNI() {
+  let nombre = document.getElementById("nombre").value.trim();
+  let apellidos = document.getElementById("apellidos").value.trim();
+  let dni = document.getElementById("dni").value.trim();
+  let fecha = document.getElementById("fecha").value.trim();
+
+  let sexoSeleccionado = document.querySelector('input[name="sexo"]:checked');
+  let sexo = sexoSeleccionado ? sexoSeleccionado.value : "";
+
+  let seleccionadas = document.querySelectorAll('input[name="pref"]:checked');
+  let preferencias = Array.from(seleccionadas).map(input => input.value);
+
+
+  if (!dni) {
+    alert(" Debes introducir un DNI para poder editar un cliente.");
+    return;
+  }
+
+  // Buscar cliente por DNI 
+  fetch(`http://localhost:3000/clientes?DNI=${dni}`)
+    .then(response => {
+      if (!response.ok) throw new Error(`Error al buscar cliente (${response.status})`);
+      return response.json();
+    })
+    .then(data => {
+      if (!data || data.length === 0) {
+        alert(" No existe ningún cliente con ese DNI. No se puede modificar.");
+        throw new Error("Cliente no encontrado");
+      }
+
+
+      const cliente = data[0];
+
+      const clienteModificado = {
+        nombre: nombre,
+        apellidos: apellidos,
+        DNI: dni,
+        fechaNac: fecha,
+        Sexo: sexo,
+        preferencias: preferencias
+      };
+
+      // PUT para  el cliente
+      return fetch(`http://localhost:3000/clientes/${cliente.id}`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(clienteModificado)
+      });
+    })
+    .then(response => {
+      if (!response.ok) throw new Error(`Error al modificar (${response.status})`);
+      return response.json();
+    })
+    .then(data => {
+      alert(" Cliente modificado correctamente.");
+      console.log("Cliente actualizado:", data);
+    })
+    .catch(error => {
+      console.error("Error al modificar:", error);
+    });
+}
+
+
