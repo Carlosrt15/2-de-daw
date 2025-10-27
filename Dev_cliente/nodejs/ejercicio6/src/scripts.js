@@ -48,10 +48,6 @@ function darAlta() {
     .catch(error => console.error("Error al dar de alta:" + error));
 }
 
-
-/**json-server --watch clientes.json --port 3000 */
-
-
 function borrarCliente() {
 
   let tomarDni = document.getElementById("dni").value;
@@ -91,7 +87,6 @@ function borrarCliente() {
 
 
 }
-
 
 function editarDNI() {
   let nombre = document.getElementById("nombre").value;
@@ -154,7 +149,6 @@ function editarDNI() {
     });
 }
 
-
 function cargarClientes() {
 
   const URL = "http://localhost:3000/clientes";
@@ -184,6 +178,6 @@ function cargarClientes() {
     .catch(err => console.error("Error al cargar los clientes:", err));
 }
 
-
 window.onload = cargarClientes;
 
+/**json-server --watch clientes.json --port 3000 */
