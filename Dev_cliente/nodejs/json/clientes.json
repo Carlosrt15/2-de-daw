@@ -56,6 +56,27 @@
         "indv",
         "int"
       ]
+    },
+    {
+      "id": "135d",
+      "nombre": "Sergio",
+      "apellidos": "Garcia luisma",
+      "DNI": "94662901H",
+      "fechaNac": "29/02/2007",
+      "Sexo": "H",
+      "preferencias": []
+    },
+    {
+      "id": "a7a6",
+      "nombre": "Alba",
+      "apellidos": "Muriel ",
+      "DNI": "54675476g",
+      "fechaNac": "30/09/2010",
+      "Sexo": "M",
+      "preferencias": [
+        "equi",
+        "indv"
+      ]
     }
   ]
 }

@@ -24,7 +24,7 @@ function darAlta() {
     apellidos: apellidos,
     DNI: dni,
     fechaNac: fecha,
-    Sexo: sexo,
+    Sexo: mostraSexo,
     preferencias: preferencias
   };
 
@@ -94,10 +94,9 @@ function borrarCliente() {
 
 
 function editarDNI() {
-  let nombre = document.getElementById("nombre").value.trim();
-  let apellidos = document.getElementById("apellidos").value.trim();
-  let dni = document.getElementById("dni").value.trim();
-  let fecha = document.getElementById("fecha").value.trim();
+  let nombre = document.getElementById("nombre").value;
+  let apellidos = document.getElementById("apellidos").value
+  let fecha = document.getElementById("fecha").value;
 
   let sexoSeleccionado = document.querySelector('input[name="sexo"]:checked');
   let sexo = sexoSeleccionado ? sexoSeleccionado.value : "";
@@ -124,9 +123,9 @@ function editarDNI() {
       }
 
 
-      const cliente = data[0];
+      let cliente = data[0];
 
-      const clienteModificado = {
+      let clienteModificado = {
         nombre: nombre,
         apellidos: apellidos,
         DNI: dni,
@@ -155,4 +154,36 @@ function editarDNI() {
     });
 }
 
+
+function cargarClientes() {
+
+  const URL = "http://localhost:3000/clientes";
+
+
+  fetch(URL)
+    .then(respuesta => respuesta.json())
+    .then (clientes => {
+      let tbody = document.querySelector("#tablaClientes tbody");
+      tbody.innerHTML = "";
+
+      clientes.forEach(c =>{
+        let fila = `
+          <tr>
+            <td>${c.id}</td>
+            <td>${c.nombre}</td>
+            <td>${c.fechaNac}</td>
+            <td>${c.Sexo}</td>
+          </tr>
+        `;
+        tbody.innerHTML += fila;
+      });
+
+
+    })
+
+    .catch(err => console.error("Error al cargar los clientes:", err));
+}
+
+
+window.onload = cargarClientes;
 
