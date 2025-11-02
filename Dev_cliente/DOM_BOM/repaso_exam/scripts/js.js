@@ -151,3 +151,28 @@ function ejercicio3() {
 
 
 }
+
+
+function exa(){
+
+    let pedirNumeros = prompt("introduce numeros separados por comas (4,2,3)");
+    
+    let arrayString = pedirNumeros.split(",");
+    
+    let notas = arrayString.map(numero => Number(numero));
+
+    alert("Array convertido: " + notas);
+
+     let calcular = notas.reduce((a,numero) => a + numero,0);
+
+      let notaMedia = calcular / notas.length;
+      alert("La nota medias es: "+ notaMedia.toFixed(2));
+
+    let suspenso = notas.some(nota => nota < 5);
+      if(suspenso === true) {
+        alert("Hay algun suspenso");
+      } else {
+        alert("Todos aprobados");
+      }
+
+}
