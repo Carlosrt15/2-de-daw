@@ -132,5 +132,22 @@ function ejercicio3() {
     // - ¿Son todos positivos?
     const numeros2 = [10, 20, 30, 150];
 
+    let algunos = numeros2.some(numero => numero > 100 );
+    console.log(algunos);
+
+    if(algunos === true) {
+
+        alert("si, algún numero es > 100")
+    }else{
+        alert("No hay ningun numero > 100")
+        
+    }
+
+    let positivos = numeros2.every(numero => numero > 0);
+
+    if(positivos === true) {
+        alert("Todos los numeros son > 0 ");
+    }
+
 
 }
