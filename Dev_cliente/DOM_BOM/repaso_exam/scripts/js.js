@@ -53,19 +53,84 @@ function ejercicio2() {
         { nombre: "Laura", edad: 19 },
     ];
 
-        let mayoriaEdad = personas.filter(p => p.edad > 18);
+    let mayoriaEdad = personas.filter(p => p.edad > 18);
     let mayorEdad = mayoriaEdad.map(p => {
-         return{
+        return {
             nombre: p.nombre
-         };
+        };
     });
 
     alert(JSON.stringify(mayorEdad));
 
+    //-----------------------------------------------------------------
+    //-----------------------------------------------------------------
+
+
+    // Crea un nuevo array con los cuadrados de los números impares.
+    const numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+    let numerosImpares = numeros.filter(numero => numero % 2 !== 0);
+
+
+    let cuadrado = numerosImpares.map(numero => numero * numero);
+    alert(cuadrado);
 
 
 
 
+
+}
+
+
+
+function ejercicio3() {
+    // Usa reduce para obtener la suma total de los números.
+    const numeros = [10, 20, 30, 40];
+
+    let suma = numeros.reduce((a, n) => a + n, 0);
+    alert(suma);
+
+    //-----------------------------------------------------------------
+    //-----------------------------------------------------------------
+
+    // Calcula el promedio de edades del grupo.
+    const grupo = [
+        { nombre: "Ana", edad: 18 },
+        { nombre: "Pedro", edad: 22 },
+        { nombre: "Lucía", edad: 24 },
+        { nombre: "Marta", edad: 20 },
+    ];
+
+
+
+    let mediaEdad = grupo.reduce((a, n) => a + n.edad, 0);
+
+    let mediaFinal = mediaEdad / grupo.length;
+    alert(mediaFinal);
+
+
+    //-----------------------------------------------------------------
+    //-----------------------------------------------------------------
+
+    // Usa find para obtener el producto con nombre "Tablet".
+    const productos = [
+        { nombre: "Laptop", precio: 1000 },
+        { nombre: "Tablet", precio: 500 },
+        { nombre: "Celular", precio: 700 },
+    ];
+
+    const buscar = "Tablet";
+
+    let busqueda = productos.find(producto => producto.nombre.toLowerCase() === buscar.toLowerCase());
+    alert(JSON.stringify(busqueda));
+
+    //-----------------------------------------------------------------
+    //-----------------------------------------------------------------
+
+    // Usa some y every:
+    // - ¿Hay algún número mayor a 100?
+    // - ¿Son todos positivos?
+    const numeros2 = [10, 20, 30, 150];
 
 
 }
