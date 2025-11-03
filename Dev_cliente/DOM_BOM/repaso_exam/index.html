@@ -9,7 +9,42 @@
     <button type="button" onclick="ejercicio1()">boton1</button>
     <button type="button" onclick="ejercicio2()">boton2</button><hr>
     <button type="button" onclick="ejercicio3()">boton3</button>
+    <button type="button" onclick="repasoNombres()">RepasoNombres</button>
+
     
     <script src="./scripts/js.js"></script>
+
+    <hr><hr>
+    <h3>Parte del Json</h3>
+    <h3>Formulario de Persona</h3>
+<form id="personaForm">
+  <label for="nombre">Nombre:</label><br>
+  <input type="text" id="nombre" name="nombre"><br><br>
+
+  <label for="edad">Edad:</label><br>
+  <input type="number" id="edad" name="edad" min="0"><br><br>
+
+  <label>Sexo:</label><br>
+  <input type="radio" id="sexoM" name="sexo" value="M">
+  <label for="sexoM">Masculino</label><br>
+  <input type="radio" id="sexoF" name="sexo" value="F">
+  <label for="sexoF">Femenino</label><br><br>
+
+  <label for="nombre">DNI:</label><br>
+  <input type="text" id="dni" name="dni"><br><br>
+
+  <button type="button" id="enviar" onclick="DarAltaPersona ()">Enviar</button>
+  <button type="button" id="mostrar" onclick="MostrarPersona()">Mostrar</button>
+
+</form>
+
+<hr><hr>
+
+<div id="resumen"></div>
+<p>Resumen</p>
+
+
+
 </body>
 </html>
+

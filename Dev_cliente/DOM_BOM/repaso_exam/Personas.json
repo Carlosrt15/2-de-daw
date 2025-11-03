@@ -1,0 +1,24 @@
+{
+  "personas": [
+    {
+      "id": "26f7",
+      "nombre": "carlos",
+      "edad": "19",
+      "sexo": "M"
+    },
+    {
+      "id": "5f1d",
+      "nombre": "laura",
+      "edad": "20",
+      "sexo": "F"
+    },
+    {
+      "id": "2190",
+      "nombre": "Ana",
+      "edad": "24",
+      "sexo": "F",
+      "dni": "70860102j"
+    }
+    
+  ]
+}
