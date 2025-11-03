@@ -227,12 +227,17 @@ function MostrarPersona() {
     .then(respuesta => respuesta.json())
     .then(datos => {
       let html = "";
+      let hora = new Date();
       datos.forEach(p => {
-        html += `<p>${p.nombre}  Nombre - ${p.sexo} Sexo - ${p.edad} años - ${p.dni} - DNI </p>`;
+        html += `<p>${p.nombre}  Nombre - ${p.sexo} Sexo - ${p.edad} años - ${p.dni} - DNI </p> <br>
+        
+        <p>${hora.toLocaleDateString('es-ES')}</p>`;
       });
       document.getElementById("resumen").innerHTML = html;
     })
     .catch(err => { console.error(err); });
+
+
 
 
 
