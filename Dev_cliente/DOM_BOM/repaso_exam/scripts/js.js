@@ -178,42 +178,42 @@ function repasoNombres() {
   let primeraPersonaMayor37 = personas.find(persona => persona.edad > 37);
 
   let Mostrar = JSON.stringify(primeraPersonaMayor37);
-  alert(Mostrar,null,2);
+  alert(Mostrar, null, 2);
 
 }
 
 
 
-function DarAltaPersona (){
-    let nombre = document.getElementById("nombre").value;
-    let edad =  document.getElementById("edad").value;
-    let dni =  document.getElementById("dni").value;
-    let sexo =  document.querySelector('input[name="sexo"]:checked').value;
+function DarAltaPersona() {
+  let nombre = document.getElementById("nombre").value;
+  let edad = document.getElementById("edad").value;
+  let dni = document.getElementById("dni").value;
+  let sexo = document.querySelector('input[name="sexo"]:checked').value;
 
-    const Persona = {
-        nombre: nombre,
-        edad: edad,
-        sexo: sexo,
-        dni: dni
-    };
-    alert(JSON.stringify(Persona));
+  const Persona = {
+    nombre: nombre,
+    edad: edad,
+    sexo: sexo,
+    dni: dni
+  };
+  alert(JSON.stringify(Persona));
 
-    // Crear la introducion de datos al servidor 
+  // Crear la introducion de datos al servidor 
 
-       fetch("http://localhost:3000/personas",{
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(Persona)
-       })
-       .then(respuesta => respuesta.json())
-       .catch(error => {
-        console.error("Error al enviar", error);
-       } );
+  fetch("http://localhost:3000/personas", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(Persona)
+  })
+    .then(respuesta => respuesta.json())
+    .catch(error => {
+      console.error("Error al enviar", error);
+    });
 
 
-    
+
 
 
 
@@ -223,17 +223,48 @@ function DarAltaPersona (){
 }
 
 function MostrarPersona() {
-    fetch("http://localhost:3000/personas")
-      .then(respuesta => respuesta.json())
-      .then(datos => {
-        let html = "";
-        datos.forEach(p => {
-         html += `<p>${p.nombre} - ${p.sexo} - ${p.edad} años - ${p.dni} - DNI </p>`;
+  fetch("http://localhost:3000/personas")
+    .then(respuesta => respuesta.json())
+    .then(datos => {
+      let html = "";
+      datos.forEach(p => {
+        html += `<p>${p.nombre}  Nombre - ${p.sexo} Sexo - ${p.edad} años - ${p.dni} - DNI </p>`;
       });
       document.getElementById("resumen").innerHTML = html;
-      })
-      .catch(err => {
-      document.getElementById("resumen").textContent = "Error al cargar datos.";
-      console.error(err);
-    });
+    })
+    .catch(err => { console.error(err); });
+
+
+
+}
+
+function BorarPersona() {
+
+  let tomarDni = document.getElementById("dni").value;
+
+  if (tomarDni === "") {
+    alert("Debes meter un DNI majete..");
+    return;
+  }
+
+
+  fetch("http://localhost:3000/personas")
+    .then(response => response.json())
+    .then(personas => {
+      let persona = personas.find(d => d.dni.toLowerCase() === tomarDni.toLowerCase());
+
+      return fetch(`http://localhost:3000/personas/${persona.id}`, { method: 'DELETE' });
+
+    })
+
+    .then(response => {
+      if (response && response.ok) {
+        alert("cliente fue borrado");
+      }
+    })
+
+    .catch(error => console.error("No se pudo borrar al cliente:", error));
+
+
+
 }
