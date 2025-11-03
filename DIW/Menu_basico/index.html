@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menús con Flexbox</title>
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <h1>Menús con Flexbox</h1>
+
+  <nav class="menu sencillo">
+    <ul>
+      <li><a href="#">Inicio</a></li>
+      <li><a href="#">Servicios</a></li>
+      <li><a href="#">Productos</a></li>
+      <li><a href="#">Contacto</a></li>
+    </ul>
+  </nav>
+
+  <nav class="menu iconos">
+    <ul>
+      <li><a href="#"><i class="fa-solid fa-house"></i> Inicio</a></li>
+      <li><a href="#"><i class="fa-solid fa-gear"></i> Servicios</a></li>
+      <li><a href="#"><i class="fa-solid fa-bag-shopping"></i> Productos</a></li>
+      <li><a href="#"><i class="fa-solid fa-envelope"></i> Contacto</a></li>
+    </ul>
+  </nav>
+
+  <nav class="menu dropdown">
+    <ul>
+      <li><a href="#">Inicio</a></li>
+      <li class="submenu">
+        <a href="#">Servicios</a>
+        <ul>
+          <li><a href="#">Diseño</a></li>
+          <li><a href="#">Desarrollo</a></li>
+          <li><a href="#">Marketing</a></li>
+        </ul>
+      </li>
+      <li><a href="#">Contacto</a></li>
+    </ul>
+  </nav>
+
+  <nav class="menu redes">
+    <ul>
+      <li><a href="#"><i class="fa-brands fa-facebook"></i></a></li>
+      <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
+      <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+      <li><a href="#"><i class="fa-brands fa-snapchat"></i></a></li>
+    </ul>
+  </nav>
+
+  <nav class="menu combinado">
+    <div class="contenedor">
+      <ul class="principal">
+        <li><a href="#">Inicio</a></li>
+        <li class="submenu">
+          <a href="#">Servicios</a>
+          <ul>
+            <li><a href="#">Diseño</a></li>
+            <li><a href="#">Desarrollo</a></li>
+          </ul>
+        </li>
+        <li><a href="#">Contacto</a></li>
+      </ul>
+      <ul class="sociales">
+        <li><a href="#"><i class="fa-brands fa-facebook"></i></a></li>
+        <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
+        <li><a href="#"><i class="fa-brands fa-snapchat"></i></a></li>
+      </ul>
+    </div>
+  </nav>
+</body>
+</html>
