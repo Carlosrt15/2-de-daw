@@ -1,5 +1,5 @@
 body {
-  font-family: 'Segoe UI', sans-serif;
+  font-family:  sans-serif;
   margin: 20px;
   background-color: #e8f0fa;
   color: #0a3d62;
@@ -176,4 +176,9 @@ a {
   .menu.combinado .submenu ul {
     position: static;
   }
+}
+
+@media (max-width: 768px){
+
+  
 }
