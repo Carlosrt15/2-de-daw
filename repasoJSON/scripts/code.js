@@ -6,15 +6,15 @@ function Enviar() {
 
     let sexo = document.querySelector('input[name="sexo"]:checked').value;
 
-    var Persona = [
-        {
-            nombre: name,
-            apellidos: surname,
-            edad: years,
-            dni: iditf,
-            genero: sexo
-        }
-    ];
+    var Persona = {
+
+        nombre: name,
+        apellidos: surname,
+        edad: years,
+        dni: iditf,
+        genero: sexo
+    };
+
 
 
 
@@ -85,4 +85,36 @@ function Borrar() {
 
 
 
+}
+
+
+function Modificar() {
+  let name = document.getElementById("nombre").value;
+  let surname = document.getElementById("apellidos").value;
+  let years = document.getElementById("edad").value;
+  let iditf = document.getElementById("dni").value;
+  let sexo = document.querySelector('input[name="sexo"]:checked').value;
+
+  var Persona = {
+    nombre: name,
+    apellidos: surname,
+    edad: years,
+    dni: iditf,
+    genero: sexo
+  };
+
+  fetch("http://localhost:3000/personas")
+    .then(res => res.json())
+    .then(personas => {
+      const persona = personas.find(p => p.dni === iditf);
+      if (!persona) return alert("No existe ese DNI");
+
+      return fetch(`http://localhost:3000/personas/${persona.id}`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(Persona)
+      });
+    })
+    .then(res => res && res.ok && alert("Persona modificada"))
+    .catch(err => console.error("Error:", err));
 }
