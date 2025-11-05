@@ -43,10 +43,17 @@ function modificarTexto(texto) {
 
 function ordenarPalabras(texto) {
     let textoOrdena = document.getElementById('textArea').value;
-    let palabra = "ria"
-    let cambiarFin = textoOrdena.filter(p => p.palabra );
+    
+    let palabras = textoOrdena.split(',');
 
+    let ordenar = palabras.sort((a,b) => {
+        let letraA = a[1];
+        let letraB = b[1];
+        return letraA.localeCompare(letraB);
+    });
 
+    let unirTodo = ordenar.join("-");
+    alert(unirTodo);
 
 }
 
