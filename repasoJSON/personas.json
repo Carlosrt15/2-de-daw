@@ -1,0 +1,38 @@
+{
+  "personas": [
+    {
+      "nombre": "Carlos",
+      "apellidos": "Gómez López",
+      "edad": 30,
+      "dni": "12345678A",
+      "sexo": "Hombre",
+      "id": "a18a"
+    },
+    {
+      "nombre": "María",
+      "apellidos": "Pérez Ruiz",
+      "edad": 25,
+      "dni": "87654321B",
+      "sexo": "Mujer",
+      "id": "842e"
+    },
+    {
+      "nombre": "Alex",
+      "apellidos": "Fernández Díaz",
+      "edad": 22,
+      "dni": "11223344C",
+      "sexo": "Otro",
+      "id": "175e"
+    },
+    {
+      "0": {
+        "nombre": "Carlos",
+        "apellidos": "Rodríguez ",
+        "edad": "27",
+        "dni": "70560902j",
+        "genero": "Otro"
+      },
+      "id": "6378"
+    }
+  ]
+}
