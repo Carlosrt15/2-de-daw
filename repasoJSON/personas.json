@@ -1,0 +1,20 @@
+{
+  "personas": [
+    {
+      "nombre": "Carlos",
+      "apellidos": "Gómez López",
+      "edad": 30,
+      "dni": "12345678A",
+      "sexo": "Hombre",
+      "id": "a18a"
+    },
+    {
+      "nombre": "María",
+      "apellidos": "Pérez Ruiz",
+      "edad": 25,
+      "dni": "87654321B",
+      "sexo": "Mujer",
+      "id": "842e"
+    }
+  ]
+}
