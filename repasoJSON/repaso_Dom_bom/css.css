@@ -1,0 +1,15 @@
+.rojo{
+    background-color: brown;
+}
+
+.azul{
+    background-color: rgb(41, 95, 245);
+    font-weight: bold;
+    text-decoration: line-through;
+}
+
+.black{
+    background-color: rgb(99, 209, 84);
+    font-weight: bold;
+    text-decoration: wavy;
+}

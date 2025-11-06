@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Visibilizar contraseña y 3 en raya</title>
+    <link rel="stylesheet" href="../style/ejercicio1.css">
+    <script src="../scripts/code.js"></script>
+</head>
+
+<body>
+    <!-- ======== Sección: Cambiar contraseña ======== -->
+    <div class="contenedorPrincipal">
+        <h1>Cambiar contraseña</h1>
+        <input type="password" name="password" id="password" placeholder="Introduce la nueva contraseña">
+        <button type="button" id="botonVer" onclick="verPassword();">Ver</button>
+    </div>
+
+    <!-- ======== Sección: Juego de 3 en raya ======== -->
+    <div class="contenedorJuego">
+        <h1>Juego de 3 en raya</h1>
+
+        <input type="text" id="jugador1" placeholder="Nombre del jugador 1"><br>
+        <input type="text" id="jugador2" placeholder="Nombre del jugador 2"><br>
+
+        <button type="button" onclick="iniciarPartida()">Iniciar partida</button>
+        <button type="button" onclick="reiniciarPartida()">Reiniciar partida</button>
+
+        <br><br>
+
+        <!-- ======== Tablero 3x3 ======== -->
+        <table id="tablero" border="1" cellspacing="0" cellpadding="0">
+            <tr>
+                <td><button class="casilla" disabled></button></td>
+                <td><button class="casilla" disabled></button></td>
+                <td><button class="casilla" disabled></button></td>
+            </tr>
+            <tr>
+                <td><button class="casilla" disabled></button></td>
+                <td><button class="casilla" disabled></button></td>
+                <td><button class="casilla" disabled></button></td>
+            </tr>
+            <tr>
+                <td><button class="casilla" disabled></button></td>
+                <td><button class="casilla" disabled></button></td>
+                <td><button class="casilla" disabled></button></td>
+            </tr>
+        </table>
+    </div>
+</body>
+
+</html>
