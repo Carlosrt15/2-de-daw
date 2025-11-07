@@ -40,11 +40,11 @@ function iniciarPartida() {
 }
 
 function bloquearTablero() {
-  
+
     document.querySelectorAll(".casilla").forEach(c => c.disabled = true);
 }
 
-function marcarCasillas(event) {
+function marcarCasilla(event) {
   let boton = event.target;
 
   if (turno === 1) {
@@ -98,3 +98,14 @@ function comprobarGanador(simbolo) {
 }
 
 
+function reiniciarPartida() {
+    const casillas = document.querySelectorAll(".casilla");
+    casillas.forEach(casilla => {
+        casilla.textContent = "";
+        casilla.style.backgroundColor = "";
+        casilla.disabled = true;
+    });
+    jugador1 = "";
+    jugador2 = "";
+    turno = 1;
+}
