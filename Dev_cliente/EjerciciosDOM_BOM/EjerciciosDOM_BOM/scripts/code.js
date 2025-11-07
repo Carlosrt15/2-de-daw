@@ -109,3 +109,24 @@ function reiniciarPartida() {
     jugador2 = "";
     turno = 1;
 }
+
+function ventanaEmergente(){
+
+  let ventana = window.open("", "Ventana","width=400,height=300");
+
+
+  ventana.document.write(`<p>Hola mundo</p>`);
+
+  let pedirNum1 = 12;
+  let pedirNum2 = 54.6;
+  let suma = pedirNum2 + pedirNum1;
+  let total = suma.toFixed(2);
+
+  let pTotal = ventana.document.createElement("p");
+  pTotal.textContent = `Total: ${total}`;
+  pTotal.setAttribute("class", "ventanass");
+
+  ventana.document.write("<hr>");
+  ventana.document.body.appendChild(pTotal);
+}
+
