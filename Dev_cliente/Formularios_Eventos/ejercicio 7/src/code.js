@@ -116,4 +116,18 @@ function bodyy(){
   });
 }
 
+function mostrarKey(){
+  let tomarCuerpo = document.getElementsByTagName('body')[0];
+ let mostrar = document.getElementsByTagName('span')[0];
+
+  tomarCuerpo.addEventListener('keydown', (c) =>{
+    alert(c.keyCode);
+    // preguntar Sonia
+    alert(c.key);
+
+  });
+
+}
+mostrarKey();
+
 bodyy();
