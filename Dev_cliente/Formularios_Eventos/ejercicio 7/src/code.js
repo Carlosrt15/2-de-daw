@@ -15,7 +15,7 @@ const p1 = document.getElementById("p1");
 
 
 h2.addEventListener("click", () => {
-  
+
   const visibles = (p2.style.display !== "none" && p5.style.display !== "none");
 
   if (visibles) {
@@ -26,7 +26,7 @@ h2.addEventListener("click", () => {
     p5.style.display = "block";
   }
 
- 
+
   inputsTexto.forEach(input => {
     let sizeActual = parseInt(input.getAttribute("size"));
     input.setAttribute("size", sizeActual + 5);
@@ -58,36 +58,46 @@ p1.addEventListener("dblclick", () => {
     }
   });
 
-  
+
   listaPar.forEach(li => {
-    li.style.backgroundColor = "#d1c4e9"; 
+    li.style.backgroundColor = "#d1c4e9";
   });
 });
 
-let turno = true
-  // YO ejercicio 1 de formulario  Y Eventos
-function ejercicio1_2 (){
-    let primerP = document.querySelector('p');
-    let primerh1 = document.querySelector('h1');
+//--------------------------------------------------------------------
+//----------------------------------------------------------------------
+//-----------------------------------------------------------------------
+
+
+//  ejercicio 1 de formulario  Y Eventos
+function ejercicio1_2() {
+  let primerP = document.querySelector('p');
+  let primerh1 = document.querySelector('h1');
 
   // Variable fuera del eschucha si no falla  
-    
+  let turno = true
 
-    primerP.addEventListener("dblclick",() =>{
-       
-      
-      if(turno ){
-        primerh1.style.color ='red';
-      
-      } else {
-        primerh1.style.color ='black';
-       
-      }
-      turno = !turno;
+  function cambiarColor() {
+    if (turno) {
+      primerh1.style.color = 'red';
 
-    });
-    
+    } else {
+      primerh1.style.color = 'black';
 
+    }
+    turno = !turno;
+    primerP.removeEventListener("dblclick", cambiarColor);
+    console.log("Listener eliminado ");
+  }
+    primerP.addEventListener("dblclick", cambiarColor);
 }
+       
+      
+      
+        
+    
+    
 
-ejercicio1_2 ();
+
+
+ejercicio1_2();
