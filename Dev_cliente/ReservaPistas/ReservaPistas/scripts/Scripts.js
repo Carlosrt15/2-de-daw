@@ -56,8 +56,6 @@ function parte5() {
         formularioDeporte2.innerHtml = "";
         avisas.innerHtml = "";
         
-
-
         
 
 
