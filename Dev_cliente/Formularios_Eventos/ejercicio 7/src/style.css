@@ -1,0 +1,25 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+}
+
+h2, h3 {
+  color: #333;
+  cursor: pointer;
+}
+
+/* Reglas pedidas en el ejercicio */
+.parrafosNormal {
+  background-color: #e0f7fa;
+  font-family: "Verdana", sans-serif;
+}
+
+.parrafosEspecial {
+  background-color: #ffcc80;
+  font-weight: bold;
+}
+
+/* Para los elementos de lista pares */
+li.par {
+  background-color: #f2f2f2;
+}
