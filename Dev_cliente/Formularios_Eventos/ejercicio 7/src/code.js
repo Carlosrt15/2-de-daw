@@ -68,14 +68,14 @@ p1.addEventListener("dblclick", () => {
 //----------------------------------------------------------------------
 //-----------------------------------------------------------------------
 
-
+ let turno = true
 //  ejercicio 1 de formulario  Y Eventos
 function ejercicio1_2() {
   let primerP = document.querySelector('p');
   let primerh1 = document.querySelector('h1');
 
   // Variable fuera del eschucha si no falla  
-  let turno = true
+ 
 
   function cambiarColor() {
     if (turno) {
@@ -86,7 +86,7 @@ function ejercicio1_2() {
 
     }
     turno = !turno;
-    primerP.removeEventListener("dblclick", cambiarColor);
+   primerP.removeEventListener("dblclick", cambiarColor);
     console.log("Listener eliminado ");
   }
     primerP.addEventListener("dblclick", cambiarColor);
@@ -101,3 +101,6 @@ function ejercicio1_2() {
 
 
 ejercicio1_2();
+
+
+/*Ejercicio 2 eventos y formularios */
