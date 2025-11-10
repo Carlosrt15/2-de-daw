@@ -104,3 +104,16 @@ ejercicio1_2();
 
 
 /*Ejercicio 2 eventos y formularios */
+
+function bodyy(){
+  let tomarCuerpo = document.getElementsByTagName('body')[0];
+
+  let mostrar = document.getElementsByTagName('span')[0];
+
+  tomarCuerpo.addEventListener('mouseover', (e) =>{
+    mostrar.innerHTML = `y: ${e.pageY}, x: ${e.pageX}`;
+      
+  });
+}
+
+bodyy();
