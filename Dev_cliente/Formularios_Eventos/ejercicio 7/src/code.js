@@ -64,6 +64,9 @@ p1.addEventListener("dblclick", () => {
   });
 });
 
+
+
+
 //--------------------------------------------------------------------
 //----------------------------------------------------------------------
 //-----------------------------------------------------------------------
@@ -118,12 +121,12 @@ function bodyy(){
 
 function mostrarKey(){
   let tomarCuerpo = document.getElementsByTagName('body')[0];
- let mostrar = document.getElementsByTagName('span')[0];
+ 
 
-  tomarCuerpo.addEventListener('keydown', (c) =>{
-    alert(c.keyCode);
+  tomarCuerpo.addEventListener('keydown', (letra) =>{
+    alert(letra.keyCode);
     // preguntar Sonia
-    alert(c.key);
+    alert(letra.key);
 
   });
 
