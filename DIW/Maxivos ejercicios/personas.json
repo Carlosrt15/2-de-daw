@@ -1,0 +1,31 @@
+{
+  "personas": [
+    {
+      "id": "1",
+      "nombre": "María",
+      "apellidos": "García López",
+      "email": "maria.garcia@example.com",
+      "telefono": "600111222",
+      "fecha_nacimiento": "12/05/1990",
+      "mensaje": "Hola, me gustaría recibir información."
+    },
+    {
+      "id": "2",
+      "nombre": "Juan",
+      "apellidos": "Pérez Martínez",
+      "email": "juan.perez@example.com",
+      "telefono": "611222333",
+      "fecha_nacimiento": "01/10/1985",
+      "mensaje": "Gracias por su atención."
+    },
+    {
+      "id": "3",
+      "nombre": "Lucía",
+      "apellidos": "Sánchez Ruiz",
+      "email": "lucia.sanchez@example.com",
+      "telefono": "622334455",
+      "fecha_nacimiento": "20/07/1992",
+      "mensaje": "Quiero suscribirme."
+    }
+  ]
+}
