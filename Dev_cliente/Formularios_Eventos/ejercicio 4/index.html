@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Formulario de ejemplo</title>
+</head>
+<body>
+  <form id="miFormulario" action="" method="post">
+    <!-- Campo del último ejemplo -->
+    <label for="campoEjemplo">Campo ejemplo:</label>
+    <input type="text" id="campoEjemplo" name="campoEjemplo" required>
+
+    
+    <label for="telefono">Teléfono:</label>
+    <input type="text" id="tlfn" onkeypress="return validarNum (evnt)">
+
+    
+    <fieldset>
+      <legend>Franjas horarias</legend>
+      <label><input type="checkbox" name="franja" value="6:00-14:00"> 6:00 a 14:00</label>
+      <label><input type="checkbox" name="franja" value="14:00-20:00"> 14:00 a 20:00</label>
+      <label><input type="checkbox" name="franja" value="20:00-01:00"> 20:00 a 01:00</label>
+    </fieldset>
+
+    
+    <fieldset>
+      <legend>Tipo de pago</legend>
+      <label><input type="radio" name="prepago" value="sí" required> Sí</label>
+      <label><input type="radio" name="prepago" value="no" required> No</label>
+    </fieldset>
+
+    
+    <label for="compania">Compañía de teléfono:</label>
+    <select id="compania" name="compania" required>
+      <option value="">Seleccione...</option>
+      <option value="Movistar">Movistar</option>
+      <option value="Vodafone">Vodafone</option>
+      <option value="Orange">Orange</option>
+      <option value="Yoigo">Yoigo</option>
+      <option value="Pepephone">Pepephone</option>
+    </select>
+
+    
+    <label for="observaciones">Observaciones (máx. 140 caracteres):</label>
+    <textarea id="observaciones" name="observaciones" maxlength="140" required></textarea>
+
+    
+    <button type="button" onclick="Comprobar()">Enviar</button>
+  </form>
+  <script src="./src/codigo.js"></script>
+</body>
+</html>
