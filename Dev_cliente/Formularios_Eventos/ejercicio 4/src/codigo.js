@@ -9,7 +9,7 @@ function Comprobar() {
 
     //  Mostrar valor
     let mostrar1 = tomarRadio.value;
-    let mostrar2 =  tomarFranjaHoraria.value;
+    let mostrar2 = tomarFranjaHoraria.value;
 
 
     // comprobar que todos lo campos tiene un valor 
@@ -25,10 +25,28 @@ function Comprobar() {
 
     if (faltan.length === 0) {
         alert("los campos a excepciol de checbox tienen contenido");
-            alert(tomarCompania + tomarTlfn + tomarObs + mostrar1 +  tomarEjemplo + mostrar2);
+        alert(tomarCompania + tomarTlfn + tomarObs + mostrar1 + tomarEjemplo + mostrar2);
     } else {
-        alert("Algunos campos estan vacios: " +faltan.join(","));
+        alert("Algunos campos estan vacios: " + faltan.join(","));
     }
+
+}
+
+function validarNum(event) {
+    
+
+    let codigo = event.keCode || event.which;
+    // https://elcodigoascii.com.ar/
+
+    if (codigo === 8 || codigo === 46 || codigo === 37 || codigo === 39) {
+        return;
+    }
+     if (codigo < 48 || codigo > 57) {
+      event.preventDefault(); 
+    }
+
+
+
 
 }
 
