@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="Style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario Responsivo</title>
+</head>
+<body>
+    <div class="contenedor">
+        <div class="formulario">
+            <form action="#">
+                <h2>Formulario de registro</h2>
+
+                <label for="nombre">Nombre</label>
+                <input type="text" id="nombre">
+
+                <label for="apellidos">Apellidos</label>
+                <input type="text" id="apellidos">
+
+                <label for="email">Email</label>
+                <input type="email" id="email">
+
+                <label for="telefono">Teléfono</label>
+                <input type="number" id="telefono">
+
+                <label for="direccion">Dirección</label>
+                <input type="text" id="direccion">
+
+                <label for="ciudad">Ciudad</label>
+                <select id="ciudad">
+                    <option>Salamanca</option>
+                </select>
+
+                <label for="pais">País</label>
+                <select id="pais">
+                    <option>España</option>
+                </select>
+
+                <label for="fecha">Fecha de Nacimiento</label>
+                <input type="text" placeholder="dd/mm/aaaa" id="fecha">
+
+                <label for="mensaje">Mensaje</label>
+                <textarea id="mensaje"></textarea>
+
+                <div class="terminos">
+                    <input type="checkbox" id="terminos">
+                    <label for="terminos">Acepto los términos y condiciones</label>
+                </div>
+
+                <button type="button">Enviar</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
