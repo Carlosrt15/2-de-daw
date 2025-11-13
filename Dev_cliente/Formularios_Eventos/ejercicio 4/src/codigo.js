@@ -35,7 +35,7 @@ function Comprobar() {
 function validarNum(event) {
     
 
-    let codigo = event.keCode || event.which;
+    let codigo = event.keyCode || event.which;
     // https://elcodigoascii.com.ar/
 
     if (codigo === 8 || codigo === 46 || codigo === 37 || codigo === 39) {
