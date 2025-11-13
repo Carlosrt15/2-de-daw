@@ -33,39 +33,34 @@ function dni() {
     let toamrP = document.getElementsByTagName("p")[0];
     let tomarBody = document.getElementsByTagName("body")[0];
 
-
+    const letrasDni = [
+        "T", "R", "W", "A", "G", "M", "Y", "F", "P", "D",
+        "X", "B", "N", "J", "Z", "S", "Q", "V", "H", "L",
+        "C", "K", "E"
+    ];
 
     tomarBody.addEventListener("keydown", (e) => {
         console.log("Se pulso tecla");
-        let tecla = e.key;
+        let tecla = e.key.toUpperCase();
         alert(tecla);
 
-        let a0 = "T";
-        let a1 = "R";
-        let a2 = "W";
-        let a3 = "A";
-        let a4 = "G";
-        let a5 = "M";
-        let a6 = "Y";
-        let a7 = "F";
-        let a8 = "P";
-        let a9 = "D";
-        let a10 = "X";
-        let a11 = "B";
-        let a12 = "N";
-        let a13 = "J";
-        let a14 = "Z";
-        let a15 = "S";
-        let a16 = "Q";
-        let a17 = "V";
-        let a18 = "H";
-        let a19 = "L";
-        let a20 = "C";
-        let a21 = "K";
-        let a22 = "E";
+        if (letrasDni.includes(tecla)) {
 
 
+            let resultado = [];
 
+            for (let i = 1; i <= 9999; i++) {
+                let total = i % 23;
+                if (letrasDni[total] === tecla) {
+                    resultado.push(tecla);
+                }
+
+            }
+            toamrP.innerHTML = `el resultado es ${resultado}`;
+
+        } else {
+            toamrP.innerHTML = "";
+        }
 
     });
 
