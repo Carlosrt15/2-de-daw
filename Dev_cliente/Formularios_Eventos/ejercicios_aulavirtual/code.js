@@ -29,4 +29,21 @@ function ejercicio1() {
 
 }
 
+function dni(){
+    let toamrP = document.getElementsByTagName("p")[0];
+    let tomarBody = document.getElementsByTagName("body")[0];
+    
+
+
+    tomarBody.addEventListener("keydown",(e)=> {
+        console.log("Se pulso tecla");
+        let tecla = e.key;
+        alert(tecla);
+
+    });
+
+
+}
+dni();
+
 ejercicio1();
