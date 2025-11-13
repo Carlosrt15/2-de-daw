@@ -56,15 +56,17 @@ function dni() {
                 }
 
             }
-            toamrP.innerHTML = `el resultado es ${resultado}`;
+            toamrP.innerHTML = `el resultado es:  ${resultado}`;
+            console.log("entra aqui1");
 
         } else {
             toamrP.innerHTML = "";
+            console.log("entra aqui2");
         }
 
     });
 
-
+        // no se muestra bien o 
 }
 dni();
 
