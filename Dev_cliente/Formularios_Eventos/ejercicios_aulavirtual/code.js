@@ -64,10 +64,26 @@ function dni() {
             console.log("entra aqui2");
         }
 
+        let eliminarBoton = document.getElementById("eliminar");
+        eliminarBoton.addEventListener("click", (h)=>{
+            toamrP.innerHTML = "";
+        });
+
     });
 
         // no se muestra bien o 
 }
+
+
+function randomColor(){
+    let body = document.getElementsByTagName("body")[0];
+
+    body.addEventListener("dblclick", (j)=>{
+        body.style.backgroundColor ="red";
+    });
+
+}
+randomColor();
 dni();
 
 ejercicio1();
