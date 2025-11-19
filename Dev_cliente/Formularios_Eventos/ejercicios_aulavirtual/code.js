@@ -141,4 +141,21 @@ function comprobarString() {
 
 }
 
+
+
+function comprobarDni() {
+    let pedirDni = prompt("Introduce un DNI");
+    let comprobarDni = /[0-9]{8}+[A-Z]{1} /;
+
+    if (comprobarDni.test(pedirDni)) {
+        alert("DNI valido");
+    } else {
+        alert("DNI no valido");
+    }
+
+
+}
+
+comprobarDni();
+
 comprobarString();
