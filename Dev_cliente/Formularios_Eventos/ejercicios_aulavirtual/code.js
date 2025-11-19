@@ -89,7 +89,7 @@ dni();
 ejercicio1();
 
 
-/**Ejercicio 4 */
+/**Ejercicio 4 */ // ------------------------------------------------
 
 function comprobarString() {
     let pedirString = prompt("Introduce una cadena de texto ");
@@ -112,7 +112,8 @@ function comprobarString() {
 
     let pedirFecha = prompt("Introduce una fecha DD-MM-AAAA");
 
-    let regularFecha = /[0-9]{2}+[0-9]{2}+[0-9]{4}/;
+    let regularFecha = /[0-9]{2}-[0-9]{2}-[0-9]{4}/; // de 4 digitos
+    //let regularFecha2 = /[0-9]{2}-[0-9]{2}-[0-9]{2}/; // con guiones
 
     if (regularFecha.test(pedirFecha)) {
         alert(" Si cumple con la fecha");
@@ -122,7 +123,19 @@ function comprobarString() {
 
     }
 
+    // pedir correo
 
+    let pedirCorreo = prompt("Introduce un correo electronico");
+
+    // dominio sea es, com, net u org 
+    let comprobarCorreo = /[a-z]/;
+
+
+    if (comprobarCorreo.test(pedirCorreo)) {
+
+    } else {
+
+    }
 
 
 
