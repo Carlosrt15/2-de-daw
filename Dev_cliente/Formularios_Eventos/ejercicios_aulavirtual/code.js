@@ -65,21 +65,21 @@ function dni() {
         }
 
         let eliminarBoton = document.getElementById("eliminar");
-        eliminarBoton.addEventListener("click", (h)=>{
+        eliminarBoton.addEventListener("click", (h) => {
             toamrP.innerHTML = "";
         });
 
     });
 
-        // no se muestra bien o 
+    // no se muestra bien o 
 }
 
 
-function randomColor(){
+function randomColor() {
     let body = document.getElementsByTagName("body")[0];
 
-    body.addEventListener("dblclick", (j)=>{
-        body.style.backgroundColor ="red";
+    body.addEventListener("dblclick", (j) => {
+        body.style.backgroundColor = "red";
     });
 
 }
@@ -87,3 +87,45 @@ randomColor();
 dni();
 
 ejercicio1();
+
+
+/**Ejercicio 4 */
+
+function comprobarString() {
+    let pedirString = prompt("Introduce una cadena de texto ");
+
+    // busca 10 digitos seguidos
+    let regular = /[A-Za-z0-9]{10}/;
+
+
+    //let regularFinal =/[A-Za-z0-9]{10}$/ el $ es para el final;
+
+    if (regular.test(pedirString)) {
+        alert("cumple con los 10 digitos seguidos");
+    } else {
+        alert("No cumple con los 10 digitos seguidos");
+
+
+    }
+
+    // pedir fecha 
+
+    let pedirFecha = prompt("Introduce una fecha DD-MM-AAAA");
+
+    let regularFecha = /[0-9]{2}+[0-9]{2}+[0-9]{4}/;
+
+    if (regularFecha.test(pedirFecha)) {
+        alert(" Si cumple con la fecha");
+    } else {
+        alert("No cumple con la fecha");
+
+
+    }
+
+
+
+
+
+}
+
+comprobarString();
