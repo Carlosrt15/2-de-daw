@@ -127,14 +127,14 @@ function comprobarString() {
 
     let pedirCorreo = prompt("Introduce un correo electronico");
 
-    // dominio sea es, com, net u org 
-    let comprobarCorreo = /[a-z]/;
+    // dominio sea es, com, net u org    (parentesis para literales o agrupar)
+    let comprobarCorreo = /[\dA-z]+[\DA-z]+\.(es|com|net|org)/; // si usas [] es que busca la letra exacta en los .es , etc..
 
 
     if (comprobarCorreo.test(pedirCorreo)) {
-
+        alert("Si es un correo valido");
     } else {
-
+        alert("No es un correo valido");
     }
 
 
