@@ -128,7 +128,7 @@ function comprobarString() {
     let pedirCorreo = prompt("Introduce un correo electronico");
 
     // dominio sea es, com, net u org    (parentesis para literales o agrupar)
-    let comprobarCorreo = /[\dA-z]+[\DA-z]+\.(es|com|net|org)/; // si usas [] es que busca la letra exacta en los .es , etc..
+    let comprobarCorreo = /[\dA-z]+[\D.A-z]+\(es|com|net|org)/; // si usas [] es que busca la letra exacta en los .es , etc..
 
 
     if (comprobarCorreo.test(pedirCorreo)) {
@@ -145,7 +145,7 @@ function comprobarString() {
 
 function comprobarDni() {
     let pedirDni = prompt("Introduce un DNI");
-    let comprobarDni = /[0-9]{8}+[A-Z]{1} /;
+    let comprobarDni = /[0-9]{8}+[A-Z]{1}/;
 
     if (comprobarDni.test(pedirDni)) {
         alert("DNI valido");
