@@ -1,4 +1,4 @@
-/* Reset and layout split */
+
 body {
   margin: 0;
   padding: 0;
@@ -8,14 +8,14 @@ body {
   overflow: hidden;
 }
 
-/* Left side image */
+
 .left {
   width: 50vw;
   height: 100vh;
   background: url('https://picsum.photos/1920/1080?blur=2') no-repeat center center/cover;
 }
 
-/* Right side panel */
+
 .right {
   width: 50vw;
   height: 100vh;
@@ -28,7 +28,7 @@ body {
   position: relative;
 }
 
-/* Icons top right */
+
 .icons {
   position: absolute;
   top: 20px;
@@ -40,7 +40,7 @@ body {
 .icons img {
   width: 22px;
   height: 22px;
-  filter: grayscale(100%);
+
   opacity: 0.8;
 }
 
