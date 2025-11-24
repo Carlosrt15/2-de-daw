@@ -68,3 +68,20 @@ function comprobarAnagrama() {
     }
 }
 
+function selectorDePais(){
+    let tomaPais = document.getElementById("Pais").value;
+    let tomarCapital = document.getElementById("capitales").value;
+
+    if(tomaPais === "España") {
+        console.info("España");
+
+    } else if(tomaPais === "Francia") {
+        console.info("Francia");
+
+    }else if(tomaPais === "Irlanda") {
+            console.info("Irlanda");
+    } else {
+        alert("Pais no seleccionado");
+    }
+    
+}
