@@ -1,24 +1,35 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ejercicio 5</title>
 </head>
+
 <body>
 
     <div id="form">
         <form action="">
-        <label for="dni">Dni</label>
-        <input type="text" id="dni" pattern="[0-9]{8}[A-Z]{1}" required placeholder=" letra del DNI en Mayus">
-        <button type="button" onclick="comprobarDni()">Enviar</button><br><br>
+            <label for="dni">Dni</label>
+            <input type="text" id="dni" pattern="[0-9]{8}[A-Z]{1}" required placeholder=" letra del DNI en Mayus">
+            <button type="button" onclick="comprobarDni()">Enviar</button><br><br>
 
-        <label for="correo">Correo</label>                        <!-- el pattern es una expresion correo regular -->         
-        <input type="text" placeholder="introduce tu correo" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" id="correo">
-          </form>  
+            <label for="correo">Correo</label> <!-- el pattern es una expresion correo regular -->
+            <input type="text" placeholder="introduce tu correo" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                id="correo">
+            <button type="button" onclick="comprobarCorreo()">Enviar</button><br><br>
+
+            <label for="texto1">Texto 1</label>
+            <input type="text" id="texto1" required><br><br>
+            <label for="texto2">Texto 2</label>
+            <input type="text" id="texto2" required><br><br>
+            <button type="button" onclick="comprobarTexto()" ondblclick="comprobarAnagrama()">Enviar</button><br><br>
+        </form>
 
 
     </div>
     <script src="./codigo.js"></script>
 </body>
+
 </html>
