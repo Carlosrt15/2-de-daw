@@ -68,20 +68,33 @@ function comprobarAnagrama() {
     }
 }
 
-function selectorDePais(){
+function selectorDePais() {
     let tomaPais = document.getElementById("Pais").value;
-    let tomarCapital = document.getElementById("capitales").value;
+    let tomarCapital = document.getElementById("capitales");
 
-    if(tomaPais === "España") {
-        console.info("España");
+    tomarCapital.innerHTML = "";
 
-    } else if(tomaPais === "Francia") {
-        console.info("Francia");
+    let opciones = [];
 
-    }else if(tomaPais === "Irlanda") {
-            console.info("Irlanda");
+
+    if (tomaPais === "España") {
+
+        opciones = ["Madrid", "Salamanca", "Zaragoza"];
+
+    } else if (tomaPais === "Francia") {
+        opciones = ["Paris", "Burdeos", "Niza"];
+
+    } else if (tomaPais === "Irlanda") {
+        opciones = ["Dublín", "Cork", "KillKenny"];
     } else {
         alert("Pais no seleccionado");
     }
-    
+
+    opciones.forEach(ciudad => {
+        let opcion = document.createElement("option");
+        opcion.value = ciudad;
+        opcion.textContent = ciudad;
+        tomarCapital.appendChild(opcion);
+    });
+
 }
