@@ -10,3 +10,15 @@ body{
     align-items: center;
     text-align: center;
 }
+
+.vacio {
+  display: inline-block;  
+  padding: 5px 10px;       
+  margin: 5px 0;           
+  border: 1px solid #c93e3e;  
+
+}
+
+.resaltado{
+  border: 2px solid rgb(27, 181, 228);
+}

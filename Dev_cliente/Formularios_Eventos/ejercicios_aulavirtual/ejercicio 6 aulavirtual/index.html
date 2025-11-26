@@ -5,13 +5,13 @@
   <meta charset="UTF-8">
   <title>Ejercicio 6 Formularios</title>
 </head>
-<body onload="colorAmarillo()">
+<body onload="colorAmarillo();" >
   <h1>Ejercicio 6 Formularios</h1>
 
   <form action="" method="post">
    
     <label for="nombre">Nombre</label>
-    <input type="text" id="nombre" name="nombre" required><br><br>
+    <input type="text" id="nombre" name="nombre" required oninput="validarCampo(this)"><br><br>
 
     
     <label for="correo">Correo</label>
@@ -23,7 +23,7 @@
 
     
     <label for="fecha">Fecha (ddmmaaaa)</label>
-    <input type="date" id="fecha" name="fecha" required><br><br>
+    <input type="date" id="fecha" name="fecha" required oninput="validarCampo(this)"><br><br>
 
     
     <label for="hora">Hora</label>
@@ -39,11 +39,11 @@
 
     
     <label for="telefono">Teléfono</label>
-    <input type="tel" id="telefono" name="telefono" required><br><br>
+    <input type="tel" id="telefono" name="telefono" required oninput="validarCampo(this)"><br><br>
 
     
     <label for="buscar">Buscar Persona</label>
-    <input type="search" id="buscar" name="buscar" required><br><br>
+    <input type="search" id="buscar" name="buscar" required oninput="validarCampo(this)"><br><br>
 
     
     <label for="color">Color Favorito</label>
