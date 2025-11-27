@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <link rel="stylesheet" href="./estiles.css">
+    <meta charset="UTF-8">
+    <title>Formulario</title>
+</head>
+<body>
+
+<form>
+
+   
+    <label for="provincia">Provincia:</label>
+    <select id="provincia" name="provincia">
+        <option value="avila">Ávila</option>
+        <option value="burgos">Burgos</option>
+        <option value="leon">León</option>
+        <option value="palencia">Palencia</option>
+        <option value="salamanca">Salamanca</option>
+        <option value="segovia">Segovia</option>
+        <option value="soria">Soria</option>
+        <option value="valladolid">Valladolid</option>
+        <option value="zamora">Zamora</option>
+    </select>
+
+    <br><br>
+
+    
+    <label for="alojamiento">Tipo de alojamiento:</label>
+    <select id="alojamiento" name="alojamiento">
+        <option value="casa_rural">Casa rural</option>
+        <option value="hotel_rural">Hotel Rural</option>
+        <option value="hotel">Hotel</option>
+        <option value="hostal">Hostal</option>
+        <option value="apartamento">Apartamento</option>
+    </select>
+
+    <br><br>
+
+    
+    <p>Características:</p>
+
+    <label>
+        <input type="checkbox" name="caracteristicas" value="montana" id="montana">
+        Montaña
+    </label><br>
+
+    <label>
+        <input type="checkbox" name="caracteristicas" value="meseta" id="meseta">
+        Meseta
+    </label><br>
+
+    <label>
+        <input type="checkbox" name="caracteristicas" value="nucleo">
+        En núcleo poblacional
+    </label><br>
+
+    <label>
+        <input type="checkbox" name="caracteristicas" value="aislado">
+        Aislado
+    </label>
+
+</form>
+
+<script src="./codes.js"></script>
+</body>
+</html>
