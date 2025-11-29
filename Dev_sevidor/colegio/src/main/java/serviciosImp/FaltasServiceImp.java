@@ -1,8 +1,6 @@
 package serviciosImp;
 
-import java.sql.SQLException;
 import java.util.ArrayList;
-
 import dao.IFaltasDAO;
 import daoImp.FaltasDAOImpl;
 import dto.FaltasDTO;
@@ -10,31 +8,25 @@ import servicios.IFaltasService;
 
 public class FaltasServiceImp implements IFaltasService {
 
-	private IFaltasDAO faltasDao = new FaltasDAOImpl();
+    private IFaltasDAO dao = new FaltasDAOImpl();
 
-	@Override
-	public ArrayList<FaltasDTO> obtenerTodasFaltas() throws SQLException {
-		return faltasDao.obtenerTodasFaltas();
-	}
+    public ArrayList<FaltasDTO> obtenerTodasFaltas() {
+        return dao.obtenerTodasFaltas();
+    }
 
-	@Override
-	public ArrayList<FaltasDTO> obtenerFaltaPorFecha(int idfaltas, int alumno, int asignatura, String fecha,
-			int justificada) {
-		return faltasDao.obtenerFaltaPorFecha(idfaltas, alumno, asignatura, fecha, justificada);
-	}
+    public int insertarFalta(int alumno, int asignatura, String fecha, int justificada) {
+        return dao.insertarFalta(alumno, asignatura, fecha, justificada);
+    }
 
-	@Override
-	public int insertarFalta(int idfaltas, int alumno, int asignatura, String fecha, int justificada) {
-		return faltasDao.insertarFalta(idfaltas, alumno, asignatura, fecha, justificada);
-	}
+    public int borrarFalta(int idfaltas) {
+        return dao.borrarFalta(idfaltas);
+    }
 
-	@Override
-	public int actualizarFalta(int idfaltas, int alumno, int asignatura, String fecha, int justificada) {
-		return faltasDao.actualizarFalta(idfaltas, alumno, asignatura, fecha, justificada);
-	}
+    public int actualizarFalta(int idfaltas, int alumno, int asignatura, String fecha, int justificada) {
+        return dao.actualizarFalta(idfaltas, alumno, asignatura, fecha, justificada);
+    }
 
-	@Override
-	public int borrarFalta(int idfaltas, int alumno, int asignatura, String fecha, int justificada) {
-		return faltasDao.borrarFalta(idfaltas, alumno, asignatura, fecha, justificada);
-	}
+    public FaltasDTO obtenerFaltaPorId(int idfaltas) {
+        return dao.obtenerFaltaPorId(idfaltas);
+    }
 }

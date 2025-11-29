@@ -1,52 +1,51 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="jakarta.tags.core"%>
+
 <html>
 <head>
-	<link rel="stylesheet" href="/colegio/css/index.css">
-	<link rel="stylesheet" href="/colegio/css/formularios.css">
-	<link rel="stylesheet" href="/colegio/css/tablas.css">
-	<title>Actualizar Faltas</title>
+    <title>Actualizar Falta</title>
+    <link rel="stylesheet" href="/colegio/css/index.css">
+    <link rel="stylesheet" href="/colegio/css/formularios.css">
 </head>
 <body>
-<%@include file="/menu.html" %>
+
+<header>
+    <h2>Actualizar Falta</h2>
+</header>
+
+<%@ include file="/menu.html" %>
 
 <div class="container">
-	<h2>Actualizar Faltas</h2>
+<div class="form">
 
-	<c:forEach items="${listaFaltas}" var="f">
-		<div class="form">
-			<form action="http://localhost:8080/colegio/faltas/actualizarFalta" method="post">
-				<input type="hidden" name="idfaltas" value="${f.idfaltas}">
+    <form action="http://localhost:8080/colegio/faltas/actualizarFalta" method="post">
 
-				<label for="alumno">Alumno:</label>
-				<select name="alumno">
-					<c:forEach items="${listaAlumnos}" var="a">
-						<option value="${a.id}" <c:if test="${a.id == f.alumno}">selected</c:if>>
-							${a.nombre} ${a.apellido}
-						</option>
-					</c:forEach>
-				</select>
+        <input type="hidden" name="idfaltas" value="${falta.idfaltas}">
 
-				<label for="asignatura">Asignatura:</label>
-				<select name="asignatura">
-					<c:forEach items="${listaAsignaturas}" var="as">
-						<option value="${as.id}" <c:if test="${as.id == f.asignatura}">selected</c:if>>
-							${as.nombre}
-						</option>
-					</c:forEach>
-				</select>
+        <label>Alumno:</label>
+        <input type="number" name="alumno" value="${falta.alumno}">
 
-				<label for="fecha">Fecha:</label>
-				<input type="date" name="fecha" value="${f.fecha}">
+        <label>Asignatura:</label>
+        <input type="number" name="asignatura" value="${falta.asignatura}">
 
-				<label for="justificada">Justificada:</label>
-				<input type="checkbox" name="justificada" value="1" <c:if test="${f.jusftificada == 1}">checked</c:if>>
+        <label>Fecha:</label>
+        <input type="date" name="fecha" value="${falta.fecha}">
 
-				<input type="submit" value="Actualizar">
-			</form>
-		</div>
-	</c:forEach>
+        <label>Justificada:</label>
+        <input type="checkbox" name="justificada"
+               <c:if test="${falta.justificada == 1}">checked</c:if> >
+
+        <input type="submit" value="Actualizar Falta">
+
+    </form>
+
+    <c:if test="${resultado == 1}">
+        <b>Falta actualizada correctamente</b>
+    </c:if>
+
 </div>
+</div>
+
 </body>
 </html>

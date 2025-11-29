@@ -1,53 +1,42 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="jakarta.tags.core"%>
+<%@ page isELIgnored="false"%>
+
 <html>
 <head>
+	<title>Borrar Falta</title>
 	<link rel="stylesheet" href="/colegio/css/index.css">
 	<link rel="stylesheet" href="/colegio/css/formularios.css">
-	<link rel="stylesheet" href="/colegio/css/tablas.css">
-	<title>Borrar Faltas</title>
 </head>
+
 <body>
-<%@include file="/menu.html" %>
+
+<header>
+	<h2>Borrar Falta</h2>
+</header>
+
+<%@ include file="/menu.html" %>
 
 <div class="container">
-	<h2>Borrar Faltas</h2>
+<div class="form">
 
-	<c:if test="${empty listaFaltas}">
-		<p>No hay resultados con esos filtros</p>
+	<form action="http://localhost:8080/colegio/faltas/borrar" method="post">
+		<div id="formulario">
+
+			<label for="idfaltas">ID de la falta:</label>
+			<input type="number" id="idfaltas" name="idfaltas">
+
+			<input type="submit" value="Borrar">
+		</div>
+	</form>
+
+	<c:if test="${resultado == 1}">
+		<b>Falta borrada correctamente</b>
 	</c:if>
 
-	<c:if test="${not empty listaFaltas}">
-		<table>
-			<tr>
-				<th>ID</th>
-				<th>Alumno</th>
-				<th>Asignatura</th>
-				<th>Fecha</th>
-				<th>Justificada</th>
-				<th>Borrar</th>
-			</tr>
-			<c:forEach items="${listaFaltas}" var="f">
-				<tr>
-					<td>${f.idfaltas}</td>
-					<td>${f.alumno}</td>
-					<td>${f.asignatura}</td>
-					<td>${f.fecha}</td>
-					<td><c:choose>
-						<c:when test="${f.jusftificada == 1}">Sí</c:when>
-						<c:otherwise>No</c:otherwise>
-					</c:choose></td>
-					<td>
-						<form action="http://localhost:8080/colegio/faltas/borrarFalta" method="post">
-							<input type="hidden" name="idfaltas" value="${f.idfaltas}">
-							<input type="submit" value="Borrar">
-						</form>
-					</td>
-				</tr>
-			</c:forEach>
-		</table>
-	</c:if>
 </div>
+</div>
+
 </body>
 </html>
