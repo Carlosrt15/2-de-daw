@@ -3,7 +3,7 @@ margin: 0;
 }
 .servicios {
 border: 3px solid black;
-display: grid;  /*Esto los pone en columna */ 
+display: grid; 
 grid-template-columns: 50%  25% 25%  ;
 grid-template-rows: 50%  50%;
 height: 100px ;

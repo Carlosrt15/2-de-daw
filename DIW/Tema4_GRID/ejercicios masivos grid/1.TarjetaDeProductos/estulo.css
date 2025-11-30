@@ -1,0 +1,46 @@
+
+.tarjetas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+
+.tarjeta {
+  background: #fff;
+  padding: 20px;
+  text-align: center;             
+  border-radius: 15px;            
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+
+.tarjeta img {
+  width: 100%;
+  border-radius: 15px;            
+  margin-bottom: 15px;
+}
+
+
+.tarjeta button {
+  background: #1b69df;
+  color: rgb(211, 16, 16);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 12px;            
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.tarjeta button:hover {
+  background: #b9e763;
+}
+
+
+@media (max-width: 700px) {
+  .tarjetas {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
