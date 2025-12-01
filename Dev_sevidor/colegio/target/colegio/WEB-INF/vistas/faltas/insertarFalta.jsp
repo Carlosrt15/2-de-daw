@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="jakarta.tags.core"%>
-<%@ page isELIgnored="false"%>
 
 <html>
 <head>
@@ -24,22 +23,14 @@
 	<form action="http://localhost:8080/colegio/faltas/insertar" method="post">
 		<div id="formulario">
 
-			<label for="alumno">Alumno:</label>
-			<select id="alumno" name="alumno">
-				<c:forEach items="${listaAlumnos}" var="a">
-					<option value="${a.id}">${a.nombre} ${a.apellido}</option>
-				</c:forEach>
-			</select>
+			<label for="alumno">ID Alumno:</label>
+			<input type="number" id="alumno" name="alumno" required>
 
-			<label for="asignatura">Asignatura:</label>
-			<select id="asignatura" name="asignatura">
-				<c:forEach items="${listaAsignaturas}" var="as">
-					<option value="${as.id}">${as.nombre}</option>
-				</c:forEach>
-			</select>
+			<label for="asignatura">ID Asignatura:</label>
+			<input type="number" id="asignatura" name="asignatura" required>
 
 			<label for="fecha">Fecha:</label>
-			<input type="date" id="fecha" name="fecha">
+			<input type="date" id="fecha" name="fecha" required>
 
 			<label for="justificada">Justificada:</label>
 			<input type="checkbox" id="justificada" name="justificada">
