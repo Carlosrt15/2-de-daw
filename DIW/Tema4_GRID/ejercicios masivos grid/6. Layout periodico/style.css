@@ -44,7 +44,7 @@
 .noticia2 { grid-area: noticia2; }
 
 
-@media (max-width: 700px) {
+@media (max-width: 600px) {
   .contenedor {
     grid-template-columns: 1fr;
     grid-template-areas:
