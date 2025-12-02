@@ -129,7 +129,19 @@ function ValidarForm() {
     if (!sonAnagramas(palabra1, palabra2)) {
         alert("Las palabras no son anagramas");
     }
+
+
+    // validar Numero de telefono
+    let tomarTlfn = document.getElementById("telefono").value;
+    let validarTlfn = /^(\+34)?([67]\d{8})$/; // españa
+                      // internacional /^(\+34)?[67]\d{8}$/
+  
+    if(!validarTlfn.test(tomarTlfn)) {
+        return false;
+    } 
+
 }
+
 
 function paisesComprueba() {
     let tomarPais = document.getElementById("pais").value;
