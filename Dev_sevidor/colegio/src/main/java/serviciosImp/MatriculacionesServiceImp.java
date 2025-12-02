@@ -1,12 +1,15 @@
 package serviciosImp;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
+
 import dao.IAlumnosDAO;
 import dao.IAsignaturasDAO;
 import dao.IMatriculacionesDAO;
 import daoImp.AlumnosDAOImpl;
 import daoImp.AsignaturasDAOImpl;
 import daoImp.MatriculacionesDAOImpl;
+import dto.MatriculacionDTO;
 import servicios.IMatriculacionesService;
 
 public class MatriculacionesServiceImp implements IMatriculacionesService {
@@ -23,14 +26,12 @@ public class MatriculacionesServiceImp implements IMatriculacionesService {
 
         double tasaFinal = tasaBase;
 
-        // Descuentos según nº asignaturas
         if (numAsignaturas >= 3 && numAsignaturas <= 5) {
             tasaFinal *= 0.7;
         } else if (numAsignaturas >= 6) {
             tasaFinal *= 0.5;
         }
 
-        // Descuento por familia numerosa
         if (esFN) {
             tasaFinal *= 0.5;
         }
@@ -47,5 +48,23 @@ public class MatriculacionesServiceImp implements IMatriculacionesService {
             e.printStackTrace();
             return 0;
         }
+    }
+
+    @Override
+    public ArrayList<MatriculacionDTO> listarMatriculaciones() {
+        IMatriculacionesDAO dao = new MatriculacionesDAOImpl();
+        return dao.listarMatriculaciones();
+    }
+
+    @Override
+    public int modificarMatriculacion(String idMatricula, String idAsignatura, String fecha, String tasa) {
+        IMatriculacionesDAO dao = new MatriculacionesDAOImpl();
+        return dao.modificarMatriculacion(idMatricula, idAsignatura, fecha, tasa);
+    }
+
+    @Override
+    public int borrarMatriculacion(String idMatricula) {
+        IMatriculacionesDAO dao = new MatriculacionesDAOImpl();
+        return dao.borrarMatriculacion(idMatricula);
     }
 }

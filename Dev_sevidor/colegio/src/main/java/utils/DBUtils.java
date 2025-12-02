@@ -54,7 +54,7 @@ public class DBUtils {
     // Cambia estos valores a los de tu MySQL
     private static final String URL = "jdbc:mysql://localhost:3306/colegio?useSSL=false&serverTimezone=UTC";
     private static final String USER = "root";        
-    private static final String PASSWORD = "PracticaRoot";    // ← Casa Contraseña
+    private static final String PASSWORD = "root";    // ← clase Contraseña
 
     public static Connection conexion() {
         Connection con = null;
