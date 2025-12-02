@@ -67,7 +67,7 @@ function letraDni() {
 letraDni();
 
 
-function cambiarColor(){
+function cambiarColor() {
     let tomarCuerpo = document.getElementsByTagName("body")[0];
 
     tomarCuerpo.addEventListener("dblclick", () => {
@@ -78,11 +78,11 @@ function cambiarColor(){
 }
 cambiarColor();
 
-function ValidarForm(){
+function ValidarForm() {
     let tomarDni = document.getElementById("dni").value;
     let validarDni = /^[0-9]{8}[TRWAGMYFPDXBNJZSQVHLCKE]$/i; // Valida DNI bien 
 
-    if(validarDni.test(tomarDni)) {
+    if (validarDni.test(tomarDni)) {
 
     } else {
         alert("El dni introducido no es valido");
@@ -90,28 +90,44 @@ function ValidarForm(){
     }
 
     let letras = "TRWAGMYFPDXBNJZSQVHLCKE";
-    let numero = tomarDni.substring(0,8);
-    let letra =  tomarDni.substring(8).toUpperCase();
+    let numero = tomarDni.substring(0, 8);
+    let letra = tomarDni.substring(8).toUpperCase();
     let letraCorrecta = letras[numero % 23];
 
-    if(letra === letraCorrecta) {
+    if (letra === letraCorrecta) {
         alert("Dni Correcto");
-    } else{
+    } else {
         alert("Dni la letra no coincide");
     }
     // Validar Correo 
 
     let TomarCorreo = document.getElementById("email").value;
-    
-    let ValidacionCorreo = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/; // Correo Normal
-    let ValidarCorreoClasanz =  /^[a-zA-Z0-9._%+-]+@(gmail\.com|hotmail\.com|calasanzsalamanca\.com)$/i;
 
-    if(!ValidarCorreoClasanz.test(TomarCorreo)) {
+    let ValidacionCorreo = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/; // Correo Normal
+    let ValidarCorreoClasanz = /^[a-zA-Z0-9._%+-]+@(gmail\.com|hotmail\.com|calasanzsalamanca\.com)$/i;
+
+    if (!ValidarCorreoClasanz.test(TomarCorreo)) {
         return false;
+    } else {
+        alert("Correo Valido");
     }
 
 
-    
 
+    //Palabras Anagrama
+
+    let palabra1 = document.getElementById("pal1").value;
+    let palabra2 = document.getElementById("pal2").value;
+
+    function sonAnagramas(palabra1, palabra2) {
+        palabra1 = palabra1.replaceAll(" ", "").toLowerCase().split("").sort().join("");
+        palabra2 = palabra2.replaceAll(" ", "").toLowerCase().split("").sort().join("");
+
+        return palabra1 === palabra2;
+
+    }
+    if(!sonAnagramas(palabra1,palabra2)) {
+        alert("Las palabras no son anagramas");
+    }
 }
 
