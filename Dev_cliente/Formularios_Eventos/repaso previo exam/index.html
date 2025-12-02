@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <link rel="stylesheet" href="./src/style.css">
+    <meta charset="UTF-8">
+    <title>Examen - Eventos y Formularios</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body ondblclick="cambiarColor();">
+
+    <h1>Examen de Eventos y Formularios</h1>
+
+    
+    <section id="avisos">
+        <button  id="btnAviso">Aviso</button>
+        <button id="btnParar">Parar Aviso</button>
+        <p id="infoTecla">Pulsa una tecla…</p>
+    </section>
+
+    
+    <section id="dobleClickArea">
+        <p>Doble click en cualquier parte del documento para cambiar el fondo.</p>
+    </section>
+
+    
+    <section id="formulario">
+        <h2>Formulario de Validación</h2>
+
+        <form id="formExam" novalidate>
+
+            
+            <label for="dni">DNI:</label>
+            <input type="text" id="dni" placeholder="12345678Z" required>
+
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" placeholder="nombre@dominio.com">
+
+            
+            <label for="pal1">Palabra 1:</label>
+            <input type="text" id="pal1" required>
+
+            <label for="pal2">Palabra 2:</label>
+            <input type="text" id="pal2" required>
+
+            
+            <label for="pais">País:</label>
+            <select id="pais" required>
+                <option value="">No inicializado</option>
+                <option value="es">España</option>
+                <option value="fr">Francia</option>
+                <option value="ir">Irlanda</option>
+            </select>
+
+            <label for="ciudad">Ciudad:</label>
+            <select id="ciudad" required>
+                <option value="">No inicializado</option>
+            </select>
+
+            
+            <label for="telefono">Teléfono:</label>
+            <input type="text" id="telefono" placeholder="Sólo números">
+
+            
+            <label for="observ">Observaciones (máx 140):</label>
+            <textarea id="observ" maxlength="140"></textarea>
+
+            <button type="button" onclick="ValidarForm();">Enviar</button>
+        </form>
+
+        
+        <div id="errores"></div>
+    </section>
+
+    <script src="/src/js.js"></script>
+</body>
+</html>
