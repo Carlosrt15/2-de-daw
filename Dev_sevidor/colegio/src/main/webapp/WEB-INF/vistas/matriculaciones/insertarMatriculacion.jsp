@@ -3,6 +3,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" href="/colegio/css/index.css">
+<link rel="stylesheet" href="/colegio/css/formularios.css">
     <meta charset="UTF-8">
     <title>Insertar Matriculación</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
