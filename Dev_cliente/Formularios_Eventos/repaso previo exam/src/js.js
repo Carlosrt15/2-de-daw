@@ -126,8 +126,51 @@ function ValidarForm() {
         return palabra1 === palabra2;
 
     }
-    if(!sonAnagramas(palabra1,palabra2)) {
+    if (!sonAnagramas(palabra1, palabra2)) {
         alert("Las palabras no son anagramas");
     }
 }
 
+function paisesComprueba() {
+    let tomarPais = document.getElementById("pais").value;
+    let tomarCiudad = document.getElementById("ciudad");
+
+    tomarCiudad.innerHTML = "<option value=''>No inicializado</option>";
+
+
+    let listaCiudades = [];
+
+    switch (tomarPais) {
+        case "es":
+            listaCiudades = ["Madrid", "Salamanca", "Zaragoza"];
+            break;
+
+        case "fr":
+            listaCiudades = ["París", "Burdeos", "Niza"];
+            break;
+
+        case "ir":
+            listaCiudades = ["Dublín", "Cork", "KillKenny"];
+            break;
+
+
+        default:
+            return; // no hace nada
+
+    }
+
+    listaCiudades.forEach((ciudad, index) => {
+        let opcion = document.createElement("option");
+        opcion.value = ciudad;
+        opcion.textContent = ciudad;
+        tomarCiudad.appendChild(opcion)
+    });
+
+    tomarCiudad.value = listaCiudades[0];
+
+}
+
+paisesComprueba();
+
+// esto es necesario para el select de los paises
+document.getElementById("pais").addEventListener("change", paisesComprueba); 
