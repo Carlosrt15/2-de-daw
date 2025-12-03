@@ -1,0 +1,29 @@
+{
+    "tiposEquipo": [
+        {
+            "id": "1",
+            "tipo": "portátil"
+        },
+        {
+            "id": "2",
+            "tipo": "tablet"
+        },
+        {
+            "id": "3",
+            "tipo": "sobremesa"
+        }
+    ],
+    "reservas": [
+        {
+        "id": "1",
+        "nombre": "Sonia",
+        "numExpediente": "DAW-1234",
+        "correoE": "sonia@educa.calasanz.es",
+        "tipoEquipo": "portatil",
+        "fecha": "03/12/2025",
+        "hora": "11:00",
+        "duracion": 3,
+        "observaciones": ""
+        }
+    ]
+}
