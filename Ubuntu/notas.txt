@@ -1,0 +1,57 @@
+NOTAS – Apache + VirtualHost carlos + Autenticación
+
+1. Crear estructura del sitio
+sudo mkdir -p /var/www/carlos
+sudo mkdir -p /var/www/carlos/logs
+sudo mkdir -p /var/www/carlos/privado1
+sudo mkdir -p /var/www/carlos/privado2
+
+echo "<h1>Pagina Carlos</h1>" | sudo tee /var/www/carlos/index.html
+echo "<h1>Privado 1</h1>" | sudo tee /var/www/carlos/privado1/index.html
+echo "<h1>Privado 2</h1>" | sudo tee /var/www/carlos/privado2/index.html
+
+2. Crear usuarios
+sudo htpasswd -c /etc/apache2/usuarios_privado1 usuario1
+sudo htpasswd -c /etc/apache2/usuarios_privado2 usuario2
+
+3. VirtualHost carlos.conf [sudo /etc/apache2/sites-available/prueba1.conf]
+<VirtualHost *:80>
+    ServerName carlos
+    ServerAlias www.carlos
+    DocumentRoot /var/www/carlos
+    <Directory /var/www/carlos>
+        Options Indexes FollowSymLinks
+        AllowOverride All
+        Require all granted
+    </Directory>
+    <Directory /var/www/carlos/privado1>
+        AuthType Basic
+        AuthName "Acceso privado 1"
+        AuthUserFile /etc/apache2/usuarios_privado1
+        Require user usuario1
+    </Directory>
+    <Directory /var/www/carlos/privado2>
+        AuthType Basic
+        AuthName "Acceso privado 2"
+        AuthUserFile /etc/apache2/usuarios_privado2
+        Require user usuario2
+    </Directory>
+    ErrorLog /var/www/carlos/logs/error.log
+    CustomLog /var/www/carlos/logs/access.log combined
+</VirtualHost>
+
+4. Activar sitio
+sudo a2ensite carlos.conf
+sudo systemctl reload apache2
+
+5. Añadir dominios al hosts  [sudo nano /etc/hosts]
+127.0.0.1 carlos
+127.0.0.1 www.carlos
+
+6. Comprobar
+apache2ctl -S
+
+7. Probar
+http://carlos
+http://carlos/privado1
+http://carlos/privado2
