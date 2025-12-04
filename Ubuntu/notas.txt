@@ -1,4 +1,4 @@
-NOTAS – Apache + VirtualHost carlos + Autenticación
+tratamientoNOTAS – Apache + VirtualHost carlos + Autenticación
 
 1. Crear estructura del sitio
 sudo mkdir -p /var/www/carlos
@@ -55,3 +55,14 @@ apache2ctl -S
 http://carlos
 http://carlos/privado1
 http://carlos/privado2
+
+crear el ssl 
+
+mkdir -p /etc/apache2/certs
+
+comando crear ssl
+sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/apache2/certs/carlos.key -out /etc/apache2/certs/carlos.crt
+
+activar modulo ssl
+sudo a2enmod ssl
+sudo systemctl restart apache2
