@@ -17,23 +17,26 @@ import jakarta.servlet.http.HttpServletResponse;
 public class BuscarMatriculacionesBorrarController extends HttpServlet {
 
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+
+        String id = request.getParameter("id");
+
+        IMatriculacionesService service = new MatriculacionesServiceImp();
+        MatriculacionDTO m = service.buscarPorId(id);
+
+        ArrayList<MatriculacionDTO> lista = new ArrayList<>();
+        if (m != null) lista.add(m);
+
+        request.setAttribute("listaMatriculaciones", lista);
 
         request.getRequestDispatcher("/WEB-INF/vistas/matriculaciones/borrarMatriculaciones.jsp")
                 .forward(request, response);
     }
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-
-        IMatriculacionesService service = new MatriculacionesServiceImp();
-        ArrayList<MatriculacionDTO> lista = service.listarMatriculaciones();
-
-        request.setAttribute("listaMatriculaciones", lista);
-
-        request.getRequestDispatcher("/WEB-INF/vistas/matriculaciones/borrarMatriculaciones.jsp")
-                .forward(request, response);
+        doPost(req, resp); 
     }
 }

@@ -11,6 +11,8 @@ public interface IMatriculacionesService {
 
     ArrayList<MatriculacionDTO> listarMatriculaciones();
 
+    MatriculacionDTO buscarPorId(String idMatricula);
+
     int modificarMatriculacion(String idMatricula, String idAsignatura, String fecha, String tasa);
 
     int borrarMatriculacion(String idMatricula);

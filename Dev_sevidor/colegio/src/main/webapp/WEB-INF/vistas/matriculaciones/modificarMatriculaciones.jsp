@@ -4,38 +4,39 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" type="text/css" href="/colegio/css/index.css">
+<link rel="stylesheet" type="text/css"
+	href="/colegio/css/formularios.css">
+<link rel="stylesheet" type="text/css" href="/colegio/css/tablas.css">
 <title>Modificar Matriculaciones</title>
 </head>
 <body>
 
 <h1>Modificar Matriculación</h1>
 
-<form action="http://localhost:8080/colegio/matriculaciones/buscarMatriculacionesModificar" method="post">
-    ID Matricula: <input type="text" name="id">
+<form action="/colegio/matriculaciones/buscarMatriculacionesModificar" method="post">
+    ID Matrícula:
+    <input type="text" name="id">
     <input type="submit" value="Buscar">
 </form>
 
 <hr>
 
 <c:if test="${not empty listaMatriculaciones}">
-
     <c:forEach var="m" items="${listaMatriculaciones}">
-
-        <form action="http://localhost:8080/colegio/matriculaciones/modificarMatriculacion" method="post">
+        <form action="/colegio/matriculaciones/modificarMatriculacion" method="post">
 
             <input type="hidden" name="id" value="${m.id}">
 
             Alumno: <b>${m.alumno}</b><br>
-            Nueva Asignatura (ID): <input type="text" name="idAsignatura" value=""><br>
-            Nueva Fecha: <input type="date" name="fecha" value="${m.fecha}"><br>
-            Nueva Tasa: <input type="text" name="tasa" value="${m.importe}"><br>
+            Asignatura nueva ID: <input type="text" name="idAsignatura"><br>
+            Fecha: <input type="date" name="fecha" value="${m.fecha}"><br>
+            Tasa nueva: <input type="text" name="tasa" value="${m.importe}"><br>
 
             <input type="submit" value="Guardar Cambios">
         </form>
-
         <hr>
     </c:forEach>
-
 </c:if>
 
 <c:if test="${resultado == 1}">
