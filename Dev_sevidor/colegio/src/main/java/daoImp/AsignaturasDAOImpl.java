@@ -9,9 +9,7 @@ import utils.DBUtils;
 
 public class AsignaturasDAOImpl implements IAsignaturasDAO {
 
-    // ==========================================
-    // MÉTODO QUE YA TENÍAS (NO SE TOCA)
-    // ==========================================
+    
     @Override
     public double obtenerTasaAsignatura(String idAsignatura) {
         String sql = "SELECT tasa FROM asignaturas WHERE id = ? AND activo = 1";
@@ -34,9 +32,7 @@ public class AsignaturasDAOImpl implements IAsignaturasDAO {
         return tasa;
     }
 
-    // ==========================================
-    // CRUD DE ASIGNATURAS
-    // ==========================================
+    
 
     @Override
     public ArrayList<AsignaturaDTO> buscarAsignaturas(
@@ -124,18 +120,20 @@ public class AsignaturasDAOImpl implements IAsignaturasDAO {
 
     @Override
     public int borrarAsignatura(String id) {
-        String sql = "UPDATE asignaturas SET activo = 0 WHERE id=?";
+
+        String sql = "UPDATE asignaturas SET activo = 0 WHERE id = ?";
 
         try (Connection con = DBUtils.conexion();
              PreparedStatement ps = con.prepareStatement(sql)) {
 
-            ps.setInt(1, Integer.parseInt(id));
-            return ps.executeUpdate();
+            ps.setInt(1, Integer.parseInt(id));  
 
-        } catch (SQLException e) {
+            return ps.executeUpdate();  
+
+        } catch (Exception e) {
             e.printStackTrace();
+            return 0;
         }
-
-        return 0;
     }
 }
+

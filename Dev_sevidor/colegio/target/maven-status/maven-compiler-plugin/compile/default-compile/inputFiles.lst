@@ -5,6 +5,8 @@ C:\Users\alumnofp\eclipse-workspace\colegio\src\main\java\controllers\alumnos\Fo
 C:\Users\alumnofp\eclipse-workspace\colegio\src\main\java\controllers\alumnos\FormularioBorrarAlumnosController.java
 C:\Users\alumnofp\eclipse-workspace\colegio\src\main\java\controllers\alumnos\InsertarAlumnosController.java
 C:\Users\alumnofp\eclipse-workspace\colegio\src\main\java\controllers\alumnos\ListadoAlumnosController.java
+C:\Users\alumnofp\eclipse-workspace\colegio\src\main\java\controllers\asignaturas\BorrarAsignaturaController.java
+C:\Users\alumnofp\eclipse-workspace\colegio\src\main\java\controllers\asignaturas\BuscarAsignaturasBorrarController.java
 C:\Users\alumnofp\eclipse-workspace\colegio\src\main\java\controllers\asignaturas\BuscarAsignaturasModificarController.java
 C:\Users\alumnofp\eclipse-workspace\colegio\src\main\java\controllers\asignaturas\InsertarAsignaturaController.java
 C:\Users\alumnofp\eclipse-workspace\colegio\src\main\java\controllers\asignaturas\ListarAsignaturasController.java
