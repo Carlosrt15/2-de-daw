@@ -9,6 +9,10 @@
         <label for="Mensaje">Mensaje:</label>
         <textarea v-model="form.mensaje" id="Mensaje" placeholder="Aqui saldra la respuesta"></textarea>
       </div>
+      <br><br>
+
+      <button type="button" id="boton" onclick="tomarNombre()">Boton</button>
+
   </form>
 </template>
 
@@ -20,5 +24,6 @@ form {
   flex-direction: column;
   width: 300px;
   gap: 10px;
+  background-color: aquamarine;
 }
 </style>

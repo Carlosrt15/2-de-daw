@@ -1,0 +1,111 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+body {
+    background-color: #f4f4f4;
+}
+
+
+header {
+    background-color: #1f2933;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    margin-bottom: 15px;
+}
+
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+nav button {
+    padding: 10px 15px;
+    border: none;
+    background-color: #3b82f6;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+nav button:hover {
+    background-color: #2563eb;
+}
+
+/* CONTENIDO */
+main {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+
+#zonaDatos {
+    width: 80%;
+    min-height: 400px;
+    background-color: #d1fae5; 
+    border: 3px solid #065f46; 
+    padding: 20px;
+    border-radius: 8px;
+}
+
+/* TABLAS */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table th, table td {
+    border: 1px solid #333;
+    padding: 8px;
+    text-align: left;
+}
+
+table th {
+    background-color: #047857;
+    color: white;
+}
+
+/* FORMULARIOS */
+form {
+    margin-top: 20px;
+}
+
+form label {
+    display: block;
+    margin-top: 10px;
+}
+
+form input,
+form select {
+    width: 100%;
+    padding: 7px;
+    margin-top: 5px;
+}
+
+form button {
+    margin-top: 15px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+
+.errores {
+    margin-top: 15px;
+    color: red;
+    font-size: 14px;
+}

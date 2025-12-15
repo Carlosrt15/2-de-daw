@@ -15,3 +15,19 @@ export default {
     },
   },
 };
+
+function tomarNombre() {
+  const errores = [];
+
+  let tomarCampoNombre = document.getElementById("Nombre");
+
+  if (tomarCampoNombre === "") {
+    errores.push("Nombre");
+
+  } else {
+    alert(tomarCampoNombre);
+  }
+
+  console.log(errores);
+}
+
