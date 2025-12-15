@@ -7,7 +7,7 @@ function verInfo() {
     crearH2.textContent = 'Información de los artistas';
     recuperarZonaDatos.appendChild(crearH2);
 
-  
+
     // Funcion parara recuperar los artista y Crear desplegable 
     let select2 = document.createElement("select");
     select2.id = "selectArtistas";
@@ -42,7 +42,7 @@ function verInfo() {
 
     recuperarZonaDatos.appendChild(tabla);
 
-    
+
 
 }
 
@@ -62,11 +62,45 @@ function cargarArtistasEnSelect() {
             select.appendChild(opcionDefault);
 
             artistas.forEach(artistas => {
-                let option =document.createElement("option");
+                let option = document.createElement("option");
                 option.value = artistas.id;
                 option.textContent = artistas.nombre;
                 select.appendChild(option);
             });
-            
+
         });
+}
+
+function gestionArtistas() {
+    let recuperarZonaDatos = document.getElementById("zonaDatos");
+    recuperarZonaDatos.innerHTML = "";
+
+    let h2 = document.createElement("h2");
+    h2.textContent = "Gestion de Artistas";
+    recuperarZonaDatos.appendChild(h2);
+
+    //Crear select 
+    let select = document.createElement("select");
+
+    let default2 = document.createElement("option");
+    default2.textContent = "Selecciona una opcion CRUD";
+    default2.value = ""
+    select.appendChild(default2);
+
+    let alta = document.createElement("option");
+    alta.textContent = "Dar Alta";
+    alta.value = "Alta"
+    select.appendChild(alta);
+
+    let Baja = document.createElement("option");
+    Baja.textContent = "Dar Baja";
+    Baja.value = "Baja"
+    select.appendChild(Baja);
+
+    let modificar = document.createElement("option");
+    modificar.textContent = "Modificar";
+    modificar.value = "Modificar"
+    select.appendChild(modificar);
+
+    recuperarZonaDatos.appendChild(select);
 }
