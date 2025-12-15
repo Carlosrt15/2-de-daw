@@ -46,6 +46,13 @@
             "generoMusicalId": "2",
             "pais": "Estados Unidos",
             "anioInicio": 2006
+        },
+        {
+            "id": "4",
+            "nombre": "Alejandro Malamadre",
+            "generoMusicalId": "6",
+            "pais": "España",
+            "anioInicio": 2009
         }
     ],
     "conciertos": [
