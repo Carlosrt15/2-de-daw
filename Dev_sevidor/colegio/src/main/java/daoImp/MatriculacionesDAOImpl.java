@@ -1,176 +1,291 @@
 package daoImp;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import dao.IMatriculacionesDAO;
 import dto.MatriculacionDTO;
 import utils.DBUtils;
 
 public class MatriculacionesDAOImpl implements IMatriculacionesDAO {
+	private static Logger logger = LoggerFactory.getLogger(MatriculacionesDAOImpl.class);
 
-    @Override
-    public int insertarMatriculacion(String idAsignatura, String idAlumno, String fecha, String tasa)
-            throws SQLException {
+	@Override
+	public double obtenerTasaAsignatura(String idAsignatura) {
+		String sql = "SELECT tasa FROM asignaturas WHERE id = ? AND activo = 1";
+		double tasa = 0.0;
 
-        String sql1 = "INSERT INTO matriculaciones (id_asignatura, id_alumno, fecha, activo) VALUES (?, ?, ?, 1)";
-        String sql2 = "INSERT INTO caja (idmatricula, importe) VALUES (?, ?)";
+		try {
+			Connection connection = DBUtils.conexion();
+			PreparedStatement ps = connection.prepareStatement(sql);
+			ps.setString(1, idAsignatura);
+			ResultSet rs = ps.executeQuery();
 
-        Connection con = DBUtils.conexion();
-        con.setAutoCommit(false);
+			if (rs.next()) {
+				tasa = rs.getDouble("tasa");
+			}
+			connection.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 
-        try {
+		return tasa;
+	}
 
-            PreparedStatement ps1 = con.prepareStatement(sql1, Statement.RETURN_GENERATED_KEYS);
-            ps1.setString(1, idAsignatura);
-            ps1.setString(2, idAlumno);
-            ps1.setString(3, fecha);
+	@Override
+	public int insertarMatriculacion(String idAsignatura, String idAlumno, String fecha, String tasa)
+			throws SQLException {
+		String sql1 = "INSERT INTO matriculaciones (id_asignatura, id_alumno, fecha, activo) VALUES (?, ?, ?, 1)";
+		String sql2 = "INSERT INTO caja (idmatricula, importe) VALUES (?,?)";
+		int resultado = 0;
 
-            ps1.executeUpdate();
+		Connection connection = DBUtils.conexion();
+		PreparedStatement statement;
+		try {
+			connection.setAutoCommit(false); // Empieza la transacción
+			statement = connection.prepareStatement(sql1, Statement.RETURN_GENERATED_KEYS);
+			// Seteo de los parámetros de la primera SQL (matriculaciones)
+			statement.setString(1, idAsignatura);
+			statement.setString(2, idAlumno);
+			statement.setString(3, fecha);
+			int filasInsertadas = statement.executeUpdate();
 
-            ResultSet rs = ps1.getGeneratedKeys();
-            rs.next();
-            int idMatricula = rs.getInt(1);
+			if (filasInsertadas == 0)
+				throw new SQLException("Ha fallado la inserción de la matriculación");
 
-            PreparedStatement ps2 = con.prepareStatement(sql2);
-            ps2.setInt(1, idMatricula);
-            ps2.setString(2, tasa);
-            ps2.executeUpdate();
+			// Este método nos devolverá la clave generada dentro un ResultSet
+			// El resulset en la primera posición nos encontraremos la clave generada
+			ResultSet clavesGeneradas = statement.getGeneratedKeys();
 
-            con.commit();
-            return 1;
+			// Recorremos el resultset para obtener la clave.
+			int idMatriculacion;
+			if (clavesGeneradas.next()) {
+				idMatriculacion = clavesGeneradas.getInt(1);
+			} else {
+				throw new SQLException("Insert fallido, no se ha obtenido id.");
+			}
 
-        } catch (SQLException e) {
-            con.rollback();
-            throw e;
-        } finally {
-            con.setAutoCommit(true);
-            con.close();
-        }
-    }
+			// Con el idMatriculacion obtenido hago el insert en la tabla caja
+			PreparedStatement statement2 = connection.prepareStatement(sql2);
+			statement2.setInt(1, idMatriculacion);
+			statement2.setString(2, tasa);
 
-    @Override
-    public ArrayList<MatriculacionDTO> listarMatriculaciones() {
+			int filasInsertadasCaja = statement2.executeUpdate();
 
-        String sql = "SELECT m.id AS idmatricula, a.nombre AS alumno, asig.nombre AS asignatura, "
-                   + "m.fecha, c.importe, m.activo "
-                   + "FROM matriculaciones m "
-                   + "LEFT JOIN alumnos a ON m.id_alumno = a.id "
-                   + "LEFT JOIN asignaturas asig ON m.id_asignatura = asig.id "
-                   + "LEFT JOIN caja c ON c.idmatricula = m.id "
-                   + "ORDER BY m.id DESC";
+			if (filasInsertadasCaja == 0)
+				throw new SQLException("Ha fallado la inserción en caja");
 
-        ArrayList<MatriculacionDTO> lista = new ArrayList<>();
+			connection.commit(); // Si todo va bien, confirmamos la transacción
+			resultado = filasInsertadasCaja;
 
-        try (Connection con = DBUtils.conexion();
-             PreparedStatement ps = con.prepareStatement(sql);
-             ResultSet rs = ps.executeQuery()) {
+		} catch (SQLException e) {
+			connection.rollback(); // Si hay error, deshacemos todos los cambios
+			e.printStackTrace();
 
-            while (rs.next()) {
-                lista.add(new MatriculacionDTO(
-                        rs.getInt("idmatricula"),
-                        rs.getString("alumno"),
-                        rs.getString("asignatura"),
-                        rs.getString("fecha"),
-                        rs.getDouble("importe"),
-                        rs.getInt("activo")
-                ));
-            }
+		} finally {
+			if (connection != null) {
+				connection.setAutoCommit(true); // Restauramos el autocommit
+				connection.close();
+			}
 
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+		}
+		return resultado;
 
-        return lista;
-    }
+	}
 
-    @Override
-    public MatriculacionDTO buscarPorId(String idMatricula) {
+	@Override
+	public ArrayList<MatriculacionDTO> obtenerMatriculacionesPorFiltros(String nombreAsignatura, String nombreAlumno,
+			String fecha, int activo) {
+		String sql = "SELECT m.id, m.id_asignatura, a.nombre AS nombre_asignatura, "
+				+ "m.id_alumno, al.nombre AS nombre_alumno, m.fecha, m.activo, c.importe "
+				+ "FROM matriculaciones m "
+				+ "JOIN asignaturas a ON m.id_asignatura = a.id "
+				+ "JOIN alumnos al ON m.id_alumno = al.id "
+				+ "LEFT JOIN caja c ON m.id = c.idmatricula "
+				+ "WHERE a.nombre LIKE ? AND al.nombre LIKE ? AND m.fecha >= ? AND m.activo = ?";
 
-        String sql = "SELECT m.id AS idmatricula, a.nombre AS alumno, asig.nombre AS asignatura, "
-                   + "m.fecha, c.importe, m.activo "
-                   + "FROM matriculaciones m "
-                   + "LEFT JOIN alumnos a ON m.id_alumno = a.id "
-                   + "LEFT JOIN asignaturas asig ON m.id_asignatura = asig.id "
-                   + "LEFT JOIN caja c ON c.idmatricula = m.id "
-                   + "WHERE m.id = ?";
+		ResultSet matriculacionResultSet = null;
+		Connection connection = DBUtils.conexion();
+		ArrayList<MatriculacionDTO> listaMatriculaciones = new ArrayList<>();
 
-        try (Connection con = DBUtils.conexion();
-             PreparedStatement ps = con.prepareStatement(sql)) {
+		try {
+			PreparedStatement ps = connection.prepareStatement(sql);
 
-            ps.setString(1, idMatricula);
-            ResultSet rs = ps.executeQuery();
+			ps.setString(1, "%" + nombreAsignatura + "%");
+			ps.setString(2, "%" + nombreAlumno + "%");
+			ps.setString(3, fecha);
+			ps.setInt(4, activo);
 
-            if (rs.next()) {
-                return new MatriculacionDTO(
-                        rs.getInt("idmatricula"),
-                        rs.getString("alumno"),
-                        rs.getString("asignatura"),
-                        rs.getString("fecha"),
-                        rs.getDouble("importe"),
-                        rs.getInt("activo")
-                );
-            }
+			logger.debug("Query a ejecutar: " + ps);
 
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+			matriculacionResultSet = ps.executeQuery();
 
-        return null;
-    }
+			while (matriculacionResultSet.next()) {
+				MatriculacionDTO m = new MatriculacionDTO(
+						matriculacionResultSet.getInt(1),
+						matriculacionResultSet.getInt(2),
+						matriculacionResultSet.getString(3),
+						matriculacionResultSet.getInt(4),
+						matriculacionResultSet.getString(5),
+						matriculacionResultSet.getString(6),
+						matriculacionResultSet.getInt(7),
+						matriculacionResultSet.getDouble(8));
+				listaMatriculaciones.add(m);
+			}
+			connection.close();
 
-    @Override
-    public int modificarMatriculacion(String idMatricula, String idAsignatura, String fecha, String tasa) {
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 
-        String sql1 = "UPDATE matriculaciones SET id_asignatura = ?, fecha = ? WHERE id = ?";
-        String sql2 = "UPDATE caja SET importe = ? WHERE idmatricula = ?";
+		return listaMatriculaciones;
+	}
 
-        Connection con = DBUtils.conexion();
+	@Override
+	public ArrayList<MatriculacionDTO> obtenerMatriculacionesPorFiltrosSinFecha(String nombreAsignatura,
+			String nombreAlumno, int activo) {
+		String sql = "SELECT m.id, m.id_asignatura, a.nombre AS nombre_asignatura, "
+				+ "m.id_alumno, al.nombre AS nombre_alumno, m.fecha, m.activo, c.importe "
+				+ "FROM matriculaciones m "
+				+ "JOIN asignaturas a ON m.id_asignatura = a.id "
+				+ "JOIN alumnos al ON m.id_alumno = al.id "
+				+ "LEFT JOIN caja c ON m.id = c.idmatricula "
+				+ "WHERE a.nombre LIKE ? AND al.nombre LIKE ? AND m.activo = ?";
 
-        try {
-            con.setAutoCommit(false);
+		ResultSet matriculacionResultSet = null;
+		Connection connection = DBUtils.conexion();
+		ArrayList<MatriculacionDTO> listaMatriculaciones = new ArrayList<>();
 
-            PreparedStatement ps1 = con.prepareStatement(sql1);
-            ps1.setString(1, idAsignatura);
-            ps1.setString(2, fecha);
-            ps1.setString(3, idMatricula);
-            ps1.executeUpdate();
+		try {
+			PreparedStatement ps = connection.prepareStatement(sql);
 
-            PreparedStatement ps2 = con.prepareStatement(sql2);
-            ps2.setString(1, tasa);
-            ps2.setString(2, idMatricula);
-            ps2.executeUpdate();
+			ps.setString(1, "%" + nombreAsignatura + "%");
+			ps.setString(2, "%" + nombreAlumno + "%");
+			ps.setInt(3, activo);
 
-            con.commit();
-            return 1;
+			logger.debug("Query a ejecutar: " + ps);
 
-        } catch (SQLException e) {
-            try { con.rollback(); } catch (SQLException ex) {}
-            return 0;
+			matriculacionResultSet = ps.executeQuery();
 
-        } finally {
-            try { con.setAutoCommit(true); con.close(); } catch (SQLException ex) {}
-        }
-    }
+			while (matriculacionResultSet.next()) {
+				MatriculacionDTO m = new MatriculacionDTO(
+						matriculacionResultSet.getInt(1),
+						matriculacionResultSet.getInt(2),
+						matriculacionResultSet.getString(3),
+						matriculacionResultSet.getInt(4),
+						matriculacionResultSet.getString(5),
+						matriculacionResultSet.getString(6),
+						matriculacionResultSet.getInt(7),
+						matriculacionResultSet.getDouble(8));
+				listaMatriculaciones.add(m);
+			}
+			connection.close();
 
-    @Override
-    public int borrarMatriculacion(String idMatricula) {
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 
-        String sql = "UPDATE matriculaciones SET activo = 0 WHERE id = ?";
+		return listaMatriculaciones;
+	}
 
-        try (Connection con = DBUtils.conexion();
-             PreparedStatement ps = con.prepareStatement(sql)) {
+	@Override
+	public int actualizarMatriculacion(String id, String idAsignatura, String idAlumno, String fecha, String tasa)
+			throws SQLException {
+		String sql1 = "UPDATE matriculaciones SET id_asignatura = ?, id_alumno = ?, fecha = ? WHERE id = ?";
+		String sql2 = "UPDATE caja SET importe = ? WHERE idmatricula = ?";
+		int resultado = 0;
 
-            int id = Integer.parseInt(idMatricula.trim());
-            ps.setInt(1, id);
+		Connection connection = DBUtils.conexion();
+		try {
+			connection.setAutoCommit(false); // Empieza la transacción
 
-            int filas = ps.executeUpdate();
-            System.out.println("DEBUG DAO borrarMatriculacion → filas afectadas: " + filas);
-            return filas;
+			// Actualizar matriculaciones
+			PreparedStatement statement1 = connection.prepareStatement(sql1);
+			statement1.setString(1, idAsignatura);
+			statement1.setString(2, idAlumno);
+			statement1.setString(3, fecha);
+			statement1.setString(4, id);
 
-        } catch (Exception e) {
-            e.printStackTrace();
-            return 0;
-        }
-    }
+			int filasActualizadas = statement1.executeUpdate();
+
+			if (filasActualizadas == 0)
+				throw new SQLException("Ha fallado la actualización de la matriculación");
+
+			// Actualizar caja
+			PreparedStatement statement2 = connection.prepareStatement(sql2);
+			statement2.setString(1, tasa);
+			statement2.setString(2, id);
+
+			int filasActualizadasCaja = statement2.executeUpdate();
+
+			if (filasActualizadasCaja == 0)
+				throw new SQLException("Ha fallado la actualización en caja");
+
+			connection.commit(); // Si todo va bien, confirmamos la transacción
+			resultado = filasActualizadas;
+
+		} catch (SQLException e) {
+			connection.rollback(); // Si hay error, deshacemos todos los cambios
+			e.printStackTrace();
+
+		} finally {
+			if (connection != null) {
+				connection.setAutoCommit(true); // Restauramos el autocommit
+				connection.close();
+			}
+
+		}
+		return resultado;
+	}
+
+	@Override
+	public int borrarMatriculacion(String id) throws SQLException {
+		String sql1 = "DELETE FROM caja WHERE idmatricula = ?";
+		String sql2 = "DELETE FROM matriculaciones WHERE id = ?";
+		int resultado = 0;
+
+		Connection connection = DBUtils.conexion();
+		try {
+			connection.setAutoCommit(false); // Empieza la transacción
+
+			// Primero borrar de caja (por la foreign key)
+			PreparedStatement statement1 = connection.prepareStatement(sql1);
+			statement1.setString(1, id);
+			int filasBorradasCaja = statement1.executeUpdate();
+
+			if (filasBorradasCaja == 0)
+				throw new SQLException("Ha fallado el borrado en caja");
+
+			// Luego borrar de matriculaciones
+			PreparedStatement statement2 = connection.prepareStatement(sql2);
+			statement2.setString(1, id);
+			int filasBorradas = statement2.executeUpdate();
+
+			if (filasBorradas == 0)
+				throw new SQLException("Ha fallado el borrado de la matriculación");
+
+			connection.commit(); // Si todo va bien, confirmamos la transacción
+			resultado = filasBorradas;
+
+		} catch (SQLException e) {
+			connection.rollback(); // Si hay error, deshacemos todos los cambios
+			e.printStackTrace();
+
+		} finally {
+			if (connection != null) {
+				connection.setAutoCommit(true); // Restauramos el autocommit
+				connection.close();
+			}
+
+		}
+		return resultado;
+	}
+
 }

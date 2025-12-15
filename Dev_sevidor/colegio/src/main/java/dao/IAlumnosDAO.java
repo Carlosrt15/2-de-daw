@@ -12,7 +12,7 @@ public interface IAlumnosDAO {
 	int actualizarAlumno(String id, String nombre, String apellido, String idMunicipio, int familiaNumerosa, int activo);
 	int borrarAlumno(String id);
 	
-	boolean esFamiliaNumerosa(String idAlumno);
-    int contarAsignaturasMatriculadas(String idAlumno);
+    boolean esFamiliaNumerosa(String idAlumno);
+	int contarAsignaturasMatriculadas(String idAlumno);
 
 }

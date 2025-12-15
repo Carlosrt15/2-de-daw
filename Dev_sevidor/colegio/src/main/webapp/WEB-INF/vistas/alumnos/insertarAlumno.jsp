@@ -4,10 +4,8 @@
 <%@ page isELIgnored="false"%>
 <html>
 <head>
-<link rel="stylesheet" type="text/css" href="/colegio/css/index.css">
-<link rel="stylesheet" type="text/css"
-	href="/colegio/css/formularios.css">
-<link rel="stylesheet" type="text/css" href="/colegio/css/tablas.css">
+<link rel="stylesheet" href="/colegio/css/index.css">
+<link rel="stylesheet" href="/colegio/css/formularios.css">
 </head>
 <body>
 <header>

@@ -1,56 +1,51 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="jakarta.tags.core" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+    <%@ taglib prefix="c" uri="jakarta.tags.core" %>
+        <%@ page isELIgnored="false" %>
+            <!DOCTYPE html>
+            <html>
 
-<!DOCTYPE html>
-<html>
-<head>
-<link rel="stylesheet" type="text/css" href="/colegio/css/index.css">
-<link rel="stylesheet" type="text/css"
-	href="/colegio/css/formularios.css">
-<link rel="stylesheet" type="text/css" href="/colegio/css/tablas.css">
-<title>Borrar Matriculación</title>
-</head>
-<body>
+            <head>
+                <meta charset="UTF-8">
+                <link rel="stylesheet" href="/colegio/css/index.css">
+                <link rel="stylesheet" href="/colegio/css/formularios.css">
+                <title>Borrar Matriculaciones</title>
+            </head>
 
-<h1>Borrar Matriculación</h1>
+            <body>
+                <h1>Borrar matriculaciones</h1>
+                <%@include file="/menu.html" %>
+                    <div class="container">
+                        <h2>Buscar Matriculaciones</h2>
+                        <div class="form">
+                            <form action="http://localhost:8080/colegio/matriculaciones/formularioBorrarMatriculaciones"
+                                method="post">
 
-<form action="/colegio/matriculaciones/buscarMatriculacionesBorrar" method="post">
-    ID Matrícula:
-    <input type="text" name="id">
-    <input type="submit" value="Buscar">
-</form>
+                                <label for="nombreAlumno">Nombre Alumno</label>
+                                <input type="text" id="nombreAlumno" name="nombreAlumno"><br>
+                                <label for="asignatura">Asignatura</label>
+                                <input type="text" id="asignatura" name="asignatura"><br>
+                                <label for="fecha">Fecha</label>
+                                <input type="date" id="fecha" name="fecha"><br>
+                                <input type="submit" value="Buscar">
+                            </form>
+                        </div>
+                    </div>
 
-<hr>
+                    <c:forEach items="${lista}" var="matriculacion">
+                        <div class="form">
+                            <form action="http://localhost:8080/colegio/matriculaciones/borrarMatriculacion"
+                                method="post">
+                                <input type="hidden" name="id" value="${matriculacion.id}">
 
-<c:if test="${not empty listaMatriculaciones}">
-    <c:forEach var="m" items="${listaMatriculaciones}">
-        
-        <form action="/colegio/matriculaciones/borrarMatriculacion" method="post">
+                                <p><strong>Alumno:</strong> ${matriculacion.nombreAlumno}</p>
+                                <p><strong>Asignatura:</strong> ${matriculacion.nombreAsignatura}</p>
+                                <p><strong>Fecha:</strong> ${matriculacion.fecha}</p>
+                                <p><strong>Tasa:</strong> ${matriculacion.tasa}</p>
 
-            <input type="hidden" name="id" value="${m.id}">
+                                <input type="submit" value="Borrar">
+                            </form>
+                        </div>
+                    </c:forEach>
+            </body>
 
-            <b>ID:</b> ${m.id}<br>
-            <b>Alumno:</b> ${m.alumno}<br>
-            <b>Asignatura:</b> ${m.asignatura}<br>
-            <b>Fecha:</b> ${m.fecha}<br>
-            <b>Importe:</b> ${m.importe}<br>
-            <b>Activo:</b> ${m.activo}<br>
-
-            <br>
-            <input type="submit" value="BORRAR" style="background:red; color:white;">
-        </form>
-
-        <hr>
-    </c:forEach>
-</c:if>
-
-<c:if test="${resultado == 1}">
-    <h3 style="color:green;">Matriculación borrada correctamente</h3>
-</c:if>
-
-<c:if test="${resultado == 0}">
-    <h3 style="color:red;">Error al borrar la matriculación</h3>
-</c:if>
-
-</body>
-</html>
+            </html>

@@ -1,53 +1,47 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<%@ taglib prefix="c" uri="jakarta.tags.core" %>
+    <%@ taglib prefix="c" uri="jakarta.tags.core" %>
+        <%@ page isELIgnored="false" %>
+            <!DOCTYPE html>
+            <html>
 
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insertar Asignatura</title>
+            <head>
+                <meta charset="UTF-8">
+                <link rel="stylesheet" href="/colegio/css/index.css">
+                <link rel="stylesheet" href="/colegio/css/formularios.css">
+                <title>Insertar Asignatura</title>
+            </head>
 
-<link rel="stylesheet" href="/colegio/css/index.css">
-<link rel="stylesheet" href="/colegio/css/formularios.css">
-</head>
+            <body>
+                <h1>Insertar asignatura</h1>
+                <%@include file="/menu.html" %>
+                    <div class="container">
+                        <h2>Insertar Asignatura</h2>
+                        <div class="form">
+                            <form action="http://localhost:8080/colegio/asignaturas/insertarAsignatura" method="post">
+                                <label for="id">Id Asignatura</label>
+                                <input type="text" id="id" name="id" required>
+                                <label for="nombre">Nombre Asignatura</label>
+                                <input type="text" id="nombre" name="nombre" required><br>
+                                <label for="curso">Curso</label>
+                                <input type="text" id="curso" name="curso" required><br>
+                                <label for="tasa">Tasa</label>
+                                <input type="text" id="tasa" name="tasa" required><br>
+                                Activo:
+                                <input type="checkbox" id="activo" name="activo" value="1" checked><br>
+                                <input type="submit" value="Insertar">
+                            </form>
+                        </div>
+                    </div>
 
-<body>
+                    <c:if test="${not empty resultado}">
+                        <c:if test="${resultado > 0}">
+                            <h2 style="color: green;">Asignatura insertada correctamente</h2>
+                        </c:if>
+                        <c:if test="${resultado == 0}">
+                            <h2 style="color: red;">Error al insertar la asignatura</h2>
+                        </c:if>
+                    </c:if>
 
-<h1>Insertar Asignatura</h1>
+            </body>
 
-<form action="http://localhost:8080/colegio/asignaturas/insertarAsignatura" method="post">
-
-    <label>Id:</label>
-    <input type="text" name="id" required><br><br>
-
-    <label>Nombre:</label>
-    <input type="text" name="nombre" required><br><br>
-
-    <label>Curso:</label>
-    <input type="number" name="curso" required><br><br>
-
-    <label>Tasa:</label>
-    <input type="number" step="0.01" name="tasa" required><br><br>
-
-    <label>Activo:</label>
-    <input type="number" name="activo" placeholder="1 = Sí / 0 = No" required><br><br>
-
-    <input type="submit" value="Insertar">
-</form>
-
-<br>
-
-<c:if test="${resultado == 1}">
-    <h2 style="color:green;">Asignatura insertada correctamente</h2>
-</c:if>
-
-<c:if test="${resultado == 0}">
-    <h2 style="color:red;">Error al insertar asignatura</h2>
-</c:if>
-
-<c:if test="${resultado == -1}">
-    <h2 style="color:red;">Debe rellenar todos los campos</h2>
-</c:if>
-
-</body>
-</html>
+            </html>

@@ -6,13 +6,19 @@ import java.util.ArrayList;
 import dto.MatriculacionDTO;
 
 public interface IMatriculacionesDAO {
-    int insertarMatriculacion(String idAsignatura, String idAlumno, String fecha, String tasa) throws SQLException;
-    MatriculacionDTO buscarPorId(String idMatricula);
+	double obtenerTasaAsignatura(String idAsignatura);
 
-    ArrayList<MatriculacionDTO> listarMatriculaciones();
-    
-    int modificarMatriculacion(String idMatricula, String idAsignatura, String fecha, String tasa);
-    int borrarMatriculacion(String idMatricula);
+	int insertarMatriculacion(String idAsignatura, String idAlumno,
+			String fecha, String tasa) throws SQLException;
 
+	ArrayList<MatriculacionDTO> obtenerMatriculacionesPorFiltros(String nombreAsignatura, String nombreAlumno,
+			String fecha, int activo);
 
+	ArrayList<MatriculacionDTO> obtenerMatriculacionesPorFiltrosSinFecha(String nombreAsignatura, String nombreAlumno,
+			int activo);
+
+	int actualizarMatriculacion(String id, String idAsignatura, String idAlumno,
+			String fecha, String tasa) throws SQLException;
+
+	int borrarMatriculacion(String id) throws SQLException;
 }

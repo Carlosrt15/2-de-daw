@@ -1,21 +1,19 @@
 package servicios;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
+
 import dto.AsignaturaDTO;
 
 public interface IAsignaturasService {
+    public ArrayList<AsignaturaDTO> obtenerAsignaturas() throws SQLException;
 
-    ArrayList<AsignaturaDTO> buscarAsignaturas(
-            String id, 
-            String nombre, 
-            String curso, 
-            String tasaMayorQue, 
-            String activo
-    );
+    public ArrayList<AsignaturaDTO> obtenerAsignaturasPorFiltros(String id, String nombre, String curso, String tasa,
+            int activo);
 
-    int insertarAsignatura(String id, String nombre, int curso, double tasa, int activo);
+    public int insertarAsignatura(String id, String nombre, String curso, String tasa, int activo);
 
-    int actualizarAsignatura(String id, String nombre, int curso, double tasa, int activo);
+    public int actualizarAsignatura(String id, String nombre, String curso, String tasa, int activo);
 
-    int borrarAsignatura(String id);
+    public int borrarAsignatura(String id);
 }

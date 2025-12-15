@@ -46,8 +46,7 @@ public class AlumnosDAOImpl implements IAlumnosDAO {
 	public ArrayList<AlumnoDTO> obtenerAlumnosPorIdNombreApellido(String id, String nombre, String apellido,
 			int familiaNumerosa, int activo) {
 		String sql = "SELECT a.id, a.nombre, a.apellidos, m.nombre, m.id_municipio, a.familia_numerosa, a.activo "
-				+ "FROM alumnos a, municipios m "
-				+ "WHERE a.id_municipio = m.id_municipio "
+				+ "FROM alumnos a, municipios m " + "WHERE a.id_municipio = m.id_municipio "
 				+ "AND a.id LIKE ? AND a.nombre LIKE ? AND a.apellidos LIKE ? "
 				+ "AND familia_numerosa = ? AND activo = ?";
 
@@ -69,15 +68,9 @@ public class AlumnosDAOImpl implements IAlumnosDAO {
 			alumnoResultSet = ps.executeQuery();
 
 			while (alumnoResultSet.next()) {
-				AlumnoDTO a = new AlumnoDTO(
-						alumnoResultSet.getInt(1),
-						alumnoResultSet.getString(2),
-						alumnoResultSet.getString(3),
-						alumnoResultSet.getString(4),
-						alumnoResultSet.getInt(5),
-						alumnoResultSet.getInt(6),
-						alumnoResultSet.getInt(7)
-				);
+				AlumnoDTO a = new AlumnoDTO(alumnoResultSet.getInt(1), alumnoResultSet.getString(2),
+						alumnoResultSet.getString(3), alumnoResultSet.getString(4), alumnoResultSet.getInt(5),
+						alumnoResultSet.getInt(6), alumnoResultSet.getInt(7));
 				listaAlumnos.add(a);
 			}
 			connection.close();
@@ -138,12 +131,13 @@ public class AlumnosDAOImpl implements IAlumnosDAO {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return 0;
+		return resultado;
 	}
 
 	@Override
 	public int borrarAlumno(String id) {
-		String sql = "UPDATE alumnos SET activo = 0 WHERE id = ?";
+		String sql = "UPDATE alumnos SET activo = 0 "
+				+ "WHERE id = ? ";
 		Connection connection = DBUtils.conexion();
 		PreparedStatement ps;
 		Integer resultado = 0;
@@ -154,54 +148,62 @@ public class AlumnosDAOImpl implements IAlumnosDAO {
 			resultado = ps.executeUpdate();
 			connection.close();
 		} catch (SQLException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return resultado;
 	}
 
-	
-
 	@Override
 	public boolean esFamiliaNumerosa(String idAlumno) {
 		String sql = "SELECT familia_numerosa FROM alumnos WHERE id = ?";
-		boolean esFN = false;
+		boolean esFamiliaNumerosa = false;
 
-		try (Connection con = DBUtils.conexion();
-			 PreparedStatement ps = con.prepareStatement(sql)) {
-
+		try {
+			Connection connection = DBUtils.conexion();
+			PreparedStatement ps = connection.prepareStatement(sql);
 			ps.setString(1, idAlumno);
+
 			ResultSet rs = ps.executeQuery();
 
 			if (rs.next()) {
-				esFN = rs.getBoolean("familia_numerosa");
+				esFamiliaNumerosa = rs.getBoolean("familia_numerosa");
 			}
 
+			connection.close();
+			logger.debug("Alumno " + idAlumno + " es familia numerosa: " + esFamiliaNumerosa);
 		} catch (SQLException e) {
+			logger.error("Error al verificar si es familia numerosa", e);
 			e.printStackTrace();
 		}
 
-		return esFN;
+		return esFamiliaNumerosa;
 	}
 
 	@Override
 	public int contarAsignaturasMatriculadas(String idAlumno) {
-		String sql = "SELECT COUNT(*) AS total FROM matriculaciones WHERE id_alumno = ?";
-		int total = 0;
+		String sql = "SELECT COUNT(*) as total FROM matriculaciones WHERE id_alumnos = ?";
+		int count = 0;
 
-		try (Connection con = DBUtils.conexion();
-			 PreparedStatement ps = con.prepareStatement(sql)) {
-
+		try {
+			Connection connection = DBUtils.conexion();
+			PreparedStatement ps = connection.prepareStatement(sql);
 			ps.setString(1, idAlumno);
+
 			ResultSet rs = ps.executeQuery();
 
 			if (rs.next()) {
-				total = rs.getInt("total");
+				count = rs.getInt("total");
 			}
 
+			connection.close();
+			logger.debug("Alumno " + idAlumno + " tiene " + count + " asignaturas matriculadas");
 		} catch (SQLException e) {
+			logger.error("Error al contar asignaturas matriculadas", e);
 			e.printStackTrace();
 		}
 
-		return total;
+		return count;
 	}
+
 }

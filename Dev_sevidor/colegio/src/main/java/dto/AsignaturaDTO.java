@@ -1,60 +1,73 @@
 package dto;
 
 public class AsignaturaDTO {
+	private int id;
+	private String nombre;
+	private String curso;
+	private double tasa;
+	private int activo;
+	
+	public AsignaturaDTO(int id, String nombre, String curso, double tasa, int activo) {
+		super();
+		this.id = id;
+		this.nombre = nombre;
+		this.curso = curso;
+		this.tasa = tasa;
+		this.activo = activo;
+	}
+	
+	public AsignaturaDTO(int id, String nombre, String curso) {
+		super();
+		this.id = id;
+		this.nombre = nombre;
+		this.curso = curso;
+	}
+	
+	public AsignaturaDTO(int id, String nombre) {
+		super();
+		this.id = id;
+		this.nombre = nombre;
+	}
+	
+	//Getters, setters...
 
-    private int id;
-    private String nombre;
-    private int curso;
-    private double tasa;
-    private int activo;
+	public int getId() {
+		return id;
+	}
 
-    public AsignaturaDTO(int id, String nombre, int curso, double tasa, int activo) {
-        this.id = id;
-        this.nombre = nombre;
-        this.curso = curso;
-        this.tasa = tasa;
-        this.activo = activo;
-    }
+	public void setId(int id) {
+		this.id = id;
+	}
 
-    public AsignaturaDTO() {}
+	public String getNombre() {
+		return nombre;
+	}
 
-    public int getId() {
-        return id;
-    }
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
 
-    public void setId(int id) {
-        this.id = id;
-    }
+	public String getCurso() {
+		return curso;
+	}
 
-    public String getNombre() {
-        return nombre;
-    }
+	public void setCurso(String curso) {
+		this.curso = curso;
+	}
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
+	public double getTasa() {
+		return tasa;
+	}
 
-    public int getCurso() {
-        return curso;
-    }
+	public void setTasa(double tasa) {
+		this.tasa = tasa;
+	}
 
-    public void setCurso(int curso) {
-        this.curso = curso;
-    }
+	public int getActivo() {
+		return activo;
+	}
 
-    public double getTasa() {
-        return tasa;
-    }
-
-    public void setTasa(double tasa) {
-        this.tasa = tasa;
-    }
-
-    public int getActivo() {
-        return activo;
-    }
-
-    public void setActivo(int activo) {
-        this.activo = activo;
-    }
+	public void setActivo(int activo) {
+		this.activo = activo;
+	}
 }

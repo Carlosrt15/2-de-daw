@@ -14,8 +14,8 @@ public class DesplegableDAOImp implements IDesplegableDAO {
 
     @Override
     public ArrayList<DesplegableDTO> desplegableMunicipios() {
-        String sql = "SELECT id_municipio, nombre FROM municipios ORDER BY nombre";
-        ArrayList<DesplegableDTO> lista = new ArrayList<>();
+        String sql = "SELECT * FROM municipios ORDER BY nombre";
+        ArrayList<DesplegableDTO> listaMunicipios = new ArrayList<>();
 
         try {
             Connection connection = DBUtils.conexion();
@@ -23,23 +23,22 @@ public class DesplegableDAOImp implements IDesplegableDAO {
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
-                lista.add(new DesplegableDTO(
-                        rs.getInt("id_municipio"),
-                        rs.getString("nombre")
-                ));
+                DesplegableDTO a = new DesplegableDTO(rs.getInt(1), rs.getString(5));
+                listaMunicipios.add(a);
             }
 
         } catch (SQLException e) {
+            // TODO Auto-generated catch block
             e.printStackTrace();
         }
 
-        return lista;
+        return listaMunicipios;
     }
 
     @Override
     public ArrayList<DesplegableDTO> desplegableAlumnos() {
-        String sql = "SELECT id, CONCAT(nombre, ' ', apellidos) AS descripcion FROM alumnos WHERE activo = 1 ORDER BY nombre";
-        ArrayList<DesplegableDTO> lista = new ArrayList<>();
+        String sql = "SELECT id, nombre FROM alumnos WHERE activo = 1 ORDER BY nombre";
+        ArrayList<DesplegableDTO> listaAlumnos = new ArrayList<>();
 
         try {
             Connection connection = DBUtils.conexion();
@@ -47,23 +46,23 @@ public class DesplegableDAOImp implements IDesplegableDAO {
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
-                lista.add(new DesplegableDTO(
-                        rs.getInt("id"),
-                        rs.getString("descripcion")
-                ));
+                // Formato: "id - nombreAlumno"
+                DesplegableDTO a = new DesplegableDTO(rs.getInt(1), rs.getInt(1) + " - " + rs.getString(2));
+                listaAlumnos.add(a);
             }
+            connection.close();
 
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
-        return lista;
+        return listaAlumnos;
     }
 
     @Override
     public ArrayList<DesplegableDTO> desplegableAsignaturas() {
-        String sql = "SELECT id, nombre AS descripcion FROM asignaturas WHERE activo = 1 ORDER BY nombre";
-        ArrayList<DesplegableDTO> lista = new ArrayList<>();
+        String sql = "SELECT id, nombre FROM asignaturas WHERE activo = 1 ORDER BY nombre";
+        ArrayList<DesplegableDTO> listaAsignaturas = new ArrayList<>();
 
         try {
             Connection connection = DBUtils.conexion();
@@ -71,16 +70,16 @@ public class DesplegableDAOImp implements IDesplegableDAO {
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
-                lista.add(new DesplegableDTO(
-                        rs.getInt("id"),
-                        rs.getString("descripcion")
-                ));
+                DesplegableDTO a = new DesplegableDTO(rs.getInt(1), rs.getString(2));
+                listaAsignaturas.add(a);
             }
+            connection.close();
 
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
-        return lista;
+        return listaAsignaturas;
     }
+
 }

@@ -1,17 +1,22 @@
 package dao;
 
+import java.sql.Date;
 import java.util.ArrayList;
-import dto.FaltasDTO;
+
+import dto.FaltaDTO;
 
 public interface IFaltasDAO {
 
-    ArrayList<FaltasDTO> obtenerTodasFaltas();
+    ArrayList<FaltaDTO> obtenerTodasFaltas();
 
-    int insertarFalta(int alumno, int asignatura, String fecha, int justificada);
+    ArrayList<FaltaDTO> obtenerFaltasPorFiltros(String nombreAlumno, String asignatura, String fecha, int justificada);
 
-    int borrarFalta(int idfaltas);
+    ArrayList<FaltaDTO> obtenerFaltasPorFiltrosSinFecha(String nombreAlumno, String asignatura, int justificada);
 
-    int actualizarFalta(int idfaltas, int alumno, int asignatura, String fecha, int justificada);
+    int insertarFalta(String idAlumno, String idAsignatura, String fecha, int justificada);
 
-    FaltasDTO obtenerFaltaPorId(int idfaltas);
+    int actualizarFalta(String idFalta, String idAlumno, String idAsignatura, String fecha, int justificada);
+
+    int borrarFalta(String idFalta);
+
 }

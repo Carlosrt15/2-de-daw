@@ -1,72 +1,53 @@
 package utils;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.SQLException;
-
-/* ============================================================
- *        VERSIÓN ANTIGUA (JNDI) — COMENTADA
- * 
- *        Esta versión NO funciona si no configuras un recurso
- *        JNDI en Tomcat llamado "jdbc/colegio".
- * 
- *        La dejamos aquí por si algún día quieres reactivarla.
- * ============================================================
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
-public class DBUtils {
-
-    public static Connection conexion() {
-        Connection connection = null;
-        Context ctx = null;
-        DataSource ds = null;
-        try {
-            ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup("java:/comp/env/jdbc/colegio");
-            connection = ds.getConnection();
-        } catch (SQLException | NamingException e) {
-            e.printStackTrace();
-        }
-        return connection;
-    }
-}
-
-============================================================
- * FIN VERSIÓN ANTIGUA
- * ============================================================
- */
-
-
-
-/* ============================================================
- *        VERSIÓN NUEVA (RECOMENDADA)
- *        Funciona SIEMPRE, sin configuración de Tomcat.
- *        Puedes poner tu usuario y contraseña aquí.
- * ============================================================
- */
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
 
 public class DBUtils {
+	
 
-    // Cambia estos valores a los de tu MySQL
-    private static final String URL = "jdbc:mysql://localhost:3306/colegio?useSSL=false&serverTimezone=UTC";
-    private static final String USER = "root";        
-    private static final String PASSWORD = "root";    // ← clase Contraseña
+    private static SessionFactory sessionFactory; 
+    // Las variables estáticas son las que pertenecen a la clase y no al objeto.
+    // Es decir, esta variable es compartida por todos los objetos que
+    // se creen de esta clase
 
-    public static Connection conexion() {
-        Connection con = null;
+    // Implementamos el patrón singleton, lo cual nos garantiza que solo haya un objeto creado de SessionFactory en nuestra app
 
-        try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            con = DriverManager.getConnection(URL, USER, PASSWORD);
-
-        } catch (SQLException | ClassNotFoundException e) {
-            e.printStackTrace();
+    public static SessionFactory creadorSessionFactory() {
+        if (sessionFactory == null) {
+            try {
+                sessionFactory = new Configuration().configure().buildSessionFactory();
+            } catch (Throwable ex) {
+                System.err.println("Error al crear el objeto SessionFactory" + ex);
+                throw new ExceptionInInitializerError(ex);
+            }
         }
-
-        return con;
+        return sessionFactory;
     }
+	
+	
+
+	public static Connection conexion() {
+		Connection connection = null;
+		Context ctx = null;
+		DataSource ds = null;
+		try {
+			ctx = new InitialContext();
+			ds = (DataSource) ctx.lookup("java:/comp/env/jdbc/miBBDD");
+			connection = ds.getConnection();
+		} catch (SQLException | NamingException e) {
+			e.printStackTrace();
+		}
+		return connection;
+
+	}
+
 }
