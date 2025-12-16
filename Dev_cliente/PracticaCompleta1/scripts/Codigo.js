@@ -103,4 +103,45 @@ function gestionArtistas() {
     select.appendChild(modificar);
 
     recuperarZonaDatos.appendChild(select);
+
+    select.id = "Select";
+
+    let br1 = document.createElement("br");
+    let br2 = document.createElement("br");
+
+    recuperarZonaDatos.appendChild(br2);
+    recuperarZonaDatos.appendChild(br1);
+
+    //Crear el boton
+    let crearBoton = document.createElement("button");
+    crearBoton.textContent = "Efectuar Accion del CRUD";
+    crearBoton.id = "BtnCrud";
+    recuperarZonaDatos.appendChild(crearBoton);
+
+    // tomar los select
+
+
+    let tomarBtn = document.getElementById("BtnCrud");
+
+
+
+    tomarBtn.addEventListener("click", () => {
+        let tomarSelect = document.getElementById("Select").value;
+
+        if (tomarSelect === "Alta") {
+            console.log("Alta");
+        } else if (tomarSelect === "Baja") {
+            console.log("Baja");
+        } else if (tomarSelect === "Modificar") {
+            console.log("Modificar");
+        } else {
+
+        }
+
+    });
+
+
+
+
 }
+
