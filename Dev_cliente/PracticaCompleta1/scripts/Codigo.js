@@ -76,72 +76,139 @@ function gestionArtistas() {
     recuperarZonaDatos.innerHTML = "";
 
     let h2 = document.createElement("h2");
-    h2.textContent = "Gestion de Artistas";
+    h2.textContent = "Gestión de Artistas";
     recuperarZonaDatos.appendChild(h2);
 
-    //Crear select 
+    // Select CRUD
     let select = document.createElement("select");
+    select.id = "Select";
 
     let default2 = document.createElement("option");
-    default2.textContent = "Selecciona una opcion CRUD";
-    default2.value = ""
+    default2.textContent = "Selecciona una opción CRUD";
+    default2.value = "";
     select.appendChild(default2);
 
     let alta = document.createElement("option");
     alta.textContent = "Dar Alta";
-    alta.value = "Alta"
+    alta.value = "Alta";
     select.appendChild(alta);
 
-    let Baja = document.createElement("option");
-    Baja.textContent = "Dar Baja";
-    Baja.value = "Baja"
-    select.appendChild(Baja);
+    let baja = document.createElement("option");
+    baja.textContent = "Dar Baja";
+    baja.value = "Baja";
+    select.appendChild(baja);
 
     let modificar = document.createElement("option");
     modificar.textContent = "Modificar";
-    modificar.value = "Modificar"
+    modificar.value = "Modificar";
     select.appendChild(modificar);
 
     recuperarZonaDatos.appendChild(select);
 
-    select.id = "Select";
+    recuperarZonaDatos.appendChild(document.createElement("br"));
+    recuperarZonaDatos.appendChild(document.createElement("br"));
 
-    let br1 = document.createElement("br");
-    let br2 = document.createElement("br");
-
-    recuperarZonaDatos.appendChild(br2);
-    recuperarZonaDatos.appendChild(br1);
-
-    //Crear el boton
+    // Botón CRUD
     let crearBoton = document.createElement("button");
-    crearBoton.textContent = "Efectuar Accion del CRUD";
+    crearBoton.textContent = "Efectuar Acción del CRUD";
     crearBoton.id = "BtnCrud";
     recuperarZonaDatos.appendChild(crearBoton);
 
-    // tomar los select
+    // Contenedor formulario
+    let contenedorForm = document.createElement("div");
+    contenedorForm.id = "contenedorForm";
+    contenedorForm.style.marginTop = "20px";
+    recuperarZonaDatos.appendChild(contenedorForm);
 
+    // Formulario genérico
+    let form = document.createElement("form");
+    form.id = "formCrud";
+    form.style.display = "none";
 
-    let tomarBtn = document.getElementById("BtnCrud");
+    let h3 = document.createElement("h3");
+    h3.id = "tituloForm";
 
+    let inputId = document.createElement("input");
+    inputId.id = "idArtista";
+    inputId.placeholder = "ID del artista";
 
+    let inputNombre = document.createElement("input");
+    inputNombre.id = "nombreArtista";
+    inputNombre.placeholder = "Nombre del artista";
 
-    tomarBtn.addEventListener("click", () => {
-        let tomarSelect = document.getElementById("Select").value;
+    let inputGenero = document.createElement("input");
+    inputGenero.id = "generoArtista";
+    inputGenero.placeholder = "Género musical";
 
-        if (tomarSelect === "Alta") {
-            console.log("Alta");
-        } else if (tomarSelect === "Baja") {
-            console.log("Baja");
-        } else if (tomarSelect === "Modificar") {
-            console.log("Modificar");
+    let btnSubmit = document.createElement("button");
+    btnSubmit.type = "submit";
+    btnSubmit.id = "btnSubmit";
+
+    form.append(
+        h3,
+        inputId, document.createElement("br"),
+        inputNombre, document.createElement("br"),
+        inputGenero, document.createElement("br"),
+        btnSubmit
+    );
+
+    contenedorForm.appendChild(form);
+
+    // Evento botón CRUD
+    crearBoton.addEventListener("click", () => {
+        let opcion = document.getElementById("Select").value;
+
+        form.style.display = "block";
+
+        inputId.style.display = "none";
+        inputNombre.style.display = "none";
+        inputGenero.style.display = "none";
+
+        if (opcion === "Alta") {
+            h3.textContent = "Alta de Artista";
+            inputNombre.style.display = "block";
+            inputGenero.style.display = "block";
+            btnSubmit.textContent = "Guardar";
+
+        } else if (opcion === "Baja") {
+            h3.textContent = "Baja de Artista";
+            inputId.style.display = "block";
+            btnSubmit.textContent = "Eliminar";
+
+        } else if (opcion === "Modificar") {
+            h3.textContent = "Modificar Artista";
+            inputId.style.display = "block";
+            inputNombre.style.display = "block";
+            inputGenero.style.display = "block";
+            btnSubmit.textContent = "Modificar";
+
         } else {
-
+            form.style.display = "none";
+            alert("Selecciona una opción CRUD");
         }
-
     });
 
+    // Submit formulario
+    form.addEventListener("submit", (e) => {
+        e.preventDefault();
 
+        let opcion = document.getElementById("Select").value;
+        let id = inputId.value;
+        let nombre = inputNombre.value;
+        let genero = inputGenero.value;
 
+        if (opcion === "Alta") {
+            console.log("ALTA", nombre, genero);
+        }
 
+        if (opcion === "Baja") {
+            console.log("BAJA", id);
+        }
+
+        if (opcion === "Modificar") {
+            console.log("MODIFICAR", id, nombre, genero);
+        }
+
+        form.reset();
+    });
 }
-
