@@ -23,11 +23,11 @@ function comenzarAccion(accion) {
 }
 
 
-function  modificarTexto(texto){
+function modificarTexto(texto) {
     let modificarTexto = document.getElementById('textArea').value;
 
     let dividir = modificarTexto.split(',');
-    let cambiarFinal = dividir.map(p => p.slice(0,-1) + "ria");
+    let cambiarFinal = dividir.map(p => p.slice(0, -1) + "ria");
     console.log(cambiarFinal);
 
     // Recuperar las ultimas 10 palabras
@@ -39,31 +39,33 @@ function  modificarTexto(texto){
 
 function ordenarPalabras(texto) {
     let textoOrdena = document.getElementById('textArea').value;
-    
-    
+
+
 
 }
 
 
 function calcularOcurrencias(texto) {
-
-    let textoOcu = document.getElementById('textArea').value;
-
-    let palabras = textoOcu.split(',');
-
-    let tieneX = palabras.some(p => p.startsWith("x"));
-
-    if (tieneX === true) {
-        console.log("Hay palabras que empiezan por X");
-    };
+    
+    let calcularOcurrencia = document.getElementById('textArea').value;
 
 
-    let palabrasMas5 = palabras.every(p => p.length > 5);
+    let dividir = calcularOcurrencia.split(','); 
+    let empiezaPorX = dividir.some(p => p.startsWith("x"));
 
-    if (palabrasMas5 === true) {
-        console.log("Todas tienen mas de 5 letras");
-    };
+    // sin usar startsWith 
+    // let empiezaPorX = dividir.some(p => p[0] ==="x");
 
+     if(empiezaPorX === true){
+        console.log("Hay palabras con x");
+     }
+
+     let palabrasMayores = dividir.every(p => p.length > 5);
+
+     if(palabrasMayores === true && empiezaPorX === true) {
+        console.log("Todas las palabras son > 5");
+
+     }
 
 }
 
