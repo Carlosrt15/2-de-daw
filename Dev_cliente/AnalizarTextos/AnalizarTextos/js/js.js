@@ -23,20 +23,16 @@ function comenzarAccion(accion) {
 }
 
 
-function modificarTexto(texto) {
-    let textoModifica = document.getElementById('textArea').value;
-   let palabras = textoModifica.split(',');
+function  modificarTexto(texto){
+    let modificarTexto = document.getElementById('textArea').value;
 
-   let modifica = palabras.map(p => {
-    // slice para borrar ultimas 3 letras
-    return p.slice(0, -3) + "ria";
-   });
-   console.log("Palabras modificadas:", modifica);
+    let dividir = modificarTexto.split(',');
+    let cambiarFinal = dividir.map(p => p.slice(0,-1) + "ria");
+    console.log(cambiarFinal);
 
-   // uso de slice para tomar las ultimas 10 palabras 
-   let ultimas10 = modifica.slice(-10);
-
-   alert(ultimas10);
+    // Recuperar las ultimas 10 palabras
+    let ultimas = cambiarFinal.slice(-10);
+    alert(ultimas);
 
 }
 
@@ -44,16 +40,7 @@ function modificarTexto(texto) {
 function ordenarPalabras(texto) {
     let textoOrdena = document.getElementById('textArea').value;
     
-    let palabras = textoOrdena.split(',');
-
-    let ordenar = palabras.sort((a,b) => {
-        let letraA = a[1];
-        let letraB = b[1];
-        return letraA.localeCompare(letraB);
-    });
-
-    let unirTodo = ordenar.join("-");
-    alert(unirTodo);
+    
 
 }
 
