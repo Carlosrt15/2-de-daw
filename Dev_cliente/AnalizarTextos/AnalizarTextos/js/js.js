@@ -38,7 +38,17 @@ function modificarTexto(texto) {
 
 
 function ordenarPalabras(texto) {
-    let textoOrdena = document.getElementById('textArea').value;
+    let textoOrdena = document.getElementById('textArea').value.toLowerCase();
+    let dividir = textoOrdena.split(',');
+
+    // ordenar por la 2 palabra 
+    let ordenadas = dividir.sort((a, b) => a[1].localeCompare(b[1]));
+
+        // al cambiar el orden de a , b se ordenaria de ultimo a primero
+    //let ordenadas = dividir.sort((a,b) => b[1].localeCompare(a[1]));
+
+    let resultado = ordenadas.join("_");
+    alert(resultado);
 
 
 
@@ -46,26 +56,26 @@ function ordenarPalabras(texto) {
 
 
 function calcularOcurrencias(texto) {
-    
+
     let calcularOcurrencia = document.getElementById('textArea').value;
 
 
-    let dividir = calcularOcurrencia.split(','); 
+    let dividir = calcularOcurrencia.split(',');
     let empiezaPorX = dividir.some(p => p.startsWith("x"));
 
     // sin usar startsWith 
     // let empiezaPorX = dividir.some(p => p[0] ==="x");
 
-     if(empiezaPorX === true){
+    if (empiezaPorX === true) {
         console.log("Hay palabras con x");
-     }
+    }
 
-     let palabrasMayores = dividir.every(p => p.length > 5);
+    let palabrasMayores = dividir.every(p => p.length > 5);
 
-     if(palabrasMayores === true && empiezaPorX === true) {
+    if (palabrasMayores === true && empiezaPorX === true) {
         console.log("Todas las palabras son > 5");
 
-     }
+    }
 
 }
 
