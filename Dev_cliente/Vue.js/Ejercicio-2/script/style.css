@@ -7,3 +7,7 @@ div {
     float: left;
     padding: 2%;
 }
+
+td{
+    border: solid 1px rgb(179, 51, 51);
+}

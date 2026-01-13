@@ -5,19 +5,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ejercicio2</title>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="./script/test.js"></script>
+    <link rel="stylesheet" href="./script/style.css">
 </head>
 <body>
 
     <div id="elemento">
-        
+       <input type="text" v-if="elemento1 === 'input'" placeholder="input tipo texto">
+       <span v-else-if="elemento1 === 'texto'">Esto es un span</span>
+       <table v-else-if="elemento1 === 'tabla'"> 
+        <tr>
+            <td>columna 1</td>
+            <td>columna 2</td>
+        </tr>
+       </table>
+
 
 
     </div>
 
-    <div id="lista-array">
+    <div id="elemento2">
+        <table v-if="personas.length > 0">
+            <tr>
+                <th>DNI</th>
+                <th>Nombre</th>
+                <th>Apellidos</th>
+            </tr>
+            <tr v-for="(personas,index) in personas" :key="index">
+                <td>{{personas.dni}}</td>
+                <td>{{personas.nombre}}</td>
+                <td>{{personas.apellidos}}</td>
+            </tr>
+        </table>
 
         
     </div>
+    <script>
+         elemento.mount("#elemento");
+         elemento2.mount("#elemento2");
+    </script>
     
 </body>
 </html>
