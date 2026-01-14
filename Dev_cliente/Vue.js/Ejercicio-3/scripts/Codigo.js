@@ -9,7 +9,8 @@ const propositos = createApp({
             {texto:"Hacer deporte",hecho:true},
             {texto:"Hacer dieta",hecho:false},
             {texto:"No Fumar",hecho:true},
-            {texto:"No Beber Alcohol",hecho:true}
+            {texto:"No Beber Alcohol",hecho:true},
+            {texto:"No tener multas",hecho:false}
             
         ]);
         return {

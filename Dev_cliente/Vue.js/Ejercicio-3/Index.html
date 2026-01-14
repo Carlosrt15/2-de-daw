@@ -1,16 +1,39 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Propósitos de año nuevo: </title>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="./scripts/Codigo.js"></script>
+    <link rel="stylesheet" href="./scripts/Style.css">
 
 </head>
+
 <body>
+    <h1>Propositos Año Nuevo</h1>
+
+    <div id="propositos">
+        <ul v-if="Proposito.length > 0">
+            <li v-for="(p, index) in Proposito" :key="index">
+                <input type="checkbox" v-model="p.hecho">
+                
+                <span :class="{tachado: p.hecho}">
+                    {{p.texto}}
+                </span>
+            </li>
+        </ul>
+        <p v-else>
+            La lista de propósitos está vacía
+        </p>
+    </div>
+
+
+
     <script>
         propositos.mount("#propositos");
     </script>
 </body>
+
 </html>
