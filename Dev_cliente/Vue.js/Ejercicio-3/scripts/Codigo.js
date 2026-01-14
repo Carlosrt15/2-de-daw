@@ -13,9 +13,15 @@ const propositos = createApp({
             {texto:"No tener multas",hecho:false}
             
         ]);
+
+        const borrarProposito = (index) => {
+            Proposito.value.splice(index,1);
+        };
+
         return {
             Proposito,
-            nuevoProposito
+            nuevoProposito,
+            borrarProposito
         }
     }
 });

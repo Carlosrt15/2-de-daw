@@ -16,7 +16,7 @@
 
     <div id="propositos">
         <ul v-if="Proposito.length > 0">
-            <li v-for="(p, index) in Proposito" :key="index">
+            <li v-for="(p, index) in Proposito" :key="index" @dblclick="borrarProposito(index)">
                 <input type="checkbox" v-model="p.hecho">
                 
                 <span :class="{tachado: p.hecho}">
