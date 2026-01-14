@@ -20,6 +20,7 @@ public class AsignaturasController {
     @Autowired
     IAsignaturasService asignaturasService;
 
+    
     @GetMapping("/listadoAsignaturas")
     public String formularioListado() {
         return "asignaturas/listadoAsignaturas";
@@ -28,7 +29,7 @@ public class AsignaturasController {
     @PostMapping("/listadoAsignaturas")
     public String listadoAsignaturas(
             @RequestParam(value = "id", required = false) Integer id,
-            @RequestParam("nombre") String nombre,
+            @RequestParam(value = "nombre", required = false) String nombre,
             @RequestParam(value = "curso", required = false) Integer curso,
             @RequestParam(value = "activo", required = false) Integer activo,
             ModelMap model) {
@@ -40,6 +41,12 @@ public class AsignaturasController {
 
         model.addAttribute("lista", lista);
         return "asignaturas/listadoAsignaturas";
+    }
+
+    
+    @GetMapping("/insertarAsignatura")
+    public String formularioInsertarAsignatura() {
+        return "asignaturas/insertarAsignaturas";
     }
 
     @PostMapping("/insertarAsignatura")
@@ -55,13 +62,48 @@ public class AsignaturasController {
         int resultado = asignaturasService.insertarAsignatura(id, nombre, curso, tasa, act);
         model.addAttribute("resultado", resultado);
 
-        return "asignaturas/insertarAsignatura";
+        return "asignaturas/insertarAsignaturas";
     }
 
+   
+ 
+    @GetMapping("/borrarAsignatura")
+    public String formularioBorrarAsignatura() {
+        return "asignaturas/borrarAsignaturas";
+    }
+
+    
     @PostMapping("/borrarAsignatura")
     public String borrarAsignatura(@RequestParam("id") int id, ModelMap model) {
         int resultado = asignaturasService.borrarAsignatura(id);
         model.addAttribute("resultado", resultado);
-        return "asignaturas/borrarAsignatura";
+        return "asignaturas/borrarAsignaturas";
     }
+
+
+   
+    @GetMapping("/actualizarAsignaturas")
+    public String formularioActualizarAsignaturas() {
+        return "asignaturas/actualizarAsignaturas";
+    }
+    
+    @PostMapping("/actualizarAsignaturas")
+    public String actualizarAsignaturas(
+            @RequestParam("id") int id,
+            @RequestParam("nombre") String nombre,
+            @RequestParam("curso") int curso,
+            @RequestParam("tasa") double tasa,
+            @RequestParam(value = "activo", required = false) Integer activo,
+            ModelMap model) {
+
+        int act = activo != null ? 1 : 0;
+
+        int resultado = asignaturasService.actualizarAsignatura(
+                id, nombre, curso, tasa, act);
+
+        model.addAttribute("resultado", resultado);
+
+        return "asignaturas/actualizarAsignaturas";
+    }
+
 }

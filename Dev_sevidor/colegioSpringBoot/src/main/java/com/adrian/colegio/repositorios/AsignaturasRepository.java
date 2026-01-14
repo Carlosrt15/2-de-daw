@@ -7,6 +7,7 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 
 import com.adrian.colegio.dtos.AsignaturaDTO;
+import com.adrian.colegio.entities.AsignaturaEntity;
 
 public interface AsignaturasRepository 
         extends CrudRepository<AsignaturaEntity, Integer> {
