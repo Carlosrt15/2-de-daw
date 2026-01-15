@@ -38,6 +38,9 @@ sudo htpasswd -c /etc/apache2/usuarios_privado2 usuario2
     </Directory>
     ErrorLog /var/www/carlos/logs/error.log
     CustomLog /var/www/carlos/logs/access.log combined
+    ErrorDocument 400 /errorDocs/400.html
+    
+
 </VirtualHost>
 
 4. Activar sitio
@@ -66,3 +69,4 @@ sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/apache2/ce
 activar modulo ssl
 sudo a2enmod ssl
 sudo systemctl restart apache2
+crt
