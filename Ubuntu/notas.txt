@@ -15,7 +15,7 @@ sudo htpasswd -c /etc/apache2/usuarios_privado1 usuario1
 sudo htpasswd -c /etc/apache2/usuarios_privado2 usuario2
 
 3. VirtualHost carlos.conf [sudo /etc/apache2/sites-available/prueba1.conf]
-<VirtualHost *:80>
+<VirtualHost *:80> 
     ServerName carlos
     ServerAlias www.carlos
     DocumentRoot /var/www/carlos
