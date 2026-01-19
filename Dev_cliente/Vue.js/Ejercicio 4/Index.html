@@ -28,9 +28,14 @@
 
         <input type="checkbox" v-model="prop.hecho">
 
-        <span :class="{ hecho: prop.hecho }">
-          {{ prop.texto }}
-        </span>
+        <span
+  :class="{ 'cVerde': prop.hecho, 'cRojo': !prop.hecho }"
+>
+  {{ prop.texto }}
+</span>
+
+ 
+
       </li>
     </ul>
 

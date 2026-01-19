@@ -49,7 +49,9 @@ createApp({
         return "";
       }
     });
-    cons tipoProposito = computed(() =>
+    const tipoProposito = computed(() => {
+      
+    });
 
     return {
       nuevoProp,
