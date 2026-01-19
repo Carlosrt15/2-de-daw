@@ -1,0 +1,39 @@
+h1 {
+    text-align: center;
+}
+
+#div1AsigDirecta {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    padding: 25px;
+}
+
+#div1AsigValidacion, #appComputed {
+    display: grid;
+    grid-template-columns: 20% 80%;
+    margin-bottom: 10px;
+}
+
+h2 {
+  margin: 0px;
+}
+
+.fondoVerdeCentrado {
+    background-color: lightgreen;
+    text-align: center;
+}
+
+.textoXNegritaXLarge {
+    font-weight: bolder;
+    font-size: x-large;
+}
+
+.fondoAzulDerecha {
+    background-color: lightblue;
+    text-align: right;
+}
+
+.textoBlancoNegrita {
+    color: white;
+    font-weight: bold;
+}
