@@ -43,7 +43,7 @@ sudo htpasswd -c /etc/apache2/usuarios_privado2 usuario2
 
 </VirtualHost>
 
-4. Activar sitio
+4. Activar sitio   
 sudo a2ensite carlos.conf
 sudo systemctl reload apache2
 

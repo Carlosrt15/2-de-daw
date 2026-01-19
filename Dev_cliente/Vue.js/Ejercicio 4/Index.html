@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Propósitos de año nuevo</title>
+
+
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+
+  <link rel="stylesheet" href="./scripts/style.css">
+</head>
+
+<body>
+  <div id="app">
+    <h1 :class="titulo">Propósitos de año nuevo:</h1>
+
+
+    <p v-if="propositos.length === 0">
+      La lista de propósitos está vacía
+    </p>
+
+   
+    <ul v-else>
+      <li v-for="(prop, index) in propositos"
+          :key="index"
+          @dblclick="borrarProposito(index)">
+
+        <input type="checkbox" v-model="prop.hecho">
+
+        <span :class="{ hecho: prop.hecho }">
+          {{ prop.texto }}
+        </span>
+      </li>
+    </ul>
+
+    <hr>
+
+   
+    <input type="text" v-model="nuevoProp" placeholder="Nuevo propósito">
+    <button @click="anadirProposito">Añadir</button>
+
+    <br><br>
+
+   
+    <button @click="borrarTodos">Borrar todos</button>
+  </div>
+
+  <script src="./scripts/js.js"></script>
+</body>
+</html>

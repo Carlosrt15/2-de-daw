@@ -1,0 +1,8 @@
+
+.icon-cancel:before { content: '\e800'; } /* '' */
+.icon-flag:before { content: '\e801'; } /* '' */
+.icon-users:before { content: '\e802'; } /* '' */
+.icon-ok:before { content: '\e803'; } /* '' */
+.icon-edit:before { content: '\e804'; } /* '' */
+.icon-home:before { content: '\e805'; } /* '' */
+.icon-cog-alt:before { content: '\e806'; } /* '' */

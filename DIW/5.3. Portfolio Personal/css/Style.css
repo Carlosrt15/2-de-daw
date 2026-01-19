@@ -1,0 +1,84 @@
+body{
+  font-family:'Open Sans', sans-serif;
+  margin:0;
+}
+
+.logo h1{
+  margin:20px;
+  font-size:28px;
+}
+
+.logo h1 span{
+  font-weight:300;
+}
+
+.menu-nav{
+  list-style:none;
+  padding:0;
+  margin:0;
+}
+
+.menu-nav li{
+  flex:1;
+  background-color:#0b4f6c;
+  color:white;
+  padding:15px;
+  cursor:pointer;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+
+.menu-nav li:hover{
+  background-color:#4aa3df;
+}
+
+.caja-foto{
+  padding:5px;
+}
+
+.foto{
+  transition:opacity 0.3s;
+}
+
+.foto:hover{
+  opacity:0.6;
+}
+
+.modal-content{
+  border:none;
+}
+
+.about{
+  margin-top:40px;
+}
+
+.perfil{
+  width:200px;
+  height:200px;
+  border-radius:50%;
+  object-fit:cover;
+  margin-bottom:15px;
+}
+
+.progress{
+  height:20px;
+}
+
+.progress-bar{
+  background-color:#20d1f0;
+}
+
+form{
+  margin-top:30px;
+}
+
+form input,
+form textarea{
+  width:100%;
+}
+
+.pie{
+  background-color:#40b2e2;
+  color:white;
+}

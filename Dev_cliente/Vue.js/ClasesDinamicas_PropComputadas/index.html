@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clases dinámicas y propiedades computadas</title>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="./scripts/main.js"></script>
+    <link rel="stylesheet" href="./estilos/estilos.css">
+</head>
+
+<body>
+    <div id="appClases">
+        <h1> EJEMPLO DE ASIGNACIÓN DE CLASES DE FORMA DINÁMICA</h1>
+        <div id="div1AsigDirecta">
+            <!-- Asignar clases a través de una variable cuyo valor 
+                serán las clases separadas por espacios en blanco-->
+            <h2 :class="clasesH21"> Asignación gestionada en código </h2>
+            <!-- Asignar clases a través de un array-->
+            <h2 :class="[fondo1, texto1]"> Asignación con sintaxis de array </h2>
+            <!-- Asignar clases a través de un objeto-->
+            <h2 :class="{ fondoVerdeCentrado: fondoVerde, textoBlancoNegrita: blanco }"> Asignación con sintaxis de objeto </h2>
+        </div>
+        <div id="div1AsigValidacion">
+            <!-- Asignar clases mediante validaciones. LAS VALIDACIONES SIEMPRE ENTRE []
+                En este caso, metemos los nombres de las clases entre comillas, si no se hiciera así
+                el intérprete los entendería como variables y no como nombres de clases
+            -->
+            <input type="number" v-model="valor">
+            <h2 :class="[valor >= 25 ? 'fondoVerdeCentrado' : 'fondoAzulDerecha']"> Asignación por validaciones</h2>
+    </div>
+    </div>
+    <div id="appComputed">
+        <!-- Misma funcionalidad que el último ejemplo de asignación de clases. En este caso 
+            la validación se incluye en una propiedad computada(asignarClase) y no directamente en el documento html.
+        -->
+        <input type="number" v-model="valor">
+        <h2 :class="asignarClase"> Asignación por validaciones</h2>
+    </div>
+    <script>
+        const mountedApp1 = appClases.mount("#appClases");
+        const mountedApp2 = appComputed.mount("#appComputed");
+    </script>
+</body>
+
+</html>

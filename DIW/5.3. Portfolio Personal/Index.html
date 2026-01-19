@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Portfolio Personal</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+<link rel="stylesheet" href="./css/fontello.css">
+<link rel="stylesheet" href="./css/Style.css">
+</head>
+
+<body>
+
+<nav class="container-fluid p-0">
+  <div class="row g-0 align-items-center">
+    <div class="col-12 col-lg-4 text-center text-lg-start logo">
+      <h1>Carlos <span>Freelance</span></h1>
+    </div>
+
+    <div class="col-12 col-lg-8">
+      <ul class="menu-nav d-flex flex-column flex-sm-row text-center">
+        <li>
+          <i class="icon-folder-open"></i>
+          <span>Portfolio</span>
+        </li>
+        <li>
+          <i class="icon-user"></i>
+          <span>Acerca de</span>
+        </li>
+        <li>
+          <i class="icon-mail"></i>
+          <span>Contacto</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="img/slide1.jpg" class="d-block w-100" alt="">
+      </div>
+      <div class="carousel-item">
+        <img src="img/slide2.jpg" class="d-block w-100" alt="">
+      </div>
+      <div class="carousel-item">
+        <img src="img/slide3.jpg" class="d-block w-100" alt="">
+      </div>
+    </div>
+  </div>
+</nav>
+
+<main class="container my-5">
+<h2 class="text-center mb-4">Portfolio</h2>
+
+<div class="row g-3">
+  <div class="col-6 col-lg-4 caja-foto">
+    <a href="#" data-bs-toggle="modal" data-bs-target="#modal" data-img="img/img-1.jpg">
+      <img src="img/img-1.jpg" class="img-fluid foto" alt="">
+    </a>
+  </div>
+
+  <div class="col-6 col-lg-4 caja-foto">
+    <a href="#" data-bs-toggle="modal" data-bs-target="#modal" data-img="img/img-2.jpg">
+      <img src="img/img-2.jpg" class="img-fluid foto" alt="">
+    </a>
+  </div>
+
+  <div class="col-12 col-lg-8 caja-foto">
+    <a href="#" data-bs-toggle="modal" data-bs-target="#modal" data-img="img/img-3.jpg">
+      <img src="img/img-3.jpg" class="img-fluid foto" alt="">
+    </a>
+  </div>
+
+  <div class="col-6 col-lg-4 caja-foto">
+    <a href="#" data-bs-toggle="modal" data-bs-target="#modal" data-img="img/img-4.jpg">
+      <img src="img/img-4.jpg" class="img-fluid foto" alt="">
+    </a>
+  </div>
+
+  <div class="col-6 col-lg-4 caja-foto">
+    <a href="#" data-bs-toggle="modal" data-bs-target="#modal" data-img="img/img-5.jpg">
+      <img src="img/img-5.jpg" class="img-fluid foto" alt="">
+    </a>
+  </div>
+
+  <div class="col-12 col-lg-4 caja-foto mx-auto">
+    <a href="#" data-bs-toggle="modal" data-bs-target="#modal" data-img="img/img-6.jpg">
+      <img src="img/img-6.jpg" class="img-fluid foto" alt="">
+    </a>
+  </div>
+</div>
+</main>
+
+<div class="modal fade" id="modal">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+      <img src="" id="img-modal" class="img-fluid" alt="">
+    </div>
+  </div>
+</div>
+
+<section class="container my-5 about">
+  <div class="row align-items-center">
+    <div class="col-12 col-md-4 text-center">
+      <img src="img/img-1.jpg" class="perfil" alt="">
+      <h4>Carlos</h4>
+    </div>
+
+    <div class="col-12 col-md-8">
+      <h2>Acerca de</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+
+      <label>HTML</label>
+      <div class="progress mb-2">
+        <div class="progress-bar" style="width:95%">95%</div>
+      </div>
+
+      <label>CSS</label>
+      <div class="progress mb-2">
+        <div class="progress-bar" style="width:100%">100%</div>
+      </div>
+
+      <label>JS</label>
+      <div class="progress">
+        <div class="progress-bar" style="width:75%">75%</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="container my-5">
+<h2 class="text-center mb-4">Contacto</h2>
+
+<form class="row justify-content-center">
+  <div class="col-12 col-md-5 mb-3">
+    <input type="text" class="form-control" placeholder="Nombre">
+  </div>
+
+  <div class="col-12 col-md-5 mb-3">
+    <input type="email" class="form-control" placeholder="Correo">
+  </div>
+
+  <div class="col-12 col-md-10 mb-3">
+    <textarea class="form-control" rows="5" placeholder="Mensaje"></textarea>
+  </div>
+
+  <div class="col-12 text-center">
+    <button class="btn btn-primary">Enviar</button>
+  </div>
+</form>
+</section>
+
+<footer class="pie text-center py-4">
+  <i class="icon-desktop"></i>
+  <i class="icon-folder-open"></i>
+  <i class="icon-user"></i>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+const modal = document.getElementById('modal');
+modal.addEventListener('show.bs.modal', function (event) {
+  const enlace = event.relatedTarget;
+  const ruta = enlace.getAttribute('data-img');
+  document.getElementById('img-modal').src = ruta;
+});
+</script>
+
+</body>
+</html>
