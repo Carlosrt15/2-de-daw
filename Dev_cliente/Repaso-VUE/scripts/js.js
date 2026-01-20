@@ -48,3 +48,15 @@ createApp({
     
      // llamar igual que la id asignada al div 
 }).mount("#texto");
+
+// formulario que sabe si escribiste  
+
+createApp({
+    setup() {
+     const texto = ref("");
+
+     return {
+        texto
+     };
+    }
+}).mount("#input");

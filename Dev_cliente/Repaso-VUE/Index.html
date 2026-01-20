@@ -23,6 +23,15 @@
         <button @click="mostrar">Mostrar texto</button>
         <button @click="ocultar">ocultar texto</button>
     </div>
+<br><br><br><br>
+
+    <!--Saber que escribio una persona-->
+    <div id="input">
+        <input type="text" v-model="texto" placeholder="Escribe algo">
+        <p v-if="texto">Has escrito <strong>{{ texto }}</strong></p>
+        <p v-else>No hay texto</p>
+
+    </div>
     
 
     <script src="./scripts/js.js"></script>
