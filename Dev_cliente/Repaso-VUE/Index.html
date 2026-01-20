@@ -15,6 +15,14 @@
          <button @click="restar">-</button>
          <button @click="sumar">+</button>
     </div>
+    <hr><br>
+    <div id="texto">
+        <h2>Texto para mostrar</h2>
+        <p v-if="visible">Este texto es PoPUp</p>
+
+        <button @click="mostrar">Mostrar texto</button>
+        <button @click="ocultar">ocultar texto</button>
+    </div>
     
 
     <script src="./scripts/js.js"></script>

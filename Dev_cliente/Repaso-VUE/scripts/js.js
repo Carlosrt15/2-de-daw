@@ -25,3 +25,26 @@ createApp({
         };
     }
 }).mount("#app");
+
+
+
+createApp({
+    setup() {
+        const visible = ref(false);
+
+        const mostrar = () => {
+            visible.value = true;
+
+        };
+        const ocultar = () => {
+            visible.value = false;
+        };
+        return {
+            visible,
+            mostrar,
+            ocultar
+        };
+    }
+    
+     // llamar igual que la id asignada al div 
+}).mount("#texto");

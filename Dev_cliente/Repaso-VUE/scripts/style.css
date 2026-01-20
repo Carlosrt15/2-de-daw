@@ -1,0 +1,86 @@
+/* RESET BÁSICO */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* BODY */
+body {
+  min-height: 100vh;
+  font-family: "Segoe UI", Tahoma, sans-serif;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+/* CONTENEDOR */
+#app {
+  background: white;
+  width: 100%;
+  max-width: 400px;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+/* TÍTULO */
+h1 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* TEXTO */
+p {
+  margin-bottom: 20px;
+  font-size: 1.1rem;
+  color: #444;
+}
+
+/* BOTONES */
+button {
+  padding: 10px 18px;
+  margin: 5px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+/* BOTÓN MOSTRAR */
+button:first-of-type {
+  background-color: #4caf50;
+  color: white;
+}
+
+/* BOTÓN OCULTAR */
+button:last-of-type {
+  background-color: #f44336;
+  color: white;
+}
+
+/* EFECTOS */
+button:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
+
+/* RESPONSIVE */
+@media (max-width: 480px) {
+  #app {
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 1.4rem;
+  }
+
+  button {
+    width: 100%;
+    margin: 8px 0;
+  }
+}
