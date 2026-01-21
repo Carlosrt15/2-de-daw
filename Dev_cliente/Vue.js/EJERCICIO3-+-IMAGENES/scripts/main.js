@@ -2,7 +2,7 @@ const {createApp, ref, reactive} = Vue;
 
 const app = createApp({
     setup() {
-        let estilosBorde = ref(true,true,true);
+        let estilosBorde = ref([true,true,true]);
 
         let datosImagenes = ref([
             {
@@ -23,12 +23,17 @@ const app = createApp({
         ]);
 
         let cambiarEstiloBorde = (index) => {
-            estilosBorde[index] = !estilosBorde[index];
+            estilosBorde.value[index] = !estilosBorde.value[index];
         }
+
+        let aumentarContador = (index) => {
+            datosImagenes.value[index].contador++;
+        };
         return {
             datosImagenes,
             estilosBorde,
-            cambiarEstiloBorde
+            cambiarEstiloBorde,
+            aumentarContador
         }
     }
 }).mount("#app");
