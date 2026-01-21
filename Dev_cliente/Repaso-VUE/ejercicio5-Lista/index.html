@@ -11,24 +11,22 @@
       <p>Nombres:</p>
 
       <div v-if="personas.length > 0">
-        <span v-for="(persona,index) in personas" :key="index"> 
-            {{persona.nombre}}, 
+        <span v-for="(persona,index) in personas" :key="index">
+          {{persona.nombre}},
         </span>
-       
-      </div>
-
-      <div>
-        <!--V-model conecta input con variables-->
-        <input type="text"  placeholder="Añada un nombre" v-model="nombreAñadir">
-        <button @click="añadirPersona">Añadir</button>
       </div>
       <p v-else>El array de nombres esta vacio</p>
-       
-
+      <div>
+        <!--V-model conecta input con variables-->
+        <input
+          type="text"
+          placeholder="Añada un nombre"
+          v-model="nombreAñadir"
+        />
+        <button @click="añadirPersona">Añadir</button><br />
+        <button @dblclick="borraPersona">Eliminar</button>
+      </div>
     </div>
-    <hr><hr><br><br>
-
-    
 
     <script src="./scripts/main.js"></script>
   </body>
