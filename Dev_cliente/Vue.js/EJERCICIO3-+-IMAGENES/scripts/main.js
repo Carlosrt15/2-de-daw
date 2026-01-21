@@ -5,7 +5,7 @@ const app = createApp({
 
 
         let estilosBorde = ref([true, true, true]);
-        let nombreTemporal = ref(["","",""]);
+        let nombreTemporal = ref(["", "", ""]);
 
         let datosImagenes = ref([
             {
@@ -33,16 +33,19 @@ const app = createApp({
         let aumentarContador = (index) => {
             datosImagenes.value[index].contador++;
         };
-        
+
         let cambiarNombre = (index) => {
-            
+           datosImagenes.value[index].nombre = nombreTemporal.value[index];
+           nombreTemporal.value[index] = "";
+
         };
         return {
             datosImagenes,
             estilosBorde,
             cambiarEstiloBorde,
             aumentarContador,
-            nombreTemporal
+            nombreTemporal,
+            cambiarNombre
         }
     }
 }).mount("#app");

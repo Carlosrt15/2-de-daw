@@ -1,29 +1,53 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-
-<head>
+  <head>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./scripts/Style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./scripts/Style.css" />
     <title>Document</title>
-</head>
+  </head>
 
-<body>
+  <body>
+    <h1>Repaso ejercicio 3 fotos</h1>
+
     <!--Añade automaticamente valores del array-->
+
     <div id="app">
-        <div v-for="(imagen,index) in datosImagenes" :key="index">
-            <img :src="imagen.url" :alt="imagen.nombre" :class="estilosBorde[index] ? 'bordeAzul' : 'bordeVerde'"
-                @mouseenter="cambiarEstiloBorde(index)" @click="aumentarContador(index)">
+      <div v-for="(imagen,index) in datosImagenes" :key="index">
+        <img
+          :src="imagen.url"
+          :alt="imagen.nombre"
+          :class="estilosBorde[index] ? 'bordeAzul' : 'bordeVerde'"
+          @mouseenter="cambiarEstiloBorde(index)"
+          @click="aumentarContador(index)"
+        />
 
-            <p v-for="()">{{ imagen.nombre }}</p>
-            <input type="text" placeholder="escribe aqui"> <br><br><br>
+        <p>{{ imagen.nombre }}</p>
 
-        </div>
+        <hr />
+      </div>
+      <hr />
+      <div>
+        <input
+          type="text"
+          v-for="(imagen,index) in datosImagenes"
+          :key="index"
+          v-model="nombreTemporal[index]"
+          @keyup.enter="cambiarNombre(index)"/>
+        <br><br><br>
+          <span v-for="(imagen,index) in datosImagenes">
+            Contador: {{ imagen.contador }} Nombre: {{ imagen.nombre }} <br><br>
+            
+          </span>
+                
+                
+      </div>
+      
+      
     </div>
-
+   
     <script src="./scripts/main.js"></script>
-</body>
-
+  </body>
 </html>
