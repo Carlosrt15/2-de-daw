@@ -17,7 +17,9 @@
             <img :src="imagen.url" :alt="imagen.nombre" :class="estilosBorde[index] ? 'bordeAzul' : 'bordeVerde'"
                 @mouseenter="cambiarEstiloBorde(index)" @click="aumentarContador(index)">
 
-            <p>{{ imagen.nombre }}</p>
+            <p v-for="()">{{ imagen.nombre }}</p>
+            <input type="text" placeholder="escribe aqui"> <br><br><br>
+
         </div>
     </div>
 
