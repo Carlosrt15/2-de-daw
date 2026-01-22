@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Repaso lista de tareas</title>
+    <link rel="stylesheet" href="./scripts/Style.css">
+  </head>
+  <body>
+
+    <div id="app">
+
+      <div v-for="proposito in propositos" :key="proposito.nombre" :class="proposito.cumplido ?'verde': 'rojo'">
+        <p>{{proposito.nombre}} - {{proposito.cumplido}} Clicks: {{ proposito.contador }}</p>
+      
+
+      <button @click="proposito.cumplido = !proposito.cumplido; proposito.contador++;" >Cambiar</button>
+        </div>
+    </div>
+
+    <script src="./scripts/main.js"></script>
+  </body>
+</html>
