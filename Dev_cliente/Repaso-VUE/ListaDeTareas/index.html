@@ -13,6 +13,8 @@
 
       <div v-for="proposito in propositos" :key="proposito.nombre" :class="proposito.cumplido ?'verde': 'rojo'">
         <p>{{proposito.nombre}} - {{proposito.cumplido}} Clicks: {{ proposito.contador }}</p>
+        <span v-if="proposito.cumplido">CUMPLIDO</span>
+        <span v-else>NO CUMPLIDO</span>
       
 
       <button @click="proposito.cumplido = !proposito.cumplido; proposito.contador++;" >Cambiar</button>
