@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeria imagenes</title>
+    <link rel="stylesheet" href="./scripts/Style.css">
+
+</head>
+
+<body>
+    <div id="galeria">
+        <img v-for="imagen in imagenes" :key="imagen.nombre" 
+        :src="imagen.url" :alt="imagen.nombre"
+        :class="imagen.seleccionada ? 'bordeRojo':'bordeGris'"
+         @click="seleccionar(imagen)"> 
+         
+
+         <p v-if="imagenes.some(img => img.seleccionada)">
+        Imagen seleccionada:
+        {{ imagenes.find(img => img.seleccionada).nombre }}
+    </p>
+        
+
+    </div>
+
+
+    <script src="./scripts/main.js"></script>
+</body>
+
+</html>
