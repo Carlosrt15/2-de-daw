@@ -2,35 +2,39 @@ package com.adrian.colegio.dtos;
 
 import java.time.LocalDate;
 
-public class FaltaDTO {
+public class MatriculacionDTO {
 
-    private int idFalta;
-    private int idAlumno;
+    private Integer id;
+    private Integer idAlumno;
     private String nombreAlumno;
+    private Integer idAsignatura;
     private String nombreAsignatura;
     private LocalDate fecha;
-    private int justificada;
+    private Integer activo;
 
-    public FaltaDTO(
-            int idFalta,
-            int idAlumno,
+    public MatriculacionDTO(
+            Integer id,
+            Integer idAlumno,
             String nombreAlumno,
+            Integer idAsignatura,
             String nombreAsignatura,
             LocalDate fecha,
-            int justificada) {
+            Integer activo) {
 
-        this.idFalta = idFalta;
+        this.id = id;
         this.idAlumno = idAlumno;
         this.nombreAlumno = nombreAlumno;
+        this.idAsignatura = idAsignatura;
         this.nombreAsignatura = nombreAsignatura;
         this.fecha = fecha;
-        this.justificada = justificada;
+        this.activo = activo;
     }
 
-    public int getIdFalta() { return idFalta; }
-    public int getIdAlumno() { return idAlumno; }
+    public Integer getId() { return id; }
+    public Integer getIdAlumno() { return idAlumno; }
     public String getNombreAlumno() { return nombreAlumno; }
+    public Integer getIdAsignatura() { return idAsignatura; }
     public String getNombreAsignatura() { return nombreAsignatura; }
     public LocalDate getFecha() { return fecha; }
-    public int getJustificada() { return justificada; }
+    public Integer getActivo() { return activo; }
 }

@@ -18,8 +18,8 @@ public class FaltasServiceImpl implements IFaltasService {
     private IFaltasDAO faltasDAO;
 
     @Override
-    public List<FaltaDTO> obtenerFaltas(Integer id, Integer idAlumno, LocalDate fecha) {
-        return faltasDAO.obtenerFaltas(id, idAlumno, fecha);
+    public List<FaltaDTO> obtenerFaltas(Integer idAlumno, LocalDate fecha) {
+        return faltasDAO.obtenerFaltas(idAlumno, fecha);
     }
 
     @Override
@@ -28,12 +28,7 @@ public class FaltasServiceImpl implements IFaltasService {
     }
 
     @Override
-    public int borrarFalta(int id) {
-        return faltasDAO.borrarFalta(id);
-    }
-
-    @Override
-    public int actualizarFalta(FaltaEntity falta) {
-        return faltasDAO.actualizarFalta(falta);
+    public int borrarFalta(int idFalta) {
+        return faltasDAO.borrarFalta(idFalta);
     }
 }

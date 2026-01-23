@@ -37,16 +37,22 @@
         <th>ID FALTA</th>
         <th>ID ALUMNO</th>
         <th>NOMBRE ALUMNO</th>
+        <th>NOMBRE ASIGNATURA</th>
         <th>FECHA</th>
+        <th>JUSTIFICADA</th>
     </tr>
 
     <tr th:each="falta : ${lista}">
-        <td th:text="${falta.id}"></td>
-        <td th:text="${falta.idAlumno}"></td>
-        <td th:text="${falta.nombreAlumno}"></td>
-        <td th:text="${falta.fecha}"></td>
-    </tr>
+    <td th:text="${falta.id}"></td>
+    <td th:text="${falta.idAlumno}"></td>
+    <td th:text="${falta.nombreAlumno}"></td>
+    <td th:text="${falta.nombreAsignatura}"></td>
+    <td th:text="${falta.fecha}"></td>
+    <td th:text="${falta.justificada == 1 ? 'Sí' : 'No'}"></td>
+</tr>
+
 </table>
+
 
 </body>
 </html>

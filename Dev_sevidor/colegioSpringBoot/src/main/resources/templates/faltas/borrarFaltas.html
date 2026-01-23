@@ -30,10 +30,10 @@
         <td th:text="${falta.justificada == 1 ? 'Sí' : 'No'}"></td>
         <td>
             <form th:action="@{/faltas/borrarFalta}" method="post">
-                <input type="hidden" name="idFalta" th:value="${falta.idFalta}">
+    <input type="hidden" name="idFalta" th:value="${falta.id}">
+    <input type="submit" value="Borrar">
+</form>
 
-                <input type="submit" value="Borrar">
-            </form>
         </td>
     </tr>
 </table>

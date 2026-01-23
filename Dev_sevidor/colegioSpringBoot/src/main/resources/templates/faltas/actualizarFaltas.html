@@ -15,19 +15,20 @@
     <h2>Modificar Faltas</h2>
 
     <div class="form">
-        <form th:action="@{/faltas/actualizarFaltas}" method="post">
+        <form th:action="@{/faltas/actualizarFalta}" method="post">
 
-            <label for="id">ID Falta</label>
-            <input type="number" name="id" required><br>
+    <label>ID Falta</label>
+    <input type="number" name="idFalta" required><br>
 
-            <label for="fecha">Fecha</label>
-            <input type="date" name="fecha" required><br>
+    <label>Fecha</label>
+    <input type="date" name="fecha" required><br>
 
-            Justificada:
-            <input type="checkbox" name="justificada" value="1"><br>
+    Justificada:
+    <input type="checkbox" name="justificada" value="1"><br>
 
-            <input type="submit" value="Modificar">
-        </form>
+    <input type="submit" value="Modificar">
+</form>
+
     </div>
 </div>
 

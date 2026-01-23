@@ -8,11 +8,9 @@ import com.adrian.colegio.entities.FaltaEntity;
 
 public interface IFaltasService {
 
-    List<FaltaDTO> obtenerFaltas(Integer id, Integer idAlumno, LocalDate fecha);
+    List<FaltaDTO> obtenerFaltas(Integer idAlumno, LocalDate fecha);
 
     int insertarFalta(FaltaEntity falta);
 
-    int borrarFalta(int id);
-
-    int actualizarFalta(FaltaEntity falta);
+    int borrarFalta(int idFalta);
 }

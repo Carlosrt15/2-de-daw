@@ -20,38 +20,38 @@ import com.adrian.colegio.servicio.interfaces.IFaltasService;
 public class FaltasController {
 
     @Autowired
-    IFaltasService faltasService;
+    private IFaltasService faltasService;
 
-    // ========= LISTAR =========
+    // LISTADO
     @GetMapping("/listadoFaltas")
-    public String formularioListado() {
+    public String verListado() {
         return "faltas/listadoFaltas";
     }
 
     @PostMapping("/listadoFaltas")
-    public String listadoFaltas(
+    public String buscar(
             @RequestParam(required = false) Integer idAlumno,
             @RequestParam(required = false) String fecha,
             Model model) {
 
-        LocalDate f = (fecha == null || fecha.isEmpty()) ? null : LocalDate.parse(fecha);
+        LocalDate f = (fecha == null || fecha.isEmpty())
+                ? null
+                : LocalDate.parse(fecha);
 
-        model.addAttribute(
-            "lista",
-            faltasService.obtenerFaltas(null, idAlumno, f)
-        );
+        model.addAttribute("lista",
+                faltasService.obtenerFaltas(idAlumno, f));
 
         return "faltas/listadoFaltas";
     }
 
-    // ========= INSERTAR =========
+    // INSERTAR
     @GetMapping("/insertarFalta")
-    public String formularioInsertar() {
+    public String verInsertar() {
         return "faltas/insertarFalta";
     }
 
     @PostMapping("/insertarFalta")
-    public String insertarFalta(
+    public String insertar(
             @RequestParam int alumno,
             @RequestParam int asignatura,
             @RequestParam String fecha,
@@ -70,45 +70,31 @@ public class FaltasController {
         as.setId(asignatura);
         f.setAsignatura(as);
 
-        model.addAttribute("resultado", faltasService.insertarFalta(f));
+        model.addAttribute("resultado",
+                faltasService.insertarFalta(f));
+
         return "faltas/insertarFalta";
     }
 
-    // ========= BORRAR =========
+    // BORRAR
     @GetMapping("/formularioBorrarFaltas")
-    public String formularioBorrarFaltas(Model model) {
-        model.addAttribute(
-            "lista",
-            faltasService.obtenerFaltas(null, null, null)
-        );
+    public String verBorrar(Model model) {
+        model.addAttribute("lista",
+                faltasService.obtenerFaltas(null, null));
         return "faltas/borrarFaltas";
     }
 
     @PostMapping("/borrarFalta")
-    public String borrar(@RequestParam int idFalta, Model model) {
-        model.addAttribute("resultado", faltasService.borrarFalta(idFalta));
-        return "faltas/borrarFaltas";
-    }
-
-    // ========= MODIFICAR =========
-    @GetMapping("/formularioActualizarFaltas")
-    public String formularioActualizarFaltas() {
-        return "faltas/actualizarFaltas";
-    }
-
-    @PostMapping("/actualizarFalta")
-    public String actualizar(
+    public String borrar(
             @RequestParam int idFalta,
-            @RequestParam String fecha,
-            @RequestParam(required = false) Integer justificada,
             Model model) {
 
-        FaltaEntity f = new FaltaEntity();
-        f.setIdFaltas(idFalta);
-        f.setFecha(LocalDate.parse(fecha));
-        f.setJustificada(justificada != null ? 1 : 0);
+        model.addAttribute("resultado",
+                faltasService.borrarFalta(idFalta));
 
-        model.addAttribute("resultado", faltasService.actualizarFalta(f));
-        return "faltas/actualizarFaltas";
+        model.addAttribute("lista",
+                faltasService.obtenerFaltas(null, null));
+
+        return "faltas/borrarFaltas";
     }
 }

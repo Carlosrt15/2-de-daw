@@ -18,8 +18,8 @@ public class FaltasDAOImpl implements IFaltasDAO {
     private FaltaRepository faltaRepository;
 
     @Override
-    public List<FaltaDTO> obtenerFaltas(Integer id, Integer idAlumno, LocalDate fecha) {
-        return faltaRepository.buscarFaltas(id, idAlumno, fecha);
+    public List<FaltaDTO> obtenerFaltas(Integer idAlumno, LocalDate fecha) {
+        return faltaRepository.buscarFaltas(idAlumno, fecha);
     }
 
     @Override
@@ -29,14 +29,8 @@ public class FaltasDAOImpl implements IFaltasDAO {
     }
 
     @Override
-    public int borrarFalta(int id) {
-        faltaRepository.deleteById(id);
-        return 1;
-    }
-
-    @Override
-    public int actualizarFalta(FaltaEntity falta) {
-        faltaRepository.save(falta);
+    public int borrarFalta(int idFalta) {
+        faltaRepository.deleteById(idFalta);
         return 1;
     }
 }

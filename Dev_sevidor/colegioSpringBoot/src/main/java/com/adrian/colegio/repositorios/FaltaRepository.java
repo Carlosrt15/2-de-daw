@@ -22,12 +22,10 @@ public interface FaltaRepository extends CrudRepository<FaltaEntity, Integer> {
             f.justificada
         )
         FROM FaltaEntity f
-        WHERE (:id IS NULL OR f.idFaltas = :id)
-          AND (:idAlumno IS NULL OR f.alumno.id = :idAlumno)
+        WHERE (:idAlumno IS NULL OR f.alumno.id = :idAlumno)
           AND (:fecha IS NULL OR f.fecha = :fecha)
     """)
     List<FaltaDTO> buscarFaltas(
-        @Param("id") Integer id,
         @Param("idAlumno") Integer idAlumno,
         @Param("fecha") LocalDate fecha
     );
