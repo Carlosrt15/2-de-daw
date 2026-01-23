@@ -2,11 +2,11 @@ const { createApp, ref, reactive, computed } = Vue;
 
  createApp({
     setup() {
-        const productos = ref([
-            { nombre: "Patatas", precio: 12, oferta: false, contador:0 },
-            { nombre: "Pescado", precio: 22, oferta: true,contador:1 },
-            { nombre: "Red Bull", precio: 2, oferta: false, contador:12 },
-            { nombre: "Vodka ", precio: 6, oferta: true,contador:22 }
+        let productos = ref([
+            {id:1, nombre: "Patatas", precio: 12, oferta: false, contador:0 },
+            {id: 2, nombre: "Pescado", precio: 22, oferta: true,contador:1 },
+            {id:3, nombre: "Red Bull", precio: 2, oferta: false, contador:12 },
+            {id:4, nombre: "Vodka ", precio: 6, oferta: true,contador:22 }
 
 
         ]);
@@ -20,6 +20,10 @@ const { createApp, ref, reactive, computed } = Vue;
     }
 
 
-
+    
+    
+    
 
 }).mount("#app");
+
+console.log(productos);
