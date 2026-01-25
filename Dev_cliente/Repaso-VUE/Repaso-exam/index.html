@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <link rel="stylesheet" href="./scripts/Styles.css">
+    <meta charset="UTF-8" />
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Repaso examen alumnos</title>
+  </head>
+  <body>
+    <div id="app">
+      <div v-for="alumno in alumnos" :key="alumno.id" :class="alumno.faltas >= 3 ? 'no' :'apto'" >
+
+        <p>
+          Nombre: {{alumno.nombre}} -- Faltas: {{alumno.faltas}}
+          <span v-if="alumno.faltas < 3"> Aprobado </span>
+          <span v-else>Suspenso</span>
+        </p>
+        <button @click="alumno.faltas++">Sumar Falta</button>
+        <button @click="alumno.faltas > 0 && alumno.faltas--">Restar Falta</button>
+
+        
+      </div>
+    </div>
+
+    <script src="./scripts/main.js"></script>
+  </body>
+</html>
