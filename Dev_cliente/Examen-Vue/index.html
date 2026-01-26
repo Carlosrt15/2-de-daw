@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <link rel="stylesheet" href="./scripts/Style.css">
+    <meta charset="UTF-8">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Venta Productos</title>
+</head>
+
+<body>
+
+
+    <h1>Venta de ropa y complementos de segunda mano</h1>
+    <div id="app">
+
+        <div id="input">
+            <label for="prenda">Prenda</label>
+            <input type="text" id="prenda" v-model="inputPrenda"><br><br>
+            <label for="color">Color</label>
+            <input type="color" id="color" v-model="inputColor"> <br><br>
+            <label for="talla">Talla</label>
+            <select name="talla" id="talla" v-model="inputTalla">
+                <option value="xs">XS</option>
+                <option value="s">S</option>
+                <option value="m">M</option>
+                <option value="l">L</option>
+                <option value="xl">XL</option>
+                <option value="xxl">XXL</option>
+            </select><br><br>
+            <label for="precio">Precio</label>
+            <input type="number" v-model="inputPrecio"><br><br>
+            <button id="boton" @click="agregarPrenda">Dar de alta</button>
+
+
+        </div>
+
+        <div id="tventa">
+            <table>
+                <caption>Tabla de venta</caption>
+                <thead>
+                    <tr>
+                        <th>Prenda</th>
+                        <th>Talla</th>
+                        <th>Precio</th>
+                        <th>Accion</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tr v-for="(prenda,index) in prendas" :key="index">
+                    <td>{{prenda.prenda}}</td>
+                    <td>{{prenda.talla}}</td>
+                    <td>{{prenda.precio}}</td>
+                    <td><input type="number" :value="cambiarPlace" v-model="cambiarPlace"></td>
+                    <td><button>Modificiar</button></td>
+                    <td><button>Vender</button></td>
+
+                </tr>
+            </table>
+        </div>
+
+
+        <div class="contenedor-padre">
+            <textarea name="area" id="area"></textarea>
+        </div>
+    
+
+        </div>
+
+
+        <script src="./scripts/main.js"></script>
+</body>
+
+</html>

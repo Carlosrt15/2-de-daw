@@ -1,0 +1,44 @@
+#input{
+    background-color: rgb(113, 113, 250) ;
+
+    height: 180px;
+    width: 350px;
+}
+
+h1 {
+    color: rgb(65, 65, 245);
+}
+
+
+#tventa{
+    top: 2;
+   
+    display: flex;
+    justify-content: flex-end;
+    position: absolute;
+    right: 0;
+    height: 180px;
+    width: 560px;
+}
+
+th, td {
+     border: 1px solid #080808; /* Borde gris claro para celdas */
+    padding: 8px; /* Espacio interior de las celdas */
+    text-align: left; /* Alineación del texto */
+}
+
+
+.contenedor-padre {
+  display: flex;
+  justify-content: center; /* Centrado horizontal */
+  align-items: center;     /* Centrado vertical */
+  height: 100vh;           /* Altura completa de la ventana */
+}
+
+#area{
+    resize: none;
+    display: flex;
+    top: 30;
+    
+}
+
