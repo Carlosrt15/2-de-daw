@@ -16,23 +16,25 @@
     <div id="app">
 
         <div id="input">
-            <label for="prenda">Prenda</label>
-            <input type="text" id="prenda" v-model="inputPrenda"><br><br>
-            <label for="color">Color</label>
-            <input type="color" id="color" v-model="inputColor"> <br><br>
-            <label for="talla">Talla</label>
-            <select name="talla" id="talla" v-model="inputTalla">
-                <option value="xs">XS</option>
-                <option value="s">S</option>
-                <option value="m">M</option>
-                <option value="l">L</option>
-                <option value="xl">XL</option>
-                <option value="xxl">XXL</option>
-            </select><br><br>
-            <label for="precio">Precio</label>
-            <input type="number" v-model="inputPrecio"><br><br>
-            <button id="boton" @click="agregarPrenda">Dar de alta</button>
 
+            <form action="" @submit.prevent="agregarPrenda">
+                <label for="prenda">Prenda</label>
+                <input type="text" id="prenda" v-model="inputPrenda"><br><br>
+                <label for="color">Color</label>
+                <input type="color" id="color" v-model="inputColor"> <br><br>
+                <label for="talla">Talla</label>
+                <select name="talla" id="talla" v-model="inputTalla">
+                    <option value="xs">XS</option>
+                    <option value="s">S</option>
+                    <option value="m">M</option>
+                    <option value="l">L</option>
+                    <option value="xl">XL</option>
+                    <option value="xxl">XXL</option>
+                </select><br><br>
+                <label for="precio">Precio</label>
+                <input type="number" v-model="inputPrecio"><br><br>
+                <button type="submit" @click="agregarPrenda">Dar de alta</button>
+            </form>
 
         </div>
 
@@ -51,25 +53,38 @@
                 <tr v-for="(prenda,index) in prendas" :key="index">
                     <td>{{prenda.prenda}}</td>
                     <td>{{prenda.talla}}</td>
-                    <td>{{prenda.precio}}</td>
-                    <td><input type="number" :value="cambiarPlace" v-model="cambiarPlace"></td>
-                    <td><button>Modificiar</button></td>
-                    <td><button>Vender</button></td>
+                    <td><input type="number" :value="cambiarPlace" v-model="cambiarPlace"> {{prenda.precio}}</td>
+                    
+                    <td><input type="button" value="vender" @click=""></input></td>
 
                 </tr>
             </table>
         </div>
 
+        <table>
+            <tr>
+                <th>Tipo de prenda</th>
+                <th>Talla</th>
+                <th>Precio de venta</th>
+            </tr>
+            <tr >
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+        </table>
 
-        <div class="contenedor-padre">
-            <textarea name="area" id="area"></textarea>
-        </div>
-    
+        <p>
+            <span v-if="prendasDisponibles.length == 0">Enhorabuena, parece que 
+has vendido todas las prendas que has puesto a la venta. ¿Por qué no sigues vendiendo lo que ya no 
+usas?</span>
+        </p>
 
-        </div>
+
+    </div>
 
 
-        <script src="./scripts/main.js"></script>
+    <script src="./scripts/main.js"></script>
 </body>
 
 </html>

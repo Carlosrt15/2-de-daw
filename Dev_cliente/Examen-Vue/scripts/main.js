@@ -1,14 +1,20 @@
-const { createApp, ref } = Vue;
+const { createApp, ref, computed } = Vue;
 
 createApp({
     setup() {
-        let prendas = ref([
 
-        ]);
-        let inputPrenda = ref('');
-        let inputColor = ref('');
-        let inputTalla = ref('');
-        let inputPrecio = ref('');
+        
+        const prendas = ref([]);
+
+        const inputPrenda = ref('');
+        const inputColor = ref('');
+        const inputTalla = ref('');
+        const inputPrecio = ref('');
+
+        
+        const cambiarPlace = ref(0);
+
+        // --- MÉTODOS ---
 
         const agregarPrenda = () => {
             if (inputPrenda.value && inputColor.value && inputTalla.value && inputPrecio.value) {
@@ -18,28 +24,36 @@ createApp({
                     talla: inputTalla.value,
                     precio: inputPrecio.value
                 });
+
                 // limpiar inputs
                 inputPrenda.value = '';
                 inputColor.value = '';
                 inputTalla.value = '';
                 inputPrecio.value = '';
+                cambiarPlace.value = 0;
             }
-
         };
 
-        const cambiarPlace = () => {
-            inputPrecio.value;
+        const venderPrenda = (index) => {
+            prendas.value.splice(index, 1);
         };
 
+        
+        const prendasDisponibles = computed(() => {
+            return prendas.value;
+        });
+
+        
         return {
             prendas,
+            prendasDisponibles,
             inputPrenda,
             inputColor,
             inputTalla,
             inputPrecio,
+            cambiarPlace,
             agregarPrenda,
-            cambiarPlace
-        }
+            venderPrenda
+        };
     }
-
 }).mount("#app");

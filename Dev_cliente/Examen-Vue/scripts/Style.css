@@ -21,18 +21,18 @@ h1 {
     width: 560px;
 }
 
-th, td {
-     border: 1px solid #080808; /* Borde gris claro para celdas */
-    padding: 8px; /* Espacio interior de las celdas */
-    text-align: left; /* Alineación del texto */
+th, td, table {
+    color: rgb(206, 22, 160);
+     border: 1px solid #080808; 
+    padding: 8px; 
+    text-align: left; 
+
 }
-
-
 .contenedor-padre {
   display: flex;
-  justify-content: center; /* Centrado horizontal */
-  align-items: center;     /* Centrado vertical */
-  height: 100vh;           /* Altura completa de la ventana */
+  justify-content: center; 
+  align-items: center;     
+  height: 100vh;           
 }
 
 #area{
