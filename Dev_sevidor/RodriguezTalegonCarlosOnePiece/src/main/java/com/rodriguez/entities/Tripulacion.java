@@ -20,6 +20,12 @@ public class Tripulacion {
     @OneToMany(mappedBy = "tripulacion")
     private List<Reclutamiento> reclutamientos;
 
+    // Campo calculado (NO existe en BD)
+    @Transient
+    private Long numeroMiembros;
+
+   
+
     public Long getId() {
         return id;
     }
@@ -58,5 +64,13 @@ public class Tripulacion {
 
     public void setReclutamientos(List<Reclutamiento> reclutamientos) {
         this.reclutamientos = reclutamientos;
+    }
+
+    public Long getNumeroMiembros() {
+        return numeroMiembros;
+    }
+
+    public void setNumeroMiembros(Long numeroMiembros) {
+        this.numeroMiembros = numeroMiembros;
     }
 }
