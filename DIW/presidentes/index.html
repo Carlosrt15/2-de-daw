@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Red Social DAW</title>
+
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+ 
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
+
+
+  <link rel="stylesheet" href="css/fontello.css">
+
+  <link rel="stylesheet" href="./Css/Style.css">
+</head>
+
+<body>
+
+
+<header class="header">
+  <div class="container">
+    <div class="row g-0 align-items-center">
+
+
+      <div class="col-md-2 d-none d-md-flex align-items-center">
+        <img src="img/logo.png" width="24" height="24">
+      </div>
+
+      <!-- Buscador -->
+      <div class="col-12 col-sm-8 col-lg-6 px-2">
+        <form>
+          <div class="row g-0">
+            <div class="col-10">
+              <input type="text" placeholder="Busca">
+            </div>
+            <div class="col-2">
+              <button type="submit">
+                <i class="icon-search"></i>
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+    
+      <div class="col-4 col-lg-4 d-flex justify-content-end align-items-center iconos">
+        <a href="#" class="icon-users"></a>
+        <a href="#" class="icon-bell"></a>
+        <a href="#" class="icon-chat"></a>
+        <a href="#" class="icon-user"></a>
+      </div>
+
+    </div>
+  </div>
+</header>
+
+
+<div class="container d-md-none my-2">
+  <a href="#" id="btn-menu" class="menu-movil">
+    <span>Menú</span>
+    <i class="icon-menu"></i>
+  </a>
+</div>
+
+
+<main class="container">
+  <div class="row">
+
+ 
+    <aside id="barra-lateral-izquierda"
+           class="col-md-3 barra-lateral-izquierda d-none d-md-block">
+
+      <a href="#"><i class="icon-users"></i> Amigos</a>
+      <a href="#"><i class="icon-mail"></i> Mensajes Privados</a>
+      <a href="#"><i class="icon-docs"></i> Páginas</a>
+      <a href="#"><i class="icon-video"></i> Vídeos</a>
+      <a href="#"><i class="icon-picture"></i> Fotos</a>
+      <a href="#"><i class="icon-music"></i> Música</a>
+      <a href="#"><i class="icon-book"></i> Libros</a>
+
+    </aside>
+
+    <!-- ===== CONTENIDO CENTRAL ===== -->
+    <section class="col-12 col-md-6">
+
+      <!-- ===== FORMULARIO PUBLICAR ===== -->
+      <div class="publicar">
+        <div class="row">
+          <div class="col-auto">
+            <img src="img/profile.png" class="avatar">
+          </div>
+
+          <div class="col">
+            <textarea placeholder="Publicar Mensaje"></textarea>
+
+            <div class="acciones">
+              <div class="iconos-publicar">
+                <a href="#" class="icon-picture"></a>
+                <a href="#" class="icon-play"></a>
+                <a href="#" class="icon-music"></a>
+              </div>
+              <button>Publicar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== PUBLICACIÓN 1 ===== -->
+      <div class="post">
+        <div class="row">
+          <div class="col-auto">
+            <img src="img/trump.jpg" class="avatar">
+          </div>
+
+          <div class="col">
+            <a href="#" class="nombre">Donald Trump</a>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+              sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </p>
+
+            <div class="acciones-post">
+              <a href="#" class="icon-thumbs-up"></a>
+              <span>15</span>
+            </div>
+
+            <div class="row g-0 comentario">
+              <div class="col-auto">
+                <img src="img/nator.jpg" class="avatar-mini">
+              </div>
+              <div class="col">
+                <input type="text" placeholder="Comentario">
+              </div>
+            </div>
+
+            <!-- Respuesta -->
+            <div class="row g-0 respuesta offset-2 col-10">
+              <div class="col-auto">
+                <img src="img/king.jpg" class="avatar-mini">
+              </div>
+              <div class="col">
+                <p>Lorem ipsum dolor sit amet.</p>
+                <a href="#">Me gusta</a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== PUBLICACIÓN 2 ===== -->
+      <div class="post">
+        <div class="row">
+          <div class="col-auto">
+            <img src="img/sanchez.jpg" class="avatar">
+          </div>
+
+          <div class="col">
+            <a href="#" class="nombre">Pedro Sánchez</a>
+            <p>Lorem ipsum dolor sit amet. Greenlandia.</p>
+
+            <img src="img/Greenland.jpg" class="img-post">
+
+            <div class="acciones-post">
+              <a href="#" class="icon-thumbs-up"></a>
+              <span>15</span>
+            </div>
+
+            <div class="row g-0 comentario">
+              <div class="col-auto">
+                <img src="img/profile.png" class="avatar-mini">
+              </div>
+              <div class="col">
+                <input type="text" placeholder="Comentario">
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ===== BARRA LATERAL DERECHA ===== -->
+    <aside class="col-md-3 d-none d-lg-block publicidad">
+      <h5>Publicidad</h5>
+
+      <img src="img/ad1.jpg">
+      <img src="img/ad2.jpg">
+      <img src="img/ad3.jpg">
+
+      <footer>
+        <a href="#">Privacidad</a>
+        <a href="#">Condiciones</a>
+        <a href="#">Publicidad</a>
+        <p>Red Social DAW © 2026</p>
+      </footer>
+    </aside>
+
+  </div>
+
+  <!-- Fondo oscuro -->
+  <div id="fondo-enlace" class="fondo-enlace"></div>
+
+</main>
+
+<script src="./script/main.js"></script>
+</body>
+</html>
