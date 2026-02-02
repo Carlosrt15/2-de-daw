@@ -1,39 +1,42 @@
 <template>
-  <footer>
+  <div>
     <h3>Sitio Web de Sonia Gutiérrez</h3>
     <h4>{{ mensaje }} - {{ telUser }}</h4>
     <h5>{{ dir }}</h5>
-  </footer>
+  </div>
 </template>
 
 <script setup>
-  import { ref } from "vue";
+import { ref } from 'vue'
 
-  // Props recibidas desde el componente padre
-  defineProps({
-    telUser: {
-      type: Number,
-      required: true
-    },
-    dir: {
-      type: String,
-      required: true
-    }
-  })
+// Props recibidas desde el componente padre
+defineProps({
+  telUser: {
+    type: Number,
+    required: true,
+  },
+  dir: {
+    type: String,
+    required: true,
+  },
+})
 
-  // Estado interno del componente
-  const mensaje = ref("Librería especializada")
+// Estado interno del componente
+const mensaje = ref('Librería especializada')
 </script>
 
-<style>
-  h2,h3,h4,h5 {
-    text-align: center;
-  }
+<style scoped>
+h2,
+h3,
+h4,
+h5 {
+  text-align: center;
+}
 
-  footer {
-    position: absolute;
-    bottom: 0;
-    background-color: aquamarine;
-    width: 100%;
+div {
+  position: absolute;
+  bottom: 0;
+  background-color: aquamarine;
+  width: 100%;
 }
 </style>

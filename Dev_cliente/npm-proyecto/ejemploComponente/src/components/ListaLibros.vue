@@ -8,14 +8,25 @@
 </template>
 
 <script setup>
-  // Definición de props usando Composition API
-  defineProps({
-    libros: {
-      type: Array,
-      required: true
-    }
+// Definición de props usando Composition API
+defineProps({
+  libros: {
+    type: Array,
+    required: true,
+  },
 })
 </script>
+
+<style>
+span {
+  background-color: aquamarine;
+}
+
+li {
+  background-color: rgba(117, 112, 112, 0.466);
+  color: purple;
+}
+</style>
 
 <!-- <script>
 export default {
