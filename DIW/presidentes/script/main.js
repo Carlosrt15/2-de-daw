@@ -1,26 +1,19 @@
 document.addEventListener('DOMContentLoaded', function () {
 
-  /* Guardamos los elementos HTML */
   const boton = document.getElementById('btn-menu');
-  const fondoEnlace = document.getElementById('fondo-enlace');
-  const barraLateral = document.getElementById('barra-lateral-izquierda');
+  const fondo = document.getElementById('fondo-enlace');
+  const barra = document.getElementById('barra-lateral-izquierda');
 
-  if (boton) {
-    /* Click en el botón menú */
-    boton.addEventListener('click', function (e) {
-      e.preventDefault();
-      fondoEnlace.classList.toggle('active');
-      barraLateral.classList.toggle('active');
-    });
-  }
+  boton.addEventListener('click', function (e) {
+    e.preventDefault();
+    fondo.classList.toggle('active');
+    barra.classList.toggle('active');
+  });
 
-  /* Click en el fondo oscuro para cerrar */
-  if (fondoEnlace) {
-    fondoEnlace.addEventListener('click', function (e) {
-      e.preventDefault();
-      fondoEnlace.classList.toggle('active');
-      barraLateral.classList.toggle('active');
-    });
-  }
+  fondo.addEventListener('click', function (e) {
+    e.preventDefault();
+    fondo.classList.toggle('active');
+    barra.classList.toggle('active');
+  });
 
 });

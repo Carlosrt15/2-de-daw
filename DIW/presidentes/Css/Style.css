@@ -1,121 +1,253 @@
+
 body {
+  margin: 0;
   font-family: 'Open Sans', sans-serif;
-  background: #e9eef1;
+  background: #e9ebee;
+  font-size: 16px;
 }
 
-/* HEADER */
+a {
+  color: #1176b6;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+
 .header {
   background: #1877f2;
   padding: 10px 0;
 }
 
+.header img {
+  display: block;
+}
+
 .header input {
   width: 100%;
-  padding: 6px;
+  height: 30px;
+  padding: 0 10px;
   border: none;
+  border-radius: 3px 0 0 3px;
+  font-size: 13px;
 }
 
 .header button {
   width: 100%;
+  height: 30px;
   border: none;
+  background: #fff;
+  border-radius: 0 3px 3px 0;
+  cursor: pointer;
+}
+
+.header button:hover {
   background: #0d6efd;
-  color: white;
+  color: #fff;
 }
 
 .iconos a {
-  color: rgba(255,255,255,.7);
+  color: rgba(255,255,255,.75);
   margin-left: 15px;
+  font-size: 18px;
 }
 
 .iconos a:hover {
-  color: white;
+  color: #fff;
 }
 
-/* MENÚ MÓVIL */
-.menu-movil {
-  display: flex;
-  justify-content: space-between;
-  background: #1877f2;
-  color: white;
-  padding: 10px;
-  text-decoration: none;
+
+main {
+  margin-top: 20px;
 }
 
-/* BARRA IZQUIERDA */
+
+.barra-lateral-izquierda {
+  background: #eef1f2;
+  padding: 15px;
+}
+
 .barra-lateral-izquierda a {
   display: block;
-  padding: 10px;
-  color: #333;
+  padding: 6px 10px;
+  color: #3d3d3d;
+  border-radius: 3px;
+}
+
+.barra-lateral-izquierda a i {
+  margin-right: 10px;
+}
+
+.barra-lateral-izquierda a:hover {
+  background: #dfe3e6;
   text-decoration: none;
 }
 
-/* CONTENIDO */
-.publicar, .post {
-  background: white;
-  padding: 15px;
-  margin-bottom: 20px;
+
+.publicar {
+  background: #eef1f2;
+  padding: 20px;
+  margin-bottom: 25px;
+  border-radius: 4px;
 }
 
 .avatar {
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  display: inline-block;
 }
 
 textarea {
   width: 100%;
-  height: 80px;
+  min-height: 90px;
+  border: none;
+  padding: 12px;
+  font-size: 14px;
+  box-shadow: 0 2px 2px rgba(0,0,0,.25);
 }
 
 .acciones {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  padding-top: 10px;
+}
+
+.iconos-publicar a {
+  font-size: 20px;
+  margin-right: 10px;
+  color: #8d8d8d;
+}
+
+.iconos-publicar a:hover {
+  color: #3d3d3d;
 }
 
 .acciones button {
-  background: linear-gradient(#1877f2, #0d6efd);
-  color: white;
+  background: linear-gradient(to bottom, #1a87cd, #1176b6);
+  color: #fff;
   border: none;
-  padding: 6px 15px;
+  padding: 6px 18px;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
-/* PUBLICIDAD */
+
+.post {
+  background: #eef1f2;
+  padding: 20px;
+  margin-bottom: 25px;
+  border-radius: 4px;
+}
+
+.post .nombre {
+  font-weight: bold;
+  display: inline-block;
+  margin-bottom: 8px;
+}
+
+.img-post {
+  width: 100%;
+  margin: 10px 0;
+}
+
+.acciones-post {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.acciones-post a {
+  background: #1877f2;
+  color: #fff;
+  padding: 8px 14px;
+  border-radius: 4px;
+}
+
+
+.comentario {
+  margin-top: 15px;
+}
+
+.avatar-mini {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.comentario input {
+  width: 100%;
+  height: 40px;
+  padding: 6px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+.respuesta {
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+/* ===== BARRA DERECHA ===== */
 .publicidad img {
   width: 100%;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 }
 
-/* RESPONSIVE MENÚ */
+.publicidad footer {
+  font-size: 13px;
+  margin-top: 10px;
+}
+
+
+.btn-menu {
+  background: linear-gradient(to bottom, #1a87cd, #1176b6);
+  color: #fff;
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+}
+
+
+main .fondo-enlace {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background: rgba(175,217,236,.5);
+  z-index: 99;
+  display: none;
+}
+
+main .fondo-enlace.active {
+  display: block;
+}
+
+
 @media screen and (max-width: 767px) {
 
   .barra-lateral-izquierda {
-    width: 85%;
     position: fixed;
-    left: 0;
-    top: 0;
+    width: 85%;
     height: 100vh;
+    top: 0;
+    left: 0;
     background: rgba(0,0,0,.85);
-    transform: translateX(-100%);
-    transition: .3s;
+    transform: translateX(-99.99%);
+    transition: all .3s ease;
     z-index: 100;
+    overflow-y: auto;
   }
 
   .barra-lateral-izquierda.active {
-    transform: translateX(0);
+    transform: translateX(0%);
   }
 
-  .fondo-enlace {
-    position: fixed;
-    width: 100%;
-    height: 100vh;
-    background: rgba(175,217,236,.5);
-    display: none;
-    z-index: 99;
-    top: 0;
-  }
-
-  .fondo-enlace.active {
-    display: block;
+  .barra-lateral-izquierda a {
+    color: #fff;
   }
 }
