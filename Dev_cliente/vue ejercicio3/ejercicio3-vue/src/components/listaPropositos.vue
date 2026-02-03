@@ -5,7 +5,6 @@ import { ref } from 'vue'
 
 <template>
   <h2>Lista:</h2>
-  <span>{{ propositos }}</span>
 
   <ul v-if="propositos.length > 0">
     <li v-for="(proposito, index) in propositos" :key="index">

@@ -7,6 +7,10 @@ let listaPropositos = ref([
   { texto: 'No fumar', hecho: true },
   { texto: 'No beber', hecho: false },
 ])
+
+let borrarLista = () => {
+  listaPropositos.value = []
+}
 </script>
 
 <template>
@@ -14,6 +18,7 @@ let listaPropositos = ref([
   <ListaPropositos :propositos="listaPropositos"></ListaPropositos>
   <hr />
   <NuevoProposito :propositos="listaPropositos"></NuevoProposito>
+  <button type="button" @click="borrarLista">Borrar Lista</button>
 </template>
 
 <style scoped></style>
