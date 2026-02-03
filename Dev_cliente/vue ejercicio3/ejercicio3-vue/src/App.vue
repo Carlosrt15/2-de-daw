@@ -12,7 +12,8 @@ let listaPropositos = ref([
 <template>
   <h1>Propositos de año nuevo:</h1>
   <ListaPropositos :propositos="listaPropositos"></ListaPropositos>
-  <NuevoProposito></NuevoProposito>
+  <hr />
+  <NuevoProposito :propositos="listaPropositos"></NuevoProposito>
 </template>
 
 <style scoped></style>
