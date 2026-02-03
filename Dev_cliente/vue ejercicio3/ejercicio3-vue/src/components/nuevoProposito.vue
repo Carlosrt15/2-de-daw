@@ -17,8 +17,12 @@ let guardarProposito = () => {
 <template>
   <h2>Nuevo proposito:</h2>
   <input type="text" name="nuevoProposito" id="nuevoProposito" v-model="nuevoProposito" />
-  <button type="button" @click="guardarProposito">Nuevo Proposito</button>
-  <select name="realizado" id="realizado" v-model="realizado"></select>
+  <button type="button" @click="guardarProposito">Nuevo Proposito</button><br /><br />
+  <select name="realizado" id="realizado" v-model="realizado">
+    <option value="">Selecciona opcion</option>
+    <option value="">Si</option>
+    <option value="">No</option>
+  </select>
   <option value="Si"></option>
 </template>
 
