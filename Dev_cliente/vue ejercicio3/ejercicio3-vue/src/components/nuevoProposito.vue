@@ -5,12 +5,14 @@ import { ref } from 'vue'
 let propsNuevoProposito = defineProps(['propositos'])
 let realizado = ref('')
 let nuevoProposito = ref('')
+const emit = defineEmits(['guardar'])
 
 let guardarProposito = () => {
-  propsNuevoProposito.propositos.push({
+  emit('guardar', {
     texto: nuevoProposito.value,
     hecho: false,
   })
+  nuevoProposito.value = ''
 }
 </script>
 

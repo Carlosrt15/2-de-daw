@@ -14,4 +14,12 @@ import { ref } from 'vue'
   <p v-else>La lista de propositos está vacia</p>
 </template>
 
-<style scoped></style>
+<style scoped>
+.Verdadero {
+  color: green;
+}
+
+.Falso {
+  color: red;
+}
+</style>
