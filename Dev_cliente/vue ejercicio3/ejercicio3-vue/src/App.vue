@@ -21,4 +21,9 @@ let borrarLista = () => {
   <button type="button" @click="borrarLista">Borrar Lista</button>
 </template>
 
-<style scoped></style>
+<style>
+body {
+  background-color: rgb(253, 215, 166);
+  color: rgba(13, 129, 91, 0.678);
+}
+</style>
