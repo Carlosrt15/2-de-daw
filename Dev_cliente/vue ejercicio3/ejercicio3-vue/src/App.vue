@@ -1,12 +1,17 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
+
 import ListaPropositos from './components/listaPropositos.vue'
 import NuevoProposito from './components/nuevoProposito.vue'
+import TablaCumplidos from './components/tablaCumplidos.vue'
 
 let listaPropositos = ref([
   { texto: 'No fumar', hecho: true },
   { texto: 'No beber', hecho: false },
+  { texto: 'Estudiar  DIW', hecho: true },
 ])
+
+const cumplidos = computed(() => listaPropositos.value.filter((p) => p.hecho))
 
 let borrarLista = () => {
   listaPropositos.value = []
@@ -19,6 +24,8 @@ let borrarLista = () => {
   <hr />
   <NuevoProposito @guardar="listaPropositos.push($event)"></NuevoProposito>
   <button type="button" @click="borrarLista">Borrar Lista</button>
+  <hr />
+  <TablaCumplidos :cumplidos="cumplidos"> </TablaCumplidos>
 </template>
 
 <style>
