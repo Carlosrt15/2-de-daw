@@ -13,8 +13,8 @@ defineProps({
         </tr>
       </thead>
       <tbody>
-        <tr v-for="(item, index) in cumplidos" :key="index">
-          <td>{{ item.texto }}</td>
+        <tr v-for="(proposito, index) in cumplidos" :key="index">
+          <td>{{ proposito.texto }}</td>
         </tr>
       </tbody>
     </table>
