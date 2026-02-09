@@ -61,7 +61,7 @@ const agregarUsuario = (usuario) => {
   
 </template>
 
-<style scoped>
+<style >
 body {
   margin: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;

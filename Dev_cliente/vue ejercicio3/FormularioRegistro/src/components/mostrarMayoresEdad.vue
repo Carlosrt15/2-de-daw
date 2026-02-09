@@ -30,6 +30,8 @@ const mayoresEdad = computed(()=>
 
 
 <style scoped>
-
+li{
+    color: rgb(236, 142, 20);
+}
 
 </style>
