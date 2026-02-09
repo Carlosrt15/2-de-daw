@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Cita DNI y Pasaporte</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/fontello.css">
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+<header>
+  <nav class="navbar navbar-expand-lg navbar-dark container">
+    <a class="navbar-brand d-flex align-items-center gap-3" href="index.html">
+      <img src="img/ministerio-interior.png" alt="Ministerio del Interior" height="38">
+      <img src="img/cnp.jpg" alt="Policía Nacional" height="42">
+      <span class="fw-semibold ms-2">Cita DNI</span>
+    </a>
+
+    <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div id="menu" class="collapse navbar-collapse">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link active" href="index.html">Inicio</a></li>
+        <li class="nav-item"><a class="nav-link" href="formulario.html">Cita Previa</a></li>
+        <li class="nav-item"><a class="nav-link" href="informacion.html">Información</a></li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+<main class="container my-5">
+
+  <section class="text-center mb-5">
+    <h1>Pedir cita previa</h1>
+    <p>Gestión oficial de citas para DNI, Pasaporte y otros trámites.</p>
+    <a href="formulario.html" class="btn btn-primary btn-lg">
+      <span class="icon-window-restore"></span>
+      Pedir cita
+    </a>
+  </section>
+
+  <section class="mb-4">
+    <div class="alert">
+      <span class="icon-help"></span>
+      Aviso: el horario de algunas oficinas puede variar en festivos.
+    </div>
+  </section>
+
+  <section>
+    <h2 class="mb-3">Servicios disponibles</h2>
+    <div class="row g-4">
+
+      <div class="col-md-4">
+        <div class="card h-100">
+          <div class="card-body">
+            <h5 class="card-title"><span class="icon-window-restore"></span> DNI</h5>
+            <p class="card-text">Primera expedición o renovación del DNI.</p>
+            <a href="#" class="btn btn-outline-primary">Más información</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card h-100">
+          <div class="card-body">
+            <h5 class="card-title"><span class="icon-male"></span> Pasaporte</h5>
+            <p class="card-text">Solicitud y renovación de pasaporte.</p>
+            <a href="#" class="btn btn-outline-primary">Más información</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card h-100">
+          <div class="card-body">
+            <h5 class="card-title"><span class="icon-help"></span> Certificados</h5>
+            <p class="card-text">Información sobre certificados oficiales.</p>
+            <a href="#" class="btn btn-outline-primary">Más información</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<footer class="p-4 mt-5">
+  <div class="container text-center">
+    <p>© Ministerio del Interior · Policía Nacional</p>
+    <a href="#">Privacidad</a>
+    <a href="#">Cookies</a>
+    <a href="#">Aviso legal</a>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
