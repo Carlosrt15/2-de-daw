@@ -1,21 +1,61 @@
 <script setup>
+import { ref } from 'vue';
 import FormularioRegistro from './components/formularioRegistro.vue';
-import { ref, computed } from 'vue';
+import MostrarMayoresEdad from './components/mostrarMayoresEdad.vue';
+
 
 
 
 let listaUsuarios = ref([
-   {id: 0, nombre:"Carlos", apellidos: "Rodriguez Talegon", edad:24 , mayorEdad: true}
+   {id: 0, nombre:"Carlos", apellidos: "Rodriguez Talegon", edad:24 , mayorEdad: true, coche:"Mercedes", sexo:"hombre"}
 ]);
 
 let borrarListaUsuarios = () => {
   listaUsuarios.value = [];
 };
+
+const agregarUsuario = (usuario) => {
+  listaUsuarios.value.push(usuario);
+}
 </script>
 
 <template>
   <h1>Registro de usuarios </h1>
-  <FormularioRegistro></FormularioRegistro>
+  <FormularioRegistro @nuevoUsuario="agregarUsuario"></FormularioRegistro>
+<br><br>
+
+<div class="tabla-contenedor">
+  <table v-if="listaUsuarios.length">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Apellidos</th>
+        <th>Edad</th>
+        <th>Mayor de edad</th>
+        <th>Coche</th>
+        <th>Sexo</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr v-for="usuario in listaUsuarios" :key="usuario.id">
+        <td>{{ usuario.id }}</td>
+        <td>{{ usuario.nombre }}</td>
+        <td>{{ usuario.apellidos }}</td>
+        <td>{{ usuario.edad }}</td>
+        <td>{{ usuario.mayorEdad ? 'Sí' : 'No' }}</td>
+        <td>{{ usuario.coche }}</td>
+        <td>{{ usuario.sexo }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p v-else>No hay usuarios registrados</p>
+</div>
+
+<MostrarMayoresEdad :usuarios="listaUsuarios"> </MostrarMayoresEdad>
+
   
 </template>
 
@@ -51,6 +91,54 @@ button:hover {
 button:active {
   transform: scale(0.97);
 }
+
+
+.tabla-contenedor {
+  
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  width: 700px;
+}
+
+
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+thead {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+}
+
+th, td {
+  padding: 0.75rem 1rem;
+  text-align: center;
+}
+
+th {
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+}
+
+tbody tr {
+  transition: background 0.2s;
+}
+
+tbody tr:hover {
+  background-color: #f2f4ff;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
 
 
 

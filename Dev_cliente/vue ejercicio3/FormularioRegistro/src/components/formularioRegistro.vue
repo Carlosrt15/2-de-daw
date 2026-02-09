@@ -1,8 +1,32 @@
 <script setup>
-import { ref, computed } from 'vue';
+
+
+import { ref } from 'vue';
+const emit = defineEmits(['nuevoUsuario']);
 let nombreUsuario = ref('');
 let apellidosUsuario = ref('');
 let edadUsuario = ref();
+let cocheUsuario = ref();
+let sexoUsuario = ref();
+
+const agregarUsuario = () => {
+  emit('nuevoUsuario', {
+    nombre: nombreUsuario.value,
+    apellidos: apellidosUsuario.value,
+    edad: edadUsuario.value,
+    mayorEdad: edadUsuario.value >= 18,
+    coche: cocheUsuario.value,
+    sexo: sexoUsuario.value
+  })
+
+  nombreUsuario.value = '';
+  apellidosUsuario.value = '';
+  edadUsuario.value = '';
+  cocheUsuario.value = '';
+  sexoUsuario.value = '';
+
+
+}
 
 
 
@@ -10,16 +34,31 @@ let edadUsuario = ref();
 
 <template>
 
-    <form action="">
-        <label for="nombre" >Nombre</label>
-        <input type="text" v-model="nombreUsuario" placeholder="Introduce tu nombre"><br><br>
-        <label for="apellidos">Apellidos</label>
-        <input type="text" v-model="apellidosUsuario" placeholder="Introduce tus apellidos"><br><br>
-        <label for="edad">Edad</label>
-        <input type="number" v-model="edadUsuario">
+  <form @submit.prevent="agregarUsuario">
+    <label for="nombre">Nombre</label>
+    <input type="text" v-model="nombreUsuario" placeholder="Introduce tu nombre" required><br><br>
+    <label for="apellidos">Apellidos</label>
+    <input type="text" v-model="apellidosUsuario" placeholder="Introduce tus apellidos" required><br><br>
+    <label for="edad">Edad</label>
+    <input type="number" v-model="edadUsuario">
+    <select name="select" id="select" v-model="cocheUsuario" required>
+      <option value="">Selecciona un coche</option>
+      <option value="Bmw">Bmw</option>
+      <option value="Mercedes">Mercedes</option>
+      <option value="Renault">Renault</option>
+    </select>
+
+    <br><br>
+    <select name="sexo" id="sexo" v-model="sexoUsuario" required>
+      <option value="">Seleccione su genero</option>
+      <option value="hombre">Hombre</option>
+      <option value="mujer">Mujer</option>
+    </select>
+
+    <button type="submit">Enviar</button>
 
 
-    </form>
+  </form>
 
 
 
@@ -77,5 +116,4 @@ button:hover {
 button:active {
   transform: scale(0.96);
 }
-
 </style>
