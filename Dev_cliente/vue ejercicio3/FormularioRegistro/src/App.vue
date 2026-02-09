@@ -39,7 +39,9 @@ const agregarUsuario = (usuario) => {
     </thead>
 
     <tbody>
-      <tr v-for="usuario in listaUsuarios" :key="usuario.id">
+      <tr v-for="usuario in listaUsuarios" :key="usuario.id"
+      :class="usuario.mayorEdad ?'mayorEdad':'menorEdad'"
+      >
         <td>{{ usuario.id }}</td>
         <td>{{ usuario.nombre }}</td>
         <td>{{ usuario.apellidos }}</td>
@@ -140,6 +142,16 @@ tbody tr:nth-child(even) {
 }
 
 
+.menorEdad {
+
+  color: rgb(248, 83, 54);
+
+}
+
+.mayorEdad {
+
+color: rgb(111, 233, 148);
+}
 
 
 </style>
