@@ -4,16 +4,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&display=swap');
 
 :root {
-  --azul-policia: #003a8f;
-  --azul-secundario: #0056b3;
+  --azul-policia: #1e6bdf;
+  --azul-secundario: #0b5fb9;
   --gris-claro: #f2f4f6;
   --gris-borde: #dee2e6;
   --texto-principal: #212529;
 }
 
-/* =========================
-   BASE GENERAL
-========================= */
+
 body {
   font-family: 'Source Sans 3', sans-serif;
   background-color: var(--gris-claro);
@@ -76,13 +74,11 @@ header {
   color: #ffffff;
 }
 
-/* =========================
-   ALERTAS
-========================= */
+
 .alert {
   border-left: 5px solid var(--azul-policia);
   background-color: #e9f0fb;
-  color: #003366;
+  color: #26daa4;
 }
 
 
@@ -142,7 +138,7 @@ label {
 footer {
   background-color: var(--azul-policia);
   color: #ffffff;
-  border-top: 4px solid #c9a227;
+  border-top: 4px solid #9b7e21;
 }
 
 footer p {
