@@ -2,12 +2,11 @@
 import { ref } from 'vue'
 import FormularioPreferencias from './components/formularioPreferencias.vue';
 import TablaGruposEnFormacion from './components/tablaGruposEnFormacion.vue';
+import TablaGrupoFormados from './components/tablaGrupoFormados.vue';
 
 
 
-let altaUsuarios = ref([
-  {nombre:"Carlos", disponibilidad:"tarde", diaSemana:"lunes"}
-]);
+
 
 const agregarUsuario = (nuevoUsuario) => {
   // Buscar grupo existente
@@ -54,6 +53,7 @@ let siguienteId = 1;
   <h1>Lista de personas en bici</h1>
   <FormularioPreferencias :onSubmit="agregarUsuario"></FormularioPreferencias>
   <TablaGruposEnFormacion :grupos="gruposEnFormacion"></TablaGruposEnFormacion>
+  <TablaGrupoFormados :grupos="gruposFormados"></TablaGrupoFormados>
 </template>
 
 <style scoped></style>
