@@ -1,10 +1,16 @@
 <script setup>
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
 import FormularioPreferencias from './components/formularioPreferencias.vue';
 import TablaGruposEnFormacion from './components/tablaGruposEnFormacion.vue';
 import TablaGrupoFormados from './components/tablaGrupoFormados.vue';
 
+const combinacionBloqueada = computed(()=>{
 
+    return gruposFormados.value.map(g => ({
+      dia: g.dia,
+      franja: g.franja
+    }));
+});
 
 
 
@@ -51,7 +57,7 @@ let siguienteId = 1;
 
 <template>
   <h1>Lista de personas en bici</h1>
-  <FormularioPreferencias :onSubmit="agregarUsuario"></FormularioPreferencias>
+  <FormularioPreferencias :onSubmit="agregarUsuario" :bloqueadas="combinacionBloqueada"></FormularioPreferencias>
   <TablaGruposEnFormacion :grupos="gruposEnFormacion"></TablaGruposEnFormacion>
   <TablaGrupoFormados :grupos="gruposFormados"></TablaGrupoFormados>
 </template>
