@@ -1,5 +1,6 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
+import { ref } from 'vue';
 
 const listaAutores = ref([{
   pais: "España", autores: ["Miguel de Cervantes", "Federico García Lorca", "Arturo Pérez-Reverte", "Javier Castillo", "Carlos Ruiz Zafón"]
@@ -26,7 +27,7 @@ const listaAutores = ref([{
     <RouterLink to="/bibliografia">Bibliografía</RouterLink>
     |
   </nav>
-  <RouterView />
+  <RouterView :listaAutores="listaAutores" />
 </template>
 
 <style scoped></style>
