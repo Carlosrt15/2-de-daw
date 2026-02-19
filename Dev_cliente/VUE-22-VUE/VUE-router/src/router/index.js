@@ -1,4 +1,5 @@
 import BibliografiaView from '@/views/bibliografiaView.vue'
+import TextoView from '@/views/textoView.vue'
 import { createRouter, createWebHistory } from 'vue-router'
 
 const router = createRouter({
@@ -8,6 +9,11 @@ const router = createRouter({
       path: '/bibliografia',
       name: 'bibliografia',
       component: BibliografiaView,
+    },
+    {
+      path: '/ruta/:id',
+      name: 'texto',
+      component: TextoView
     }
 
   ],
