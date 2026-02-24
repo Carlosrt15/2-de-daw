@@ -1,0 +1,5 @@
+@use "../abstracts/variables" as v;
+
+.heading {
+  font-size: map-get(v.$font-sizes, xl);
+}

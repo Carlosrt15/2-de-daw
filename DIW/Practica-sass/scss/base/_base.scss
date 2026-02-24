@@ -1,0 +1,35 @@
+@use "../abstracts/mixins" as m;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 100%;
+
+  @include m.responsive(md) {
+    font-size: 56%;
+  }
+
+  @include m.responsive(sm) {
+    font-size: 50%;
+  }
+}
+
+body {
+  font-family: 'Sedgwick Ave', cursive;
+}
+
+.container {
+  width: 90%;
+  margin: auto;
+}
+
+// LOOP obligatorio
+@for $i from 1 through 3 {
+  .mt-#{$i} {
+    margin-top: 10px * $i;
+  }
+}

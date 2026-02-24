@@ -1,0 +1,28 @@
+@use "../abstracts/mixins" as m;
+@use "../abstracts/variables" as v;
+
+nav {
+  ul {
+    @include m.flex-center;
+    list-style: none;
+
+    li {
+      margin: 10px 15px;
+
+      a {
+        text-decoration: none;
+        color: map-get(v.$colors, dark);
+
+        &:hover {
+          color: map-get(v.$colors, primary);
+        }
+      }
+    }
+  }
+
+  @include m.responsive(md) {
+    ul {
+      flex-direction: column;
+    }
+  }
+}

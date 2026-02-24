@@ -1,0 +1,31 @@
+@use "variables" as v;
+
+// MIXIN FLEX
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// MIXIN RESPONSIVE
+@mixin responsive($size) {
+  @if map-has-key(v.$breakpoints, $size) {
+    @media (max-width: map-get(v.$breakpoints, $size)) {
+      @content;
+    }
+  }
+}
+
+// MIXIN BOTÓN
+@mixin button-style($bg) {
+  background: $bg;
+  padding: 10px 20px;
+  border: none;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
