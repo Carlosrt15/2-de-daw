@@ -1,20 +1,19 @@
-<script>
-export default {
-  data() {
-    return {
-      articulo: null
-    }
-  },
-  mounted() {
-    const id = this.$route.params.id
+<script setup>
+import { ref, onMounted } from 'vue'
+import { useRoute } from 'vue-router'
 
-    fetch('https://jsonplaceholder.typicode.com/posts/' + id)
-      .then(res => res.json())
-      .then(data => {
-        this.articulo = data
-      })
-  }
-}
+const articulo = ref(null)
+const route = useRoute()
+
+onMounted(() => {
+  const id = route.params.id
+
+  fetch('https://jsonplaceholder.typicode.com/posts/' + id)
+    .then(res => res.json())
+    .then(data => {
+      articulo.value = data
+    })
+})
 </script>
 
 <template>

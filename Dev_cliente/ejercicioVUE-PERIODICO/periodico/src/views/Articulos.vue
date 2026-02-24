@@ -1,18 +1,15 @@
-<script>
-export default {
-  data() {
-    return {
-      articulos: []
-    }
-  },
-  mounted() {
-    fetch('https://jsonplaceholder.typicode.com/posts')
-      .then(res => res.json())
-      .then(data => {
-        this.articulos = data
-      })
-  }
-}
+<script setup>
+import { ref, onMounted } from 'vue'
+
+const articulos = ref([])
+
+onMounted(() => {
+  fetch('https://jsonplaceholder.typicode.com/posts')
+    .then(res => res.json())
+    .then(data => {
+      articulos.value = data
+    })
+})
 </script>
 
 <template>
