@@ -22,7 +22,7 @@
   width: 200px;
   background: #559af3;
   color: rgb(240, 130, 27);
-  height: 100vh;
+  height: 220px;
   padding: 20px;
   display: flex;
   flex-direction: column;

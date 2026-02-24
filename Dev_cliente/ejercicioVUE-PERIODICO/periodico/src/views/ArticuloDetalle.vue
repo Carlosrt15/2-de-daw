@@ -20,5 +20,6 @@ onMounted(() => {
   <div v-if="articulo">
     <h1>{{ articulo.title }}</h1>
     <p>{{ articulo.body }}</p>
+    <p>{{ articulo.id }}</p>
   </div>
 </template>

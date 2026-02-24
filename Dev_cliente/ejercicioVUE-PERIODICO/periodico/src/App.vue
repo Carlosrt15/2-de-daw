@@ -25,7 +25,9 @@ h1 {
     padding: 20px 0;
     margin: 0;
     background-color: rgb(83, 140, 247);
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family:cursive;
+    color: rgb(70, 219, 127);
+    
 }
 body{
   font-family: Verdana, Geneva, Tahoma, sans-serif;
