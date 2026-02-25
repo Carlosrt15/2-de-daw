@@ -1,13 +1,13 @@
 @use "variables" as v;
 
-// MIXIN FLEX
+
 @mixin flex-center {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-// MIXIN RESPONSIVE
+
 @mixin responsive($size) {
   @if map-has-key(v.$breakpoints, $size) {
     @media (max-width: map-get(v.$breakpoints, $size)) {
@@ -16,7 +16,7 @@
   }
 }
 
-// MIXIN BOTÓN
+
 @mixin button-style($bg) {
   background: $bg;
   padding: 10px 20px;

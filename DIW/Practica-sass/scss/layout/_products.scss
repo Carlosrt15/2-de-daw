@@ -36,12 +36,12 @@
     }
   }
 
-  // md → 2 columnas
+ 
   @include m.responsive(md) {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  // sm → 1 columna y SOLO botón
+ 
   @include m.responsive(sm) {
     grid-template-columns: 1fr;
 
