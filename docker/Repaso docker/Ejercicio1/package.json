@@ -1,0 +1,14 @@
+{
+  "name": "miapp-docker",
+  "version": "1.0.0",
+  "description": "Aplicacion de prueba Docker Hola Mundo",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "TuNombre",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
