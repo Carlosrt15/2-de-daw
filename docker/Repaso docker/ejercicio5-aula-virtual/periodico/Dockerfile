@@ -12,10 +12,10 @@ RUN npm install
 
 # Copiar resto del proyecto
 COPY . .
-
-# Generar build de producción
 RUN npm run build
+# Generar build de producción
+ENV PORT=8080
 
-EXPOSE 8080
+EXPOSE $PORT
 
-CMD ["http-server", "dist", "-p", "8080"]
+CMD ["sh", "-c", "http-server dist -p ${PORT}"]
