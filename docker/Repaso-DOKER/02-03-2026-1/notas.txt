@@ -1,0 +1,10 @@
+
+crea el contenedor en segundo plano (-d) --rm lo elimina al terminar , --name asigna el nombre al contenedor 
+
+-p asigna el puerto en este caso el 3000
+docker run -d --rm --name contenedor1 -p 3000:3000 carlosrt15/mi_app
+--------------------------------
+
+
+ -e se usa para asignar variables de entorno 
+docker run -d --rm --name contenedor2 -e PORT=8000 -p 8000:8000 carlosrt15/mi_app
