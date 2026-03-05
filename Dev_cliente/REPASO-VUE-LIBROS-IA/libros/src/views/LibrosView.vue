@@ -9,6 +9,21 @@ const obtenerlibros = async () => {
     libros.value = await response.json();
 }
 
+// Cambiar el estado del libro 
+const cambiarEstado = async (libro) => {
+    await fetch(`http://localhost:3000/libros/${libro.id}`, {
+        method: "PATCH",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            prestado: !libro.prestado
+        })
+    });
+    // Refresca al llamr otra vez a la funcion
+    await obtenerlibros();
+}
+  
 
 onMounted(async () => {
     await obtenerlibros();
@@ -26,6 +41,7 @@ onMounted(async () => {
                     <th>Autor</th>
                     <th>Año</th>
                     <th>Estado</th>
+                    <th>Accion modificar</th>
                 </tr>
                 <tr v-for="libro in libros" :key="libro.id">
                     <td>{{ libro.titulo }}</td>
@@ -33,6 +49,12 @@ onMounted(async () => {
                     <td>{{libro.anio}}</td>
                     <td> <span v-if="libro.prestado">Prestado</span>
                         <span v-else>Disponible</span>
+                    </td>
+                    <td>
+                        <button @click="cambiarEstado(libro)">
+                            Cambiar estado
+                        </button>
+                    
                     </td>
                 </tr>
             </table>
