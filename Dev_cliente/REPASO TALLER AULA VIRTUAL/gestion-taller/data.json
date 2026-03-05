@@ -46,6 +46,20 @@
       "vehiculoId": 2,
       "descripcion": "Sustitución de frenos",
       "coste": 250,
+      "finalizada": true
+    },
+    {
+      "id": 3,
+      "vehiculoId": 2,
+      "descripcion": "Sustitución de aceite",
+      "coste": 250,
+      "finalizada": true
+    },
+    {
+      "id": 4,
+      "vehiculoId": 2,
+      "descripcion": "Cambiar frenos",
+      "coste": 120,
       "finalizada": false
     }
   ]
