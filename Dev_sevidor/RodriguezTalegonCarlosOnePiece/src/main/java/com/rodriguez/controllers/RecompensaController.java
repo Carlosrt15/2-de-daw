@@ -158,7 +158,7 @@ public class RecompensaController {
             @RequestParam Integer id,
             @RequestParam Integer idPirata,
             @RequestParam BigDecimal cantidad,
-            @RequestParam(required = false) Integer estaVigente,
+            @RequestParam(required = false) Boolean estaVigente,
             Model model
     ) {
         Recompensa r = recompensaRepository.findById(id).orElse(null);
