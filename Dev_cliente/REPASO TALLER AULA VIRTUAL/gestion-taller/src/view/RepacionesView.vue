@@ -1,5 +1,8 @@
-<scripts setup>
-</scripts>
+<script setup>
+
+
+    
+</script>
 
 <template>
 <h2>Reparaciones</h2>

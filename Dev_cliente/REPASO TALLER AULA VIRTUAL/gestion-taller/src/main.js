@@ -10,3 +10,10 @@ app.use(createPinia())
 app.use(router)
 
 app.mount('#app')
+
+/**
+ * 
+ * npx json-server --watch data.json --port 3000
+   Para escuchcar json server
+ * 
+ */
