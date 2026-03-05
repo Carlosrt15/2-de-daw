@@ -71,4 +71,46 @@ let totalreparacionesPendientes = computed(() => reparacionesPendientes.value.le
 
 <style scoped>
 
+table {
+  width: 100%;
+  border-collapse: collapse; /* Elimina el espacio doble entre bordes */
+  margin-top: 20px;
+  font-family: sans-serif;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+th, td {
+  padding: 12px 15px;
+  text-align: center;
+  border: 1px solid #ddd;
+}
+
+th {
+  background-color: #42b983; /* Color verde típico de Vue */
+  color: white;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+}
+
+/* Efecto cebra para las filas */
+tr:nth-child(even) {
+  background-color: #f8f8f8;
+}
+
+/* Efecto hover para resaltar la fila al pasar el ratón */
+tr:hover {
+  background-color: #f1f1f1;
+  transition: background-color 0.3s ease;
+}
+
+h2 {
+  color: #2c3e50;
+  border-bottom: 2px solid #42b983;
+  padding-bottom: 5px;
+  display: inline-block;
+}
+
+
 </style>
