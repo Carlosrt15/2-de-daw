@@ -1,34 +1,47 @@
 <script setup>
-import {  ref,computed, onMounted } from 'vue';
+import { ref } from 'vue';
+import axios from 'axios';
 
-const libros = ref([]);
 
-
-const obtenerlibros = async () => {
-    const response = await fetch('http://localhost:3000/libros');
-    libros.value = await response.json();
-}
-
-// Cambiar el estado del libro 
-const cambiarEstado = async (libro) => {
-    await fetch(`http://localhost:3000/libros/${libro.id}`, {
-        method: "PATCH",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-            prestado: !libro.prestado
-        })
-    });
-    // Refresca al llamr otra vez a la funcion
-    await obtenerlibros();
-}
-  
-
-onMounted(async () => {
-    await obtenerlibros();
+const nuevaSerie = ref({
+    nombre: '',
+    numCapitulos: 0,
+    personajesInput: '', 
+    temporadas: 0,
+    sinopsis: ''
 });
+
+const enviarFormulario = async () => {
+    try {
+      
+        const personajesArray = nuevaSerie.value.personajesInput
+            .split(',')
+            .map(p => p.trim())
+            .filter(p => p !== ""); 
+
+     
+        const datosAEnviar = {
+            nombre: nuevaSerie.value.nombre,
+            numCapitulos: Number(nuevaSerie.value.numCapitulos),
+            personajes: personajesArray,
+            temporadas: Number(nuevaSerie.value.temporadas),
+            sinopsis: nuevaSerie.value.sinopsis,
+            valoraciones: [] 
+        };
+
+      
+        const res = await axios.post('http://localhost:3000/series', datosAEnviar);
+        
+        alert('Serie guardada con éxito');
+
+        nuevaSerie.value = { nombre: '', numCapitulos: 0, personajesInput: '', temporadas: 0, sinopsis: '' };
+
+    } catch (error) {
+        console.error("Error al guardar:", error);
+    }
+};
 </script>
+
 
 <template>
 
